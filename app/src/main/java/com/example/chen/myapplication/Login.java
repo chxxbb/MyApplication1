@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Login extends Activity implements View.OnClickListener {
 
@@ -19,7 +20,7 @@ public class Login extends Activity implements View.OnClickListener {
 
     Button login_button = null;
 
-    Button a;
+    TextView login_registered = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,9 @@ public class Login extends Activity implements View.OnClickListener {
 
         login_button = (Button) findViewById(R.id.login_button);
         login_button.setOnClickListener(this);
+
+        login_registered = (TextView) findViewById(R.id.login_new_user_text);
+        login_registered.setOnClickListener(this);
     }
 
     @Override
@@ -60,7 +64,7 @@ public class Login extends Activity implements View.OnClickListener {
                 }
 
                 break;
-            case R.id.login_button:
+            case R.id.login_new_user_text:
 
                 Intent intent = new Intent(this, registered.class);
                 startActivity(intent);
