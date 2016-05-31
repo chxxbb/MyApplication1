@@ -20,6 +20,7 @@ public class registered extends Activity implements View.OnClickListener {
     EditText registered_password_2 = null;
     EditText registered_VerificationCode = null;
     Button registered_button = null;
+    Button registered_VerificationCode_button = null;
 
 
     @Override
@@ -46,6 +47,10 @@ public class registered extends Activity implements View.OnClickListener {
         registered_VerificationCode.setOnClickListener(this);
 
         registered_button = (Button) findViewById(R.id.registered_button);
+        registered_button.setOnClickListener(this);
+
+        registered_VerificationCode_button = (Button) findViewById(R.id.registered_VerificationCode_button);
+        registered_VerificationCode_button.setOnClickListener(this);
 
     }
 
@@ -57,6 +62,11 @@ public class registered extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.registered_button:    //点击注册按钮
+
+
+                break;
+
+            case R.id.registered_VerificationCode_button:   //点击验证码按钮发送验证码
 
 
                 break;
