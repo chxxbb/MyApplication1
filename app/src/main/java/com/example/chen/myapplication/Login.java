@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Login extends Activity implements View.OnClickListener {
 
@@ -21,6 +23,9 @@ public class Login extends Activity implements View.OnClickListener {
     Button login_button = null;
 
     TextView login_registered = null;
+
+    EditText login_username = null;
+    EditText login_password = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,10 @@ public class Login extends Activity implements View.OnClickListener {
 
         login_registered = (TextView) findViewById(R.id.login_new_user_text);
         login_registered.setOnClickListener(this);
+
+        //账户名密码控件绑定
+        login_username = (EditText) findViewById(R.id.login_user_edittext);
+        login_password = (EditText) findViewById(R.id.login_password_edittext);
     }
 
     @Override
@@ -64,10 +73,26 @@ public class Login extends Activity implements View.OnClickListener {
                 }
 
                 break;
-            case R.id.login_new_user_text:
+            case R.id.login_new_user_text:  //点击新用户按钮则跳转到注册页面
 
                 Intent intent = new Intent(this, registered.class);
                 startActivity(intent);
+
+                break;
+
+            case R.id.login_button: //用户点击登录,先判断必填信息是否为空
+
+                if (TextUtils.isEmpty(login_username.getText()) || TextUtils.isEmpty(login_password.getText())) {   //为当必填信息为空的时候
+
+                    Toast.makeText(this, "请填写账户和密码", Toast.LENGTH_LONG).show();
+
+                } else {
+
+                    String userName = login_username.getText().toString();
+                    String password = login_password.getText().toString();
+
+                }
+
 
                 break;
         }

@@ -185,6 +185,7 @@
 
 
     <Button
+        android:id="@+id/registered_button"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y88"
         android:layout_below="@id/registered_VerificationCode_view_2"
