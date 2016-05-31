@@ -19,6 +19,8 @@ public class Login extends Activity implements View.OnClickListener {
 
     Button login_button = null;
 
+    Button b;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
