@@ -76,7 +76,7 @@ public class Login extends Activity implements View.OnClickListener {
             case R.id.login_new_user_text:  //点击新用户按钮则跳转到注册页面
 
                 Intent intent = new Intent(this, registered.class);
-                startActivity(intent);
+                startActivity(intent);  //跳转到注册页面
 
                 break;
 
@@ -90,6 +90,9 @@ public class Login extends Activity implements View.OnClickListener {
 
                     String userName = login_username.getText().toString();
                     String password = login_password.getText().toString();
+
+                    Intent intent_login = new Intent(this, Medical_registration.class);
+                    startActivity(intent_login);
 
                 }
 

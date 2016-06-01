@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".registered"></activity>
+        <activity android:name=".Medical_registration"></activity>
     </application>
 
 </manifest>

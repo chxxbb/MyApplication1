@@ -36,6 +36,7 @@ public class registered extends Activity implements View.OnClickListener {
         registered_exit = (ImageView) findViewById(R.id.registered_exit);
         registered_exit.setOnClickListener(this);
 
+        //用户填写信息的Edittext控件绑定
         registered_user = (EditText) findViewById(R.id.registered_user_edittext);
         registered_password = (EditText) findViewById(R.id.registered_password_edittext);
         registered_password_2 = (EditText) findViewById(R.id.registered_password_edittext_2);
@@ -46,6 +47,7 @@ public class registered extends Activity implements View.OnClickListener {
         registered_password_2.setOnClickListener(this);
         registered_VerificationCode.setOnClickListener(this);
 
+        //按钮控件绑定
         registered_button = (Button) findViewById(R.id.registered_button);
         registered_button.setOnClickListener(this);
 
@@ -56,7 +58,7 @@ public class registered extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {    //若点击推出按钮,则关闭activity
+        switch (v.getId()) {    //若点击退出按钮,则关闭activity
             case R.id.registered_exit:
                 finish();
                 break;

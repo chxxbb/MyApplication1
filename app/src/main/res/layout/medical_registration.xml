@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/medical_registration_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentTop="true"
+        android:background="#00aced">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="一键挂号"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x36" />
+
+        <ImageView
+            android:id="@+id/medical_registration_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/registered_exit" />
+
+    </RelativeLayout>
+
+    <Spinner
+        android:id="@+id/medical_registration_spinner1"
+        style="@style/spinner_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/medical_registration_title_relativelayout"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40" />
+
+
+</RelativeLayout>
