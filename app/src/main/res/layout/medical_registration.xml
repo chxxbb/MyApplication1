@@ -143,7 +143,7 @@
     <EditText
         android:id="@+id/medical_registration_describe_edittext"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y360"
+        android:layout_height="@dimen/y300"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@id/medical_registration_contact_edittext"
@@ -168,6 +168,19 @@
         android:layout_marginLeft="@dimen/x26"
         android:layout_marginTop="@dimen/y5"
         android:src="@mipmap/medical_registration_edittext" />
+
+    <Button
+        android:id="@+id/media_submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y64"
+        android:layout_below="@id/medical_registration_describe_edittext"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/shape3"
+        android:text="提交"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/x30" />
 
 
 </RelativeLayout>
