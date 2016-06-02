@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <RelativeLayout
         android:id="@+id/medical_registration_title_relativelayout"
@@ -31,7 +33,7 @@
     </RelativeLayout>
 
     <Spinner
-        android:id="@+id/medical_registration_spinner1"
+        android:id="@+id/medical_registration_spinner_region"
         style="@style/spinner_style"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y60"
@@ -41,6 +43,131 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y40" />
+
+    <Spinner
+        android:id="@+id/medical_registration_spinner_department"
+        style="@style/spinner_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/medical_registration_spinner_region"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40" />
+
+    <Spinner
+        android:id="@+id/medical_registration_spinner_doctor_title"
+        style="@style/spinner_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/medical_registration_spinner_department"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40" />
+
+    <Spinner
+        android:id="@+id/medical_registration_spinner_time"
+        style="@style/spinner_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/medical_registration_spinner_doctor_title"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40" />
+
+    <EditText
+        android:id="@+id/medical_registration_name_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/medical_registration_spinner_time"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/shape_edittext"
+        android:cursorVisible="false"
+        android:hint="请输入患者姓名"
+        android:maxLength="24"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:textColor="#777777"
+        android:textColorHint="#777777"
+        android:textSize="@dimen/x30" />
+
+    <EditText
+        android:id="@+id/medical_registration_age_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/medical_registration_name_edittext"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/shape_edittext"
+        android:cursorVisible="false"
+        android:hint="请输入患者年龄"
+        android:inputType="number"
+        android:maxLength="3"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:textColor="#777777"
+        android:textColorHint="#777777"
+        android:textSize="@dimen/x30" />
+
+    <EditText
+        android:id="@+id/medical_registration_contact_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/medical_registration_age_edittext"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/shape_edittext"
+        android:cursorVisible="false"
+        android:hint="请输入联系方式"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:textColor="#777777"
+        android:textColorHint="#777777"
+        android:textSize="@dimen/x30" />
+
+    <EditText
+        android:id="@+id/medical_registration_describe_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y360"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/medical_registration_contact_edittext"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/shape_edittext"
+        android:cursorVisible="false"
+        android:gravity="top|left"
+        android:hint="病情描述"
+        android:paddingLeft="@dimen/x72"
+        android:paddingRight="@dimen/x20"
+        android:textColor="#777777"
+        android:textColorHint="#777777"
+        android:textSize="@dimen/x26" />
+
+    <ImageView
+        android:layout_width="@dimen/x26"
+        android:layout_height="@dimen/x26"
+        android:layout_alignLeft="@id/medical_registration_describe_edittext"
+        android:layout_alignTop="@id/medical_registration_describe_edittext"
+        android:layout_marginLeft="@dimen/x26"
+        android:layout_marginTop="@dimen/y5"
+        android:src="@mipmap/medical_registration_edittext" />
 
 
 </RelativeLayout>

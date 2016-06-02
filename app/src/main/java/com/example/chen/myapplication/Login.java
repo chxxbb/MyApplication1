@@ -86,14 +86,16 @@ public class Login extends Activity implements View.OnClickListener {
 
                     Toast.makeText(this, "请填写账户和密码", Toast.LENGTH_LONG).show();
 
-                } else {
+                } else if (login_username.getText().length() < 11 || login_password.getText().length() < 6) {   //判断帐号密码位数是否正确
 
+                    Toast.makeText(this, "请填写正确的账户和密码", Toast.LENGTH_LONG).show();
+
+                } else {
                     String userName = login_username.getText().toString();
                     String password = login_password.getText().toString();
 
                     Intent intent_login = new Intent(this, Medical_registration.class);
                     startActivity(intent_login);
-
                 }
 
 

@@ -163,7 +163,7 @@
         android:layout_height="@dimen/x40"
         android:layout_alignBottom="@id/registered_VerificationCode_left_imageView"
         android:layout_alignLeft="@id/registered_password_edittext_2"
-        android:layout_toRightOf="@id/registered_VerificationCode_button"
+        android:layout_toLeftOf="@id/registered_VerificationCode_button"
         android:background="@null"
         android:cursorVisible="false"
         android:hint="请输入验证码"
