@@ -56,7 +56,7 @@ public class Medical_registration extends Activity implements View.OnFocusChange
                 "成都",
         };
 
-        ArrayAdapter<String> arrayAdapter__region = new ArrayAdapter<String>(this, R.layout.medical_registration_sinner_item, arr_region);
+        ArrayAdapter<String> arrayAdapter__region = new ArrayAdapter<String>(this, R.layout.medical_registration_sinner_item_text, arr_region);
         medical_registration_region_spinner.setAdapter(arrayAdapter__region);
 
 
@@ -69,7 +69,7 @@ public class Medical_registration extends Activity implements View.OnFocusChange
                 "急诊",
         };
 
-        ArrayAdapter<String> arrayAdapter_department = new ArrayAdapter<String>(this, R.layout.medical_registration_sinner_item, arr_department);
+        ArrayAdapter<String> arrayAdapter_department = new ArrayAdapter<String>(this, R.layout.medical_registration_sinner_item_text, arr_department);
         medical_registration_department_spinner.setAdapter(arrayAdapter_department);
 
 
@@ -83,7 +83,7 @@ public class Medical_registration extends Activity implements View.OnFocusChange
                 "主治医师",
         };
 
-        ArrayAdapter<String> arrayAdapter_doctor_title = new ArrayAdapter<String>(this, R.layout.medical_registration_sinner_item, arr_doctor_title);
+        ArrayAdapter<String> arrayAdapter_doctor_title = new ArrayAdapter<String>(this, R.layout.medical_registration_sinner_item_text, arr_doctor_title);
         medical_registration_doctor_title_spinner.setAdapter(arrayAdapter_doctor_title);
 
         //时间数据填入
@@ -96,7 +96,7 @@ public class Medical_registration extends Activity implements View.OnFocusChange
                 "晚上",
         };
 
-        ArrayAdapter<String> arrayAdapter_time = new ArrayAdapter<String>(this, R.layout.medical_registration_sinner_item, arr_time);
+        ArrayAdapter<String> arrayAdapter_time = new ArrayAdapter<String>(this, R.layout.medical_registration_sinner_item_text, arr_time);
         medical_registration_time_spinner.setAdapter(arrayAdapter_time);
 
 

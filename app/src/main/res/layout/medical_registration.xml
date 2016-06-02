@@ -44,6 +44,15 @@
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y40" />
 
+    <ImageView
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"
+        android:layout_alignRight="@id/medical_registration_spinner_region"
+        android:layout_alignTop="@id/medical_registration_spinner_region"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:src="@mipmap/medical_registration_sinner_item_image" />
+
     <Spinner
         android:id="@+id/medical_registration_spinner_department"
         style="@style/spinner_style"
@@ -55,6 +64,15 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y40" />
+
+    <ImageView
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"
+        android:layout_alignRight="@id/medical_registration_spinner_department"
+        android:layout_alignTop="@id/medical_registration_spinner_department"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:src="@mipmap/medical_registration_sinner_item_image" />
 
     <Spinner
         android:id="@+id/medical_registration_spinner_doctor_title"
@@ -68,6 +86,15 @@
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y40" />
 
+    <ImageView
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"
+        android:layout_alignRight="@id/medical_registration_spinner_doctor_title"
+        android:layout_alignTop="@id/medical_registration_spinner_doctor_title"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:src="@mipmap/medical_registration_sinner_item_image" />
+
     <Spinner
         android:id="@+id/medical_registration_spinner_time"
         style="@style/spinner_style"
@@ -79,6 +106,15 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y40" />
+
+    <ImageView
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"
+        android:layout_alignRight="@id/medical_registration_spinner_time"
+        android:layout_alignTop="@id/medical_registration_spinner_time"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y10"
+        android:src="@mipmap/medical_registration_sinner_item_image" />
 
     <EditText
         android:id="@+id/medical_registration_name_edittext"
