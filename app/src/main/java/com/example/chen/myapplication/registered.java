@@ -1,6 +1,7 @@
 package com.example.chen.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -82,6 +83,8 @@ public class registered extends Activity implements View.OnClickListener {
                     Toast.makeText(this, "请输入验证码", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "判断验证码是否正确", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this, Home.class);
+                    startActivity(intent);
                 }
 
                 break;

@@ -14,9 +14,8 @@ public class Home extends Activity {
     private Banner home_banner = null;
     //Banner图片地址
     String[] images = new String[]{"http://img.51ztzj.com/upload/image/20130912/dn201309124003_670x419.jpg", "http://g.hiphotos.baidu.com/zhidao/pic/item/6159252dd42a2834421cdfd25ab5c9ea14cebfb5.jpg",
-            "http://www.xdnice.com/upload/2011_08/110810060968291.jpg", "http://www.fjsen.com/images/attachement/jpg/site1/2011-09-22/4529639385466683860.jpg", "http://c.hiphotos.baidu.com/baike/c0%3Dba" +
-            "ike150%2C5%2C5%2C150%2C50/sign=8daa7e24252dd42a4b0409f9625230d0/4a36acaf2edda3cc2659936d01e93901213f9239.jpg", "http://f.hiphotos.baidu.com/baike/c0%3Dbaike180%2C5%2C5%2C180%2C60/sign=f41968856b8" +
-            "1800a7ae8815cd05c589f/9345d688d43f87948183d924d51b0ef41bd53abf.jpg"};
+            "http://top.chinadaily.com.cn/img/site1/20160525/64006a47a30318afd83a04.jpeg", "http://www.fjsen.com/images/attachement/jpg/site1/2011-09-22/4529639385466683860.jpg",
+            "http://top.chinadaily.com.cn/img/site1/20160525/64006a47a30318afd83a06.jpeg", "http://www.lajiaobagua.com/file/image/2016/0526/14642521890209.jpg"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
