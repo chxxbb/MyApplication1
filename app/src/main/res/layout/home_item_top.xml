@@ -4,15 +4,23 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white">
 
+
     <RelativeLayout
         android:id="@+id/home_title_relativelayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y360">
 
+        <View
+            android:id="@+id/home_top__title_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y88"
+            android:background="@android:color/white" />
+
         <com.youth.banner.Banner
             android:id="@+id/home_banner"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y360" />
+            android:layout_height="@dimen/y360"
+            android:layout_below="@id/home_top__title_view" />
 
         <ImageView
             android:id="@+id/home_qr_code_imageview"
@@ -40,7 +48,24 @@
             android:layout_marginTop="@dimen/y28"
             android:layout_toLeftOf="@id/home_message_imageview"
             android:layout_toRightOf="@id/home_qr_code_imageview"
-            android:background="@drawable/home_edittext" />
+            android:background="@drawable/home_edittext"
+            android:drawablePadding="@dimen/x15"
+            android:gravity="center"
+            android:hint="医生、儿科医生、儿科疾病"
+            android:paddingLeft="@dimen/x64"
+            android:paddingRight="@dimen/x20"
+            android:paddingTop="@dimen/y5"
+            android:singleLine="true"
+            android:textSize="@dimen/x24" />
+
+        <ImageView
+            android:layout_width="@dimen/x24"
+            android:layout_height="@dimen/y24"
+            android:layout_alignLeft="@id/home_search_edittext"
+            android:layout_alignTop="@id/home_search_edittext"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginTop="@dimen/y10"
+            android:src="@mipmap/home_title_search_image" />
 
 
     </RelativeLayout>

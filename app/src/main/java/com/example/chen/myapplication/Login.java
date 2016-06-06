@@ -94,7 +94,7 @@ public class Login extends Activity implements View.OnClickListener {
                     String userName = login_username.getText().toString();
                     String password = login_password.getText().toString();
 
-                    Intent intent_login = new Intent(this, Medical_registration.class);
+                    Intent intent_login = new Intent(this, activity_fragment.class);
                     startActivity(intent_login);
                 }
 

@@ -2,6 +2,7 @@ package com.example.chen.myapplication;
 
 import android.app.Activity;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -9,6 +10,7 @@ import android.text.style.StyleSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -78,10 +80,10 @@ public class ListAdapter extends BaseAdapter {
                 holder = new TopViewHolder();
                 holder.mBanner = (Banner) convertView.findViewById(R.id.home_banner);
 
-
                 //处理布局,可通过持有人自由处理
                 holder.mBanner.setDelayTime(50000);
                 holder.mBanner.setImages(holder.imageViewUrl);
+
                 break;
             }
 

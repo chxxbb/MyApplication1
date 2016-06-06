@@ -28,7 +28,7 @@ public class activity_fragment extends Activity implements View.OnClickListener 
 
         bindViews();
 
-//        activity_title_tag1.performClick();
+        activity_title_tag1.performClick();
 
     }
 
