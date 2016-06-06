@@ -47,4 +47,13 @@
         android:lines="3"
         android:textColor="@android:color/black" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_below="@id/home_doctor_introduction"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y20"
+        android:background="#666666" />
+
 </RelativeLayout>

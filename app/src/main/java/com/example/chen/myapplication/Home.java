@@ -1,8 +1,12 @@
 package com.example.chen.myapplication;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.youth.banner.Banner;
@@ -13,18 +17,14 @@ import java.util.List;
 /**
  * Created by Chen on 2016/6/3.
  */
-public class Home extends Activity {
-
+public class Home extends Fragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
-
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.home, container, false);
         //获取ListView控件,并创建自定义适配器
-        ListView listView = (ListView) findViewById(R.id.list_main);
-        ListAdapter listAdapter = new ListAdapter(this);
+        ListView listView = (ListView) view.findViewById(R.id.list_main);
+        ListAdapter listAdapter = new ListAdapter(getActivity());
         listView.setAdapter(listAdapter);
 
         List<ListItem> list = new ArrayList<ListItem>();
@@ -63,7 +63,7 @@ public class Home extends Activity {
         listAdapter.setList(list);
         //在自定义适配器里面通知List改变.触发自定义适配器的getView方法
         listAdapter.notifyDataSetChanged();
-
+        return view;
     }
 
 
