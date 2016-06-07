@@ -113,6 +113,33 @@ public class ListAdapter extends BaseAdapter {
                 holder.home_doctor_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
                 break;
             }
+
+            case ListItem.TYPE_DOCTOR_WAREHOUSE:
+                DoctorWarehouseHolder holder = null;
+                if (convertView == null) {
+                    convertView = activity.getLayoutInflater().inflate(R.layout.home_item_botton, null);
+                    holder = new DoctorWarehouseHolder();
+
+                    //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行
+                    holder.home_doctor_imageView = (ImageView) convertView.findViewById(R.id.home_doctor_imageView);
+
+                    holder.home_doctor_introduction = (TextView) convertView.findViewById(R.id.home_doctor_introduction);
+                    holder.spanString = new SpannableString("简介 : 的发送打飞机阿拉款到即发拉客敬佛i为此秒的vmaiomdaoi没法哦is的马佛is的没法哦的矛盾发生大幅阿斯蒂芬发给阿飞");
+
+                    holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
+                    holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 4, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
+
+                    //凭借该方法添加标志,以判断是否以前创建过布局
+                    convertView.setTag(holder);
+                } else {
+                    holder = (DoctorWarehouseHolder) convertView.getTag();
+
+                }
+                //给布局初始化(接着上面)该处的初始化每次创建都会被执行.
+                holder.home_doctor_introduction.setText(holder.spanString);
+                holder.home_doctor_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
+                break;
+
             default:
                 break;
         }
@@ -129,6 +156,12 @@ public class ListAdapter extends BaseAdapter {
     }
 
     static class BottonViewHolder {
+        ImageView home_doctor_imageView = null;
+        TextView home_doctor_introduction = null;
+        SpannableString spanString = null;
+    }
+
+    static class DoctorWarehouseHolder {
         ImageView home_doctor_imageView = null;
         TextView home_doctor_introduction = null;
         SpannableString spanString = null;

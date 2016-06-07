@@ -8,8 +8,9 @@ public class ListItem {
     //设定List的布局状态
     public static final int TYPE_TOP = 0;
     public static final int TYPE_BOTTON = 1;
+    public static final int TYPE_DOCTOR_WAREHOUSE = 2;
     //设置一共有多少种布局
-    public static final int TYPE_COUNT = 2;
+    public static final int TYPE_COUNT = 3;
 
     private String name;
     private int type;
