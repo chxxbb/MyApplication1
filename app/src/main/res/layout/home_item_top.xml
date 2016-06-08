@@ -300,33 +300,40 @@
         android:layout_below="@id/home_navigation_relativelayout"
         android:background="#bbbbbc" />
 
-    <TextView
-        android:id="@+id/home_text7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/home_view1"
-        android:layout_marginLeft="@dimen/x40"
-        android:layout_marginTop="@dimen/y20"
-        android:text="名医库   /"
-        android:textColor="#666666"
-        android:textSize="@dimen/x24" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/home_text7"
-        android:layout_marginLeft="@dimen/x5"
-        android:layout_toRightOf="@id/home_text7"
-        android:text="MEDICAL LIBRARY"
-        android:textColor="#666666"
-        android:textSize="@dimen/x16" />
-
-    <View
+    <RelativeLayout
+        android:id="@+id/home_doctor_warehouse_relayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y1"
-        android:layout_below="@id/home_text7"
-        android:layout_marginTop="@dimen/y20"
-        android:background="#666666" />
+        android:layout_height="@dimen/y70"
+        android:layout_below="@id/home_view1">
+
+        <TextView
+            android:id="@+id/home_text7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="名医库   /"
+            android:textColor="#666666"
+            android:textSize="@dimen/x24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/home_text7"
+            android:layout_marginLeft="@dimen/x5"
+            android:layout_toRightOf="@id/home_text7"
+            android:text="MEDICAL LIBRARY"
+            android:textColor="#666666"
+            android:textSize="@dimen/x16" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/y20"
+            android:background="#666666" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

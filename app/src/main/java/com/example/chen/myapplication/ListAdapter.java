@@ -1,6 +1,8 @@
 package com.example.chen.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.Spannable;
@@ -12,8 +14,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.chen.myapplication.utils.ContextUtil;
 import com.youth.banner.Banner;
 
 import java.util.List;
@@ -79,7 +83,14 @@ public class ListAdapter extends BaseAdapter {
                 convertView = activity.getLayoutInflater().inflate(R.layout.home_item_top, null);   //加载相应布局
                 holder = new TopViewHolder();
                 holder.mBanner = (Banner) convertView.findViewById(R.id.home_banner);
-
+                holder.home_doctor_warehouse_relayout = (RelativeLayout) convertView.findViewById(R.id.home_doctor_warehouse_relayout);
+                holder.home_doctor_warehouse_relayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(activity, Doctor_warehouse.class);
+                        activity.startActivity(intent);
+                    }
+                });
                 //处理布局,可通过持有人自由处理
                 holder.mBanner.setDelayTime(50000);
                 holder.mBanner.setImages(holder.imageViewUrl);
@@ -153,6 +164,7 @@ public class ListAdapter extends BaseAdapter {
                 "http://img540.ph.126.net/5PyPfeSlM3ZWt_npImBosw==/1348265138445286339.jpg", "http://cdn.duitang.com/uploads/item/201112/27/20111227143751_TtLkL.jpg",
                 "http://pic27.nipic.com/20130227/7224820_020411089000_2.jpg"
         };
+        RelativeLayout home_doctor_warehouse_relayout = null;
     }
 
     static class BottonViewHolder {
