@@ -48,7 +48,7 @@ public class Doctor_warehouse extends AppCompatActivity {
         listView.setAdapter(listAdapter);
         List<ListItem> list = new ArrayList<ListItem>();
         //设定该窗口类型,并发送一个数据(该数据可自定义)
-        ListItem item = new ListItem(1, "wori");
+        ListItem item = new ListItem(2, "wori");
         list.add(item);
         item = null;
         //设定该窗口类型,并发送一个数据(该数据可自定义)
@@ -60,34 +60,34 @@ public class Doctor_warehouse extends AppCompatActivity {
         list.add(item);
         item = null;
         //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(1, "wori");
+        item = new ListItem(2, "wori");
         list.add(item);
         item = null;
         //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(1, "wori");
+        item = new ListItem(2, "wori");
         list.add(item);
         item = null;
         //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(1, "wori");
+        item = new ListItem(2, "wori");
         list.add(item);
         item = null;
         //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(1, "wori");
+        item = new ListItem(2, "wori");
         list.add(item);
         item = null;//设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(1, "wori");
+        item = new ListItem(2, "wori");
         list.add(item);
         item = null;
         //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(1, "wori");
+        item = new ListItem(2, "wori");
         list.add(item);
         item = null;
         //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(1, "wori");
+        item = new ListItem(2, "wori");
         list.add(item);
         item = null;
         //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(1, "wori");
+        item = new ListItem(2, "wori");
         list.add(item);
         item = null;
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/doctor_warehouse_imageView"
+        android:layout_width="@dimen/x120"
+        android:layout_height="@dimen/x120"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginTop="@dimen/y30"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/doctor_warehouse_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/doctor_warehouse_imageView"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_toRightOf="@id/doctor_warehouse_imageView"
+        android:text="付师亭"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:id="@+id/doctor_warehouse_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/doctor_warehouse_name_textView"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_toRightOf="@id/doctor_warehouse_name_textView"
+        android:text="主任医师"
+        android:textColor="#666666"
+        android:textSize="@dimen/x24" />
+
+
+    <TextView
+        android:id="@+id/doctor_warehouse_department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/doctor_warehouse_name_textView"
+        android:layout_below="@id/doctor_warehouse_name_textView"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y10"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="#666666"
+        android:textSize="@dimen/x26" />
+
+    <TextView
+        android:id="@+id/doctor_warehouse_introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/doctor_warehouse_name_textView"
+        android:layout_below="@id/doctor_warehouse_department"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y10"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="擅长：英雄联盟/魔兽世界/守望先锋等优秀游戏kfsdgmkfsdkgs;fdgsfg"
+        android:textColor="#666666"
+        android:textSize="@dimen/x26" />
+
+
+    <View
+        android:id="@+id/doctor_warehouse_botton_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_below="@id/doctor_warehouse_imageView"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y30"
+        android:background="#666666" />
+
+
+</RelativeLayout>
