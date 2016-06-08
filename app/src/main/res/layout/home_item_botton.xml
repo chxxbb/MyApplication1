@@ -34,26 +34,53 @@
         android:textColor="#666666"
         android:textSize="@dimen/x24" />
 
+    <Button
+        android:id="@+id/home_online_consulting"
+        android:layout_width="@dimen/x160"
+        android:layout_height="@dimen/y44"
+        android:layout_alignBottom="@id/home_doctor_imageView"
+        android:layout_alignLeft="@id/home_doctor_name_textView"
+        android:layout_marginTop="@dimen/y10"
+        android:background="@drawable/shape_home_button"
+        android:text="在线咨询"
+        android:textSize="@dimen/x20" />
+
+    <Button
+        android:id="@+id/home_doctor_reservation"
+        android:layout_width="@dimen/x160"
+        android:layout_height="@dimen/y44"
+        android:layout_alignBottom="@id/home_online_consulting"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_toRightOf="@id/home_online_consulting"
+        android:background="@drawable/shape_home_reservation_button"
+        android:layout_marginLeft="@dimen/x20"
+        android:text="立即预约"
+        android:gravity="center"
+        android:textSize="@dimen/x20" />
+
     <TextView
         android:id="@+id/home_doctor_introduction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/home_doctor_imageView"
+        android:layout_above="@id/home_online_consulting"
         android:layout_alignLeft="@id/home_doctor_name_textView"
         android:layout_below="@id/home_doctor_name_textView"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/x24"
         android:ellipsize="end"
-        android:lines="3"
+        android:lines="2"
         android:textColor="@android:color/black" />
 
+
     <View
+        android:id="@+id/home_doctor_botton_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y1"
-        android:layout_below="@id/home_doctor_introduction"
+        android:layout_below="@id/home_online_consulting"
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y20"
         android:background="#666666" />
+
 
 </RelativeLayout>
