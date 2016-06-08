@@ -91,6 +91,16 @@ public class ListAdapter extends BaseAdapter {
                         activity.startActivity(intent);
                     }
                 });
+
+                holder.home_top_register = (RelativeLayout) convertView.findViewById(R.id.home_top_register);
+                holder.home_top_register.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(activity, Medical_registration.class);
+                        activity.startActivity(intent);
+                    }
+                });
+
                 //处理布局,可通过持有人自由处理
                 holder.mBanner.setDelayTime(50000);
                 holder.mBanner.setImages(holder.imageViewUrl);
@@ -165,6 +175,7 @@ public class ListAdapter extends BaseAdapter {
                 "http://pic27.nipic.com/20130227/7224820_020411089000_2.jpg"
         };
         RelativeLayout home_doctor_warehouse_relayout = null;
+        RelativeLayout home_top_register = null;
     }
 
     static class BottonViewHolder {
