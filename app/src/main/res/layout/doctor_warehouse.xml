@@ -4,10 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/doctor_warehouse_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentTop="true"
+        android:background="#00aced">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="名医库"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x36" />
+
+    </RelativeLayout>
+
     <com.zxl.library.DropDownMenu
         android:id="@+id/dropDownMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/doctor_warehouse_title"
         app:ddmaskColor="@color/mask_color"
         app:ddmenuBackgroundColor="@color/white"
         app:ddmenuMaxHeight="200dp"
