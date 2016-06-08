@@ -47,17 +47,7 @@ public class Home extends Fragment {
         list.add(item);
         item = null;
 
-        item = new ListItem(1, "ccc");
-        list.add(item);
-        item = null;
 
-        item = new ListItem(1, "ccc");
-        list.add(item);
-        item = null;
-
-        item = new ListItem(1, "ccc");
-        list.add(item);
-        item = null;
 
         //将List发送给自定义适配器
         listAdapter.setList(list);

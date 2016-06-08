@@ -50,6 +50,48 @@ public class Doctor_warehouse extends AppCompatActivity {
         //设定该窗口类型,并发送一个数据(该数据可自定义)
         ListItem item = new ListItem(1, "wori");
         list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(2, "wori");
+        list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(2, "wori");
+        list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(1, "wori");
+        list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(1, "wori");
+        list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(1, "wori");
+        list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(1, "wori");
+        list.add(item);
+        item = null;//设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(1, "wori");
+        list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(1, "wori");
+        list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(1, "wori");
+        list.add(item);
+        item = null;
+        //设定该窗口类型,并发送一个数据(该数据可自定义)
+        item = new ListItem(1, "wori");
+        list.add(item);
+        item = null;
+
+
         //将List发送给自定义适配器
         listAdapter.setList(list);
         //在自定义适配器里面通知List改变.触发自定义适配器的getView方法
