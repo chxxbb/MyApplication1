@@ -32,6 +32,7 @@ public class Login extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+
         init();
 
     }
