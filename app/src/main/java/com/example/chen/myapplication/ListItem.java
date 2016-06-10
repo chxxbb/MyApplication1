@@ -9,8 +9,9 @@ public class ListItem {
     public static final int TYPE_TOP = 0;
     public static final int TYPE_BOTTON = 1;
     public static final int TYPE_DOCTOR_WAREHOUSE = 2;
+    public static final int TYPE_DISEASE_SELF_TEST = 3;
     //设置一共有多少种布局
-    public static final int TYPE_COUNT = 3;
+    public static final int TYPE_COUNT = 4;
 
     private String name;
     private int type;

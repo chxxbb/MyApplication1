@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chen.myapplication.utils.ContextUtil;
 import com.youth.banner.Banner;
@@ -114,7 +115,7 @@ public class ListAdapter extends BaseAdapter {
                     convertView = activity.getLayoutInflater().inflate(R.layout.home_item_botton, null);
                     holder = new BottonViewHolder();
 
-                    //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行
+                    //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行,一般用来获取控件.
                     holder.home_doctor_imageView = (ImageView) convertView.findViewById(R.id.home_doctor_imageView);
 
                     holder.home_doctor_introduction = (TextView) convertView.findViewById(R.id.home_doctor_introduction);
@@ -129,19 +130,19 @@ public class ListAdapter extends BaseAdapter {
                     holder = (BottonViewHolder) convertView.getTag();
                 }
 
-                //给布局初始化(接着上面)该处的初始化每次创建都会被执行.
+                //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
                 holder.home_doctor_introduction.setText(holder.spanString);
                 holder.home_doctor_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
                 break;
             }
 
-            case ListItem.TYPE_DOCTOR_WAREHOUSE:
+            case ListItem.TYPE_DOCTOR_WAREHOUSE: {
                 DoctorWarehouseHolder holder = null;
                 if (convertView == null) {
                     convertView = activity.getLayoutInflater().inflate(R.layout.doctor_warehouse_tiem, null);
                     holder = new DoctorWarehouseHolder();
 
-                    //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行
+                    //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行,一般用来获取控件.
                     holder.doctor_warehouse_imageView = (ImageView) convertView.findViewById(R.id.doctor_warehouse_imageView);
 
                     holder.doctor_warehouse_introduction = (TextView) convertView.findViewById(R.id.doctor_warehouse_department);
@@ -152,10 +153,31 @@ public class ListAdapter extends BaseAdapter {
                     holder = (DoctorWarehouseHolder) convertView.getTag();
 
                 }
-                //给布局初始化(接着上面)该处的初始化每次创建都会被执行.
+                //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
                 holder.doctor_warehouse_introduction.setText("科室：行为发育科");
                 holder.doctor_warehouse_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
                 break;
+            }
+
+            case ListItem.TYPE_DISEASE_SELF_TEST: {
+                Disease_self_testHolder holder = null;
+                if (convertView == null) {
+                    convertView = activity.getLayoutInflater().inflate(R.layout.disease_self_test_item, null);
+                    holder = new Disease_self_testHolder();
+
+                    //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行,一般用来获取控件.
+                    holder.disease_self_test_text = (TextView) convertView.findViewById(R.id.disease_self_test_item_text);
+
+                    //凭借该方法添加标志,以判断是否以前创建过布局
+                    convertView.setTag(holder);
+                } else {
+                    holder = (Disease_self_testHolder) convertView.getTag();
+
+                }
+                //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
+                holder.disease_self_test_text.setText(list.get(position).getName());
+                break;
+            }
 
             default:
                 break;
@@ -183,6 +205,10 @@ public class ListAdapter extends BaseAdapter {
     static class DoctorWarehouseHolder {
         ImageView doctor_warehouse_imageView = null;
         TextView doctor_warehouse_introduction = null;
+    }
+
+    static class Disease_self_testHolder {
+        TextView disease_self_test_text = null;
     }
 
 }
