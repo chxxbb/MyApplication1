@@ -13,6 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+import com.squareup.okhttp.internal.NamedRunnable;
+
+import java.io.IOException;
+
 public class Login extends Activity implements View.OnClickListener {
 
     ImageView login_password_logo_right = null;
@@ -32,10 +41,10 @@ public class Login extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-
         init();
 
     }
+
 
     private void init() {
         login_password_logo_right = (ImageView) findViewById(R.id.login_password_logo_right_imageview);

@@ -26,4 +26,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.github.fg2q1q3q:DropDownMenu:1.1.1'
     compile project(':banner')
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.okio:okio:1.8.0'
 }
