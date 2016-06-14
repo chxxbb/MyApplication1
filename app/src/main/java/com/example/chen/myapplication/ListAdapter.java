@@ -191,7 +191,6 @@ public class ListAdapter extends BaseAdapter {
                     convertView.setTag(holder);
                 } else {
                     holder = (Doctor_detailsHolder) convertView.getTag();
-
                 }
                 //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
 
@@ -209,7 +208,6 @@ public class ListAdapter extends BaseAdapter {
                     convertView.setTag(holder);
                 } else {
                     holder = (Doctor_schedulingHolder) convertView.getTag();
-
                 }
                 //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
 
