@@ -1,8 +1,10 @@
 package com.example.chen.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -94,6 +96,14 @@ public class Doctor_warehouse extends AppCompatActivity {
 
         //将List发送给自定义适配器
         listAdapter.setList(list);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(Doctor_warehouse.this, Doctor_details.class);
+                startActivity(intent);
+            }
+        });
         //在自定义适配器里面通知List改变.触发自定义适配器的getView方法
         listAdapter.notifyDataSetChanged();
 

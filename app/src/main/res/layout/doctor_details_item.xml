@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/y24"
+    android:paddingLeft="@dimen/x40"
+    android:paddingRight="@dimen/x40"
+    android:paddingTop="@dimen/y30">
+
+    <ImageView
+        android:id="@+id/doctor_details_item_imageview"
+        android:layout_width="@dimen/x60"
+        android:layout_height="@dimen/x60"
+        android:src="@mipmap/doctor_details_comments_image" />
+
+    <TextView
+        android:id="@+id/doctor_details_item_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_toRightOf="@id/doctor_details_item_imageview"
+        android:maxLines="1"
+        android:text="昵称"
+        android:textColor="#666666"
+        android:textSize="@dimen/y26" />
+
+    <Button
+        android:id="@+id/doctor_details_item_satisfaction_button"
+        android:layout_width="@dimen/x70"
+        android:layout_height="@dimen/y25"
+        android:layout_alignTop="@id/doctor_details_item_name_textview"
+        android:layout_marginLeft="@dimen/x28"
+        android:layout_marginTop="@dimen/y5"
+        android:layout_toRightOf="@id/doctor_details_item_name_textview"
+        android:background="@drawable/doctor_details_item_buttom_shape"
+        android:text="满意"
+        android:textColor="#3496d3"
+        android:textSize="@dimen/x15" />
+
+    <TextView
+        android:id="@+id/doctor_details_item_comments_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/doctor_details_item_name_textview"
+        android:layout_below="@id/doctor_details_item_name_textview"
+        android:text="基本满意测试文本基本满意测试文本基本满意测试文本基本满意测试文本基本满意测试文本基本满意测试文本"
+        android:textColor="#666666"
+        android:textSize="@dimen/y26" />
+
+</RelativeLayout>
