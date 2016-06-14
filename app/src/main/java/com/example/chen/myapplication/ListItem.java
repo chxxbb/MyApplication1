@@ -11,8 +11,9 @@ public class ListItem {
     public static final int TYPE_DOCTOR_WAREHOUSE = 2;
     public static final int TYPE_DISEASE_SELF_TEST = 3;
     public static final int TYPE_DOCTOR_DETAILS_COMMENTS = 4;
+    public static final int TYPE_DOCTOR_SCHEDULING = 5;
     //设置一共有多少种布局
-    public static final int TYPE_COUNT = 5;
+    public static final int TYPE_COUNT = 6;
 
     private String name;
     private int type;

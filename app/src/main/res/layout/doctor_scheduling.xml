@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/doctor_scheduling_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y276"
+        android:background="@mipmap/doctor_details_title_background"
+        android:paddingBottom="@dimen/x40"
+        android:paddingLeft="@dimen/x40">
+
+
+        <ImageView
+            android:id="@+id/doctor_scheduling_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_marginTop="@dimen/y30"
+            android:src="@mipmap/registered_exit" />
+
+        <ImageView
+            android:id="@+id/doctor_scheduling_portrait"
+            android:layout_width="@dimen/x160"
+            android:layout_height="@dimen/x160"
+            android:layout_below="@id/doctor_scheduling_exit"
+            android:layout_marginTop="@dimen/y30"
+            android:src="@mipmap/home_doctor_imageview_test" />
+
+        <TextView
+            android:id="@+id/doctor_scheduling_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/doctor_scheduling_portrait"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_toRightOf="@id/doctor_scheduling_portrait"
+            android:gravity="top"
+            android:text="柳下惠"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y32" />
+
+        <TextView
+            android:id="@+id/doctor_scheduling_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/doctor_scheduling_name"
+            android:layout_below="@id/doctor_scheduling_name"
+            android:text="主任医师"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y26" />
+
+        <TextView
+            android:id="@+id/doctor_scheduling_department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/doctor_scheduling_name"
+            android:layout_below="@id/doctor_scheduling_level"
+            android:text="科室：行为发育科"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y26" />
+
+        <TextView
+            android:id="@+id/doctor_scheduling_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/doctor_scheduling_name"
+            android:layout_below="@id/doctor_scheduling_department"
+            android:text="医院：成都天使儿童医院"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y26" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/doctor_scheduling_evaluation_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y68"
+        android:layout_below="@id/doctor_scheduling_title"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="专家排班"
+            android:textColor="#323232"
+            android:textSize="@dimen/y30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#cccccc" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/doctor_scheduling_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/doctor_scheduling_evaluation_title_relativelayout"
+        android:background="@android:color/white"
+        android:divider="#cccccc"
+        android:dividerHeight="@dimen/y1">
+
+    </ListView>
+
+</RelativeLayout>

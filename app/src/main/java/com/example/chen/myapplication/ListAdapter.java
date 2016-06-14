@@ -197,6 +197,25 @@ public class ListAdapter extends BaseAdapter {
 
                 break;
             }
+            case ListItem.TYPE_DOCTOR_SCHEDULING: {
+                Doctor_schedulingHolder holder = null;
+                if (convertView == null) {
+                    convertView = activity.getLayoutInflater().inflate(R.layout.doctor_scheduling_item, null);
+                    holder = new Doctor_schedulingHolder();
+
+                    //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行,一般用来获取控件.
+
+                    //凭借该方法添加标志,以判断是否以前创建过布局
+                    convertView.setTag(holder);
+                } else {
+                    holder = (Doctor_schedulingHolder) convertView.getTag();
+
+                }
+                //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
+
+                break;
+            }
+
 
             default:
                 break;
@@ -231,6 +250,10 @@ public class ListAdapter extends BaseAdapter {
     }
 
     static class Doctor_detailsHolder {
+
+    }
+
+    static class Doctor_schedulingHolder {
 
     }
 
