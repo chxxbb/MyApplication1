@@ -102,6 +102,15 @@ public class ListAdapter extends BaseAdapter {
                     }
                 });
 
+                holder.home_message_imageview = (ImageView) convertView.findViewById(R.id.home_message_imageview);
+                holder.home_message_imageview.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(activity, Message_activity.class);
+                        activity.startActivity(intent);
+                    }
+                });
+
                 //处理布局,可通过持有人自由处理
                 holder.mBanner.setDelayTime(50000);
                 holder.mBanner.setImages(holder.imageViewUrl);
@@ -248,6 +257,7 @@ public class ListAdapter extends BaseAdapter {
         };
         RelativeLayout home_doctor_warehouse_relayout = null;
         RelativeLayout home_top_register = null;
+        ImageView home_message_imageview = null;
     }
 
     static class BottonViewHolder {

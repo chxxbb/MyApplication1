@@ -83,7 +83,7 @@ public class registered extends Activity implements View.OnClickListener {
                     Toast.makeText(this, "请输入验证码", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "判断验证码是否正确", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(this, Home.class);
+                    Intent intent = new Intent(this, activity_fragment.class);
                     startActivity(intent);
                 }
 
