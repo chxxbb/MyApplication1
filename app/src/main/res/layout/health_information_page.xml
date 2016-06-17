@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/health_information_page_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="健康资讯"
+            android:textColor="#323232"
+            android:textSize="@dimen/x36" />
+
+        <ImageView
+            android:id="@+id/health_information_page_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/health_information_page_exit_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e4e4e4" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/health_information_page_title_relativelayout"
+        android:paddingLeft="@dimen/x40"
+        android:paddingRight="@dimen/x40">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/health_information_page_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y50"
+                android:text="宝宝挑食你无计可施?这些妙计学起来"
+                android:textColor="#323232"
+                android:textSize="@dimen/y42" />
+
+            <TextView
+                android:id="@+id/health_information_page_fromtime_text"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y30"
+                android:layout_below="@id/health_information_page_title_text"
+                android:layout_marginTop="@dimen/y40"
+                android:text="天使资讯  06-14   11:00"
+                android:textColor="#999999"
+                android:textSize="@dimen/y24" />
+
+            <ImageView
+                android:id="@+id/health_information_page_image"
+                android:layout_width="@dimen/y670"
+                android:layout_height="@dimen/y276"
+                android:layout_below="@id/health_information_page_fromtime_text"
+                android:layout_marginTop="@dimen/y60"
+                android:scaleType="center"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/health_information_page_content_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/health_information_page_image"
+                android:text="测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本"
+                android:textColor="#666666"
+                android:textSize="@dimen/y32" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
