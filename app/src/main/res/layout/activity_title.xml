@@ -59,7 +59,7 @@
                 android:layout_below="@id/activity_title_imageview2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/y1"
-                android:text="问诊"
+                android:text="百科"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/x20" />
 

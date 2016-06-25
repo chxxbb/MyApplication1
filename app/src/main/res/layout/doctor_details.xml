@@ -192,7 +192,7 @@
         android:layout_above="@id/doctor_details_bottom_menu"
         android:layout_below="@id/doctor_details_evaluation_title_relativelayout"
         android:background="@android:color/white"
-        android:divider="#cccccc"
+        android:divider="#e0e0e0"
         android:dividerHeight="@dimen/y1">
 
     </ListView>
