@@ -50,12 +50,12 @@
         android:layout_width="@dimen/x160"
         android:layout_height="@dimen/y44"
         android:layout_alignBottom="@id/home_online_consulting"
+        android:layout_marginLeft="@dimen/x20"
         android:layout_marginTop="@dimen/y10"
         android:layout_toRightOf="@id/home_online_consulting"
         android:background="@drawable/shape_home_reservation_button"
-        android:layout_marginLeft="@dimen/x20"
-        android:text="立即预约"
         android:gravity="center"
+        android:text="立即预约"
         android:textSize="@dimen/x20" />
 
     <TextView
@@ -80,7 +80,7 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y20"
-        android:background="#666666" />
+        android:background="#e4e4e4" />
 
 
 </RelativeLayout>
