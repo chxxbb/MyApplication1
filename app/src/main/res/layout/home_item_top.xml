@@ -356,6 +356,83 @@
                     android:textColor="#bbbbbc"
                     android:textSize="@dimen/x20" />
 
+                <ImageView
+                    android:layout_width="@dimen/x200"
+                    android:layout_height="@dimen/y94"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/home_angel_classroom_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y100"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/home_angel_Hconter_view">
+
+                <TextView
+                    android:id="@+id/home_angel_Text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x40"
+                    android:layout_marginTop="@dimen/y20"
+                    android:text="儿童疾病库"
+                    android:textColor="#222222"
+                    android:textSize="@dimen/x30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/home_angel_Text2"
+                    android:layout_marginLeft="@dimen/x40"
+                    android:text="易用全面疾病百科"
+                    android:textColor="#bbbbbc"
+                    android:textSize="@dimen/x20" />
+
+                <ImageView
+                    android:layout_width="@dimen/x60"
+                    android:layout_height="@dimen/x60"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x40"
+                    android:src="@mipmap/home_angel_disease_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/home_angel_Vconter_view"
+                android:layout_toRightOf="@id/home_angel_Hconter_view">
+
+                <TextView
+                    android:id="@+id/home_angel_Text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x40"
+                    android:layout_marginTop="@dimen/y20"
+                    android:text="医院导航"
+                    android:textColor="#222222"
+                    android:textSize="@dimen/x30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/home_angel_Text3"
+                    android:layout_marginLeft="@dimen/x40"
+                    android:text="一键导航医院详细地址"
+                    android:textColor="#bbbbbc"
+                    android:textSize="@dimen/x20" />
+
+                <ImageView
+                    android:layout_width="@dimen/x60"
+                    android:layout_height="@dimen/x60"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x40"
+                    android:src="@mipmap/home_angel_navigation_image" />
 
             </RelativeLayout>
 
