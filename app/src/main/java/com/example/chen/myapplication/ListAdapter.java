@@ -93,6 +93,8 @@ public class ListAdapter extends BaseAdapter {
                     }
                 });
 
+
+                //点击一键挂号按钮跳转到一键挂号按钮
                 holder.home_top_register = (RelativeLayout) convertView.findViewById(R.id.home_top_register);
                 holder.home_top_register.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -102,6 +104,8 @@ public class ListAdapter extends BaseAdapter {
                     }
                 });
 
+
+                //点击右上角消息按钮跳转到消息页面
                 holder.home_message_imageview = (ImageView) convertView.findViewById(R.id.home_message_imageview);
                 holder.home_message_imageview.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -114,6 +118,17 @@ public class ListAdapter extends BaseAdapter {
                 //处理布局,可通过持有人自由处理
                 holder.mBanner.setDelayTime(50000);
                 holder.mBanner.setImages(holder.imageViewUrl);
+
+
+                //点击诊疗管理按钮跳转到诊疗管理页面
+                holder.home_diagnosis_management_relativelayout = (RelativeLayout) convertView.findViewById(R.id.home_diagnosis_management_relativelayout);
+                holder.home_diagnosis_management_relativelayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(activity, Diagnosis_management.class);
+                        activity.startActivity(intent);
+                    }
+                });
 
                 break;
             }
@@ -258,6 +273,7 @@ public class ListAdapter extends BaseAdapter {
         RelativeLayout home_doctor_warehouse_relayout = null;
         RelativeLayout home_top_register = null;
         ImageView home_message_imageview = null;
+        RelativeLayout home_diagnosis_management_relativelayout = null;
     }
 
     static class BottonViewHolder {

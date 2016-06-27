@@ -190,6 +190,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/home_diagnosis_management_relativelayout"
         android:layout_width="@dimen/x375"
         android:layout_height="@dimen/y100"
         android:layout_alignParentRight="true"
@@ -209,7 +210,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x40"
             android:layout_marginTop="@dimen/y20"
-            android:text="知识讲堂"
+            android:text="诊疗管理"
             android:textColor="#222222"
             android:textSize="@dimen/x30" />
 
