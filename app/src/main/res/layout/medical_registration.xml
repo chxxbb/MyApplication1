@@ -179,7 +179,7 @@
     <EditText
         android:id="@+id/medical_registration_describe_edittext"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y300"
+        android:layout_height="@dimen/y240"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@id/medical_registration_contact_edittext"
@@ -208,7 +208,7 @@
     <Button
         android:id="@+id/media_submit_button"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y64"
+        android:layout_height="@dimen/y88"
         android:layout_below="@id/medical_registration_describe_edittext"
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"

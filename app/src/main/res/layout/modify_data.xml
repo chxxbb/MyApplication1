@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/modify_data_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y368"
+        android:src="@mipmap/modify_data" />
+
+    <RelativeLayout
+        android:id="@+id/modify_data_name_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/modify_data_image"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/modify_data_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="昵称:"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <EditText
+            android:id="@+id/modify_data_name_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_toRightOf="@id/modify_data_name_textview"
+            android:background="@null"
+            android:hint="请填写您的昵称"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textColor="#323232"
+            android:textColorHint="#bbbbbc"
+            android:textSize="@dimen/y32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/modify_data_gender_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/modify_data_name_relativelayout"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/modify_data_gender_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="性别:"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <Button
+            android:id="@+id/modify_data_gender_boy"
+            android:layout_width="@dimen/x200"
+            android:layout_height="@dimen/y58"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_toRightOf="@id/modify_data_gender_textview"
+            android:background="@drawable/modify_data_shape1"
+            android:gravity="center"
+            android:text="男士"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <Button
+            android:id="@+id/modify_data_gender_girl"
+            android:layout_width="@dimen/x200"
+            android:layout_height="@dimen/y58"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_toRightOf="@id/modify_data_gender_boy"
+            android:background="@drawable/modify_data_shape2"
+            android:gravity="center"
+            android:text="女士"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/y40"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:background="@drawable/modify_data_button_shape"
+        android:text="完     成"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/y32" />
+
+</RelativeLayout>
