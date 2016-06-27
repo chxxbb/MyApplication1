@@ -58,7 +58,7 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y30"
-        android:background="#00aced" />
+        android:background="#3496d3" />
 
     <ImageView
         android:id="@+id/login_password_logo_Left_imageview"
@@ -102,7 +102,7 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y30"
-        android:background="#00aced" />
+        android:background="#3496d3" />
 
     <Button
         android:id="@+id/login_button"
@@ -125,7 +125,7 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginTop="@dimen/y40"
         android:text="新用户"
-        android:textColor="#00aced"
+        android:textColor="#3496d3"
         android:textSize="@dimen/x32" />
 
     <TextView
@@ -137,7 +137,7 @@
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y40"
         android:text="忘记密码?"
-        android:textColor="#00aced"
+        android:textColor="#3496d3"
         android:textSize="@dimen/x32" />
 
 
@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="社交账户登录"
-            android:textColor="#00aced"
+            android:textColor="#3496d3"
             android:textSize="@dimen/x32" />
 
         <View
@@ -165,7 +165,7 @@
             android:layout_marginLeft="@dimen/x40"
             android:layout_marginRight="@dimen/x40"
             android:layout_toLeftOf="@id/login_apiLogin_textview"
-            android:background="#00aced" />
+            android:background="#3496d3" />
 
         <View
             android:layout_width="match_parent"
@@ -174,7 +174,7 @@
             android:layout_marginLeft="@dimen/x40"
             android:layout_marginRight="@dimen/x40"
             android:layout_toRightOf="@id/login_apiLogin_textview"
-            android:background="#00aced" />
+            android:background="#3496d3" />
 
     </RelativeLayout>
 

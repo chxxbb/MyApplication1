@@ -65,7 +65,7 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y30"
-        android:background="#00aced" />
+        android:background="#3496d3" />
 
     <ImageView
         android:id="@+id/registered_password_logo_Left_imageview"
@@ -100,7 +100,7 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y30"
-        android:background="#00aced" />
+        android:background="#3496d3" />
 
     <ImageView
         android:id="@+id/registered_password_logo_Left_imageview_2"
@@ -135,7 +135,7 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y30"
-        android:background="#00aced" />
+        android:background="#3496d3" />
 
     <ImageView
         android:id="@+id/registered_VerificationCode_left_imageView"
@@ -181,7 +181,7 @@
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:layout_marginTop="@dimen/y30"
-        android:background="#00aced" />
+        android:background="#3496d3" />
 
 
     <Button
