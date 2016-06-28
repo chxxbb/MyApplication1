@@ -27,6 +27,7 @@
         <activity android:name=".Health_information_page"></activity>
         <activity android:name=".Modify_data"></activity>
         <activity android:name=".Diagnosis_management"></activity>
+        <activity android:name=".Patient_management"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
