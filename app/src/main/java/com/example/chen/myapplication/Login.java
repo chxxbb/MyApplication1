@@ -13,14 +13,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chen.myapplication.data.User;
+import com.example.chen.myapplication.utils.ContextUtil;
+import com.google.gson.Gson;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.internal.NamedRunnable;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Login extends Activity implements View.OnClickListener {
 
@@ -35,6 +41,14 @@ public class Login extends Activity implements View.OnClickListener {
 
     EditText login_username = null;
     EditText login_password = null;
+
+
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    OkHttpClient client = new OkHttpClient();
+    Gson gson = new Gson();
+    User user = null;
+    private static final MediaType MEDIA_TYPE_MARKDOWN
+            = MediaType.parse("text/x-markdown; charset=utf-8");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +117,43 @@ public class Login extends Activity implements View.OnClickListener {
                 } else {
                     String userName = login_username.getText().toString();
                     String password = login_password.getText().toString();
+
+                    user = new User();
+
+                    user.setPhone(userName);
+                    user.setPassword(password);
+                    user.setAge(5);
+                    user.setName("sda");
+                    user.setIcon("asdfadfadfads");
+                    user.setId(1);
+
+
+                    System.out.println(gson.toJson(user));
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            RequestBody requestBody = RequestBody.create(JSON, gson.toJson(user));
+                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/userLogin.action").post(requestBody).build();
+
+
+                            Call call = client.newCall(request);
+
+                            call.enqueue(new Callback() {
+                                @Override
+                                public void onFailure(Request request, IOException e) {
+                                    Toast.makeText(ContextUtil.getInstance(), "连接服务器失败", Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onResponse(Response response) throws IOException {
+                                    String str = response.body().string();
+                                    System.out.println(str);
+                                }
+                            });
+
+                        }
+                    }).start();
 
                     Intent intent_login = new Intent(this, activity_fragment.class);
                     startActivity(intent_login);
