@@ -23,10 +23,8 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
-import com.squareup.okhttp.internal.NamedRunnable;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class Login extends Activity implements View.OnClickListener {
 
@@ -140,6 +138,7 @@ public class Login extends Activity implements View.OnClickListener {
                             Call call = client.newCall(request);
 
                             call.enqueue(new Callback() {
+
                                 @Override
                                 public void onFailure(Request request, IOException e) {
                                     Toast.makeText(ContextUtil.getInstance(), "连接服务器失败", Toast.LENGTH_SHORT).show();

@@ -1,65 +1,74 @@
 package com.example.chen.myapplication.data;
 
 public class User {
-	
-	private int Id;
-	
-	private String Phone;
-	
-	private String Name;
-	
-	private String Password;
 
-	private String Sex;
+    private int id;
 
-	private int Age;
+    private String phone;
 
-	private String Icon;
+    private String name;
 
+    private String password;
 
-	public int getId() {
-		return Id;
-	}
-	public void setId(int id) {
-		Id = id;
-	}
-	public String getPhone() {
-		return Phone;
-	}
-	public void setPhone(String phone) {
-		Phone = phone;
-	}
-	public String getName() {
-		return Name;
-	}
-	public void setName(String name) {
-		Name = name;
-	}
-	public String getPassword() {
-		return Password;
-	}
-	public void setPassword(String password) {
-		Password = password;
-	}
-	public String getSex() {
-		return Sex;
-	}
-	public void setSex(String sex) {
-		Sex = sex;
-	}
-	public int getAge() {
-		return Age;
-	}
-	public void setAge(int age) {
-		Age = age;
-	}
+    private String sex;
 
-	public String getIcon() {
-		return Icon;
-	}
+    private int age;
 
-	public void setIcon(String icon) {
-		Icon = icon;
-	}
-	
+    private String icon;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 }
