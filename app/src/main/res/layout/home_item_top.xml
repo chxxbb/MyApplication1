@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/home_title_relativelayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y360">
+        android:layout_height="@dimen/y450">
 
         <View
             android:id="@+id/home_top__title_view"

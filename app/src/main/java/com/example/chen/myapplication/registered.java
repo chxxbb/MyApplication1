@@ -11,6 +11,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chen.myapplication.data.User;
+import com.google.gson.Gson;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
+
+import java.io.IOException;
+
 /**
  * Created by Chen on 2016/5/30.
  */
@@ -25,6 +37,10 @@ public class registered extends Activity implements View.OnClickListener {
     Button registered_button = null;
     Button registered_VerificationCode_button = null;
 
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    OkHttpClient client = new OkHttpClient();
+    Gson gson = new Gson();
+    User user = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +54,10 @@ public class registered extends Activity implements View.OnClickListener {
     private void init() {
         registered_exit = (ImageView) findViewById(R.id.registered_exit);
         registered_exit.setOnClickListener(this);
+
+
+
+
 
         //用户填写信息的Edittext控件绑定
         registered_user = (EditText) findViewById(R.id.registered_user_edittext);
@@ -83,8 +103,38 @@ public class registered extends Activity implements View.OnClickListener {
                     Toast.makeText(this, "请输入验证码", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "判断验证码是否正确", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(this, activity_fragment.class);
-                    startActivity(intent);
+
+                    user = new User();
+                    user.setPhone(registered_user.getText().toString());
+                    user.setPassword(registered_password.getText().toString());
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            RequestBody requestBody = RequestBody.create(JSON, gson.toJson(user));
+                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/userLogin.action").post(requestBody).build();
+
+                            Call call = client.newCall(request);
+
+                            call.enqueue(new Callback() {
+                                @Override
+                                public void onFailure(Request request, IOException e) {
+
+                                }
+
+                                @Override
+                                public void onResponse(Response response) throws IOException {
+                                    String str = response.body().string();
+                                    System.out.println(str);
+                                    Intent intent = new Intent(registered.this, activity_fragment.class);
+                                    startActivity(intent);
+                                }
+                            });
+
+                        }
+                    }).start();
+
+
                 }
 
                 break;
