@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Login">
+        <activity android:name=".Disease_library">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,6 +29,7 @@
         <activity android:name=".Diagnosis_management"></activity>
         <activity android:name=".Patient_management"></activity>
         <activity android:name=".Information_activity"></activity>
+        <activity android:name=".Login"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
