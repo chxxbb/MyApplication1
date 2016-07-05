@@ -56,9 +56,6 @@ public class registered extends Activity implements View.OnClickListener {
         registered_exit.setOnClickListener(this);
 
 
-
-
-
         //用户填写信息的Edittext控件绑定
         registered_user = (EditText) findViewById(R.id.registered_user_edittext);
         registered_password = (EditText) findViewById(R.id.registered_password_edittext);
@@ -104,15 +101,18 @@ public class registered extends Activity implements View.OnClickListener {
                 } else {
                     Toast.makeText(this, "判断验证码是否正确", Toast.LENGTH_LONG).show();
 
+
                     user = new User();
                     user.setPhone(registered_user.getText().toString());
                     user.setPassword(registered_password.getText().toString());
+                    user.setSex("男");
+                    user.setName("fuck");
 
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             RequestBody requestBody = RequestBody.create(JSON, gson.toJson(user));
-                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/userLogin.action").post(requestBody).build();
+                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/register").post(requestBody).build();
 
                             Call call = client.newCall(request);
 

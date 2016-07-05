@@ -141,7 +141,7 @@ public class Login extends Activity implements View.OnClickListener {
 
                                 @Override
                                 public void onFailure(Request request, IOException e) {
-                                    Toast.makeText(ContextUtil.getInstance(), "连接服务器失败", Toast.LENGTH_SHORT).show();
+
                                 }
 
                                 @Override
