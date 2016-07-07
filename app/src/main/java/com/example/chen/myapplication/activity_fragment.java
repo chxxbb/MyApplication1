@@ -17,7 +17,9 @@ public class activity_fragment extends Activity implements View.OnClickListener 
 
     RelativeLayout activity_title_tag1, activity_title_tag2, activity_title_tag3, activity_title_tag4;
 
-    Home fg1, fg2, fg3, fg4;
+    Home fg1, fg2, fg3;
+
+    Personal_settings fg4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,7 +96,7 @@ public class activity_fragment extends Activity implements View.OnClickListener 
                 activity_title_tag4.setSelected(true);
 
                 if (fg4 == null) {
-                    fg4 = new Home();
+                    fg4 = new Personal_settings();
                     mFragmentTransaction.add(R.id.activity_framelayout, fg4);
                 } else {
                     mFragmentTransaction.show(fg4);

@@ -92,6 +92,14 @@ public class ListAdapter extends BaseAdapter {
                         activity.startActivity(intent);
                     }
                 });
+                holder.home_angel_Disease_library_relativelayout = (RelativeLayout) convertView.findViewById(R.id.home_angel_Disease_library_relativelayout);
+                holder.home_angel_Disease_library_relativelayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(activity, Disease_library.class);
+                        activity.startActivity(intent);
+                    }
+                });
 
 
                 //点击一键挂号按钮跳转到一键挂号按钮
@@ -274,6 +282,7 @@ public class ListAdapter extends BaseAdapter {
         RelativeLayout home_top_register = null;
         ImageView home_message_imageview = null;
         RelativeLayout home_diagnosis_management_relativelayout = null;
+        RelativeLayout home_angel_Disease_library_relativelayout = null;
     }
 
     static class BottonViewHolder {
