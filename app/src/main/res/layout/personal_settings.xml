@@ -32,6 +32,273 @@
         android:paddingLeft="@dimen/x40"
         android:paddingRight="@dimen/x40">
 
+        <ImageView
+            android:id="@+id/personal_settings_basic_information_image"
+            android:layout_width="@dimen/x130"
+            android:layout_height="@dimen/x130"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/home_doctor_imageview_test" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_toRightOf="@id/personal_settings_basic_information_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/personal_settings_basic_information_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="谁打速读"
+                android:textColor="#323232"
+                android:textSize="@dimen/y34" />
+
+            <TextView
+                android:id="@+id/personal_settings_basic_information_loginType_text"
+                android:layout_width="@dimen/x180"
+                android:layout_height="@dimen/y40"
+                android:layout_marginTop="@dimen/y10"
+                android:background="@drawable/modify_data_shape1"
+                android:gravity="center"
+                android:text="是是似的设定"
+                android:textColor="#666666"
+                android:textSize="@dimen/y24" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_settings_order_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/personal_settings_basic_information_relativelayout"
+        android:layout_marginTop="@dimen/y30"
+        android:background="@android:color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentTop="true"
+            android:background="#e0e0e0" />
+
+        <ImageView
+            android:id="@+id/personal_settings_order_image"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/personal_settings_order" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_toRightOf="@id/personal_settings_order_image"
+            android:gravity="center"
+            android:text="我的订单"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_settings_report_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/personal_settings_order_relativelayout"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/personal_settings_report_image"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/personal_settings_report" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_toRightOf="@id/personal_settings_report_image"
+            android:gravity="center"
+            android:text="我的报告"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_settings_doctor_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/personal_settings_report_relativelayout"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/personal_settings_doctor_image"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/personal_settings_doctor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_toRightOf="@id/personal_settings_doctor_image"
+            android:gravity="center"
+            android:text="我的医生"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_settings_share_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/personal_settings_doctor_relativelayout"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/personal_settings_share_image"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/personal_settings_share" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_toRightOf="@id/personal_settings_share_image"
+            android:gravity="center"
+            android:text="分享"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_settings_setting_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/personal_settings_share_relativelayout"
+        android:layout_marginTop="@dimen/y30"
+        android:background="@android:color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentTop="true"
+            android:background="#e0e0e0" />
+
+        <ImageView
+            android:id="@+id/personal_settings_setting_image"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/personal_settings_setting" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_toRightOf="@id/personal_settings_setting_image"
+            android:gravity="center"
+            android:text="设置"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
     </RelativeLayout>
 
 
