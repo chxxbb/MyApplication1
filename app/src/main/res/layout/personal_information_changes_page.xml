@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4">
+
+    <RelativeLayout
+        android:id="@+id/personal_information_changes_page_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentTop="true"
+        android:background="#3496d3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="个人信息"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x36" />
+
+        <ImageView
+            android:id="@+id/personal_information_changes_page_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/registered_exit" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_information_changes_page_Head_portrait"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y174"
+        android:layout_below="@id/personal_information_changes_page_title_relativelayout"
+        android:layout_marginTop="@dimen/y30"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="头像"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:id="@+id/personal_information_changes_page_Head_portrait_next_image"
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <ImageView
+            android:layout_width="@dimen/x130"
+            android:layout_height="@dimen/x130"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_toLeftOf="@id/personal_information_changes_page_Head_portrait_next_image"
+            android:src="@mipmap/personal_information_changes_page_head_portrait_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_information_changes_page_name_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/personal_information_changes_page_Head_portrait"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x40"
+            android:gravity="center"
+            android:text="昵称"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:id="@+id/personal_information_changes_page_name_next"
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x24"
+            android:layout_toLeftOf="@id/personal_information_changes_page_name_next"
+            android:gravity="center"
+            android:text="且听风声"
+            android:textColor="#999999"
+            android:textSize="@dimen/y32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_information_changes_page_sex_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/personal_information_changes_page_name_relativelayout"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x40"
+            android:gravity="center"
+            android:text="性别"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:id="@+id/personal_information_changes_page_sex_next"
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x24"
+            android:layout_toLeftOf="@id/personal_information_changes_page_sex_next"
+            android:gravity="center"
+            android:text="男"
+            android:textColor="#999999"
+            android:textSize="@dimen/y32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/personal_information_changes_page_phone_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/personal_information_changes_page_sex_relativelayout"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x40"
+            android:gravity="center"
+            android:text="手机"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:id="@+id/personal_information_changes_page_phone_next"
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x24"
+            android:layout_toLeftOf="@id/personal_information_changes_page_phone_next"
+            android:gravity="center"
+            android:text="未验证"
+            android:textColor="#3496d3"
+            android:textSize="@dimen/y32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
