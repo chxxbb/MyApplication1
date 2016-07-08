@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4">
+
+    <RelativeLayout
+        android:id="@+id/binding_mobile_phone_page_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentTop="true"
+        android:background="#3496d3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="绑定手机"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x36" />
+
+        <ImageView
+            android:id="@+id/binding_mobile_phone_page_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/registered_exit" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/binding_mobile_phone_page_phone_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:layout_below="@id/binding_mobile_phone_page_title_relativelayout"
+        android:layout_marginTop="@dimen/y60"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/binding_mobile_phone_page_phone_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:gravity="center"
+            android:text="手机号"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <EditText
+            android:id="@+id/binding_mobile_phone_page_phone_EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_marginRight="@dimen/x40"
+            android:layout_toRightOf="@id/binding_mobile_phone_page_phone_text"
+            android:background="@null"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:textColor="#323232"
+            android:textColorHint="#bbbbbc"
+            android:textSize="@dimen/y32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/binding_mobile_phone_page_code_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:layout_below="@id/binding_mobile_phone_page_phone_relativelayout"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/binding_mobile_phone_page_code_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:gravity="center"
+            android:text="验证码"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <EditText
+            android:id="@+id/binding_mobile_phone_page_code_EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_marginRight="@dimen/x40"
+            android:layout_toRightOf="@id/binding_mobile_phone_page_code_text"
+            android:background="@null"
+            android:hint="请输入验证码"
+            android:inputType="phone"
+            android:maxLength="6"
+            android:textColor="#323232"
+            android:textColorHint="#bbbbbc"
+            android:textSize="@dimen/y32" />
+
+        <Button
+            android:id="@+id/binding_mobile_phone_page_code_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:background="@null"
+            android:text="发送验证码"
+            android:textColor="#323232"
+            android:textSize="@dimen/x32" />
+
+        <View
+            android:layout_width="@dimen/y3"
+            android:layout_height="@dimen/y32"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_toLeftOf="@id/binding_mobile_phone_page_code_Button"
+            android:background="#bbbbbc" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/binding_mobile_phone_page_Button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/binding_mobile_phone_page_code_relativelayout"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y120"
+        android:background="@drawable/shape"
+        android:gravity="center"
+        android:text="绑     定"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/y32" />
+
+</RelativeLayout>

@@ -32,6 +32,7 @@
         <activity android:name=".Disease_library"></activity>
         <activity android:name=".Details_disease"></activity>
         <activity android:name=".Personal_information_changes_page"></activity>
+        <activity android:name=".Binding_mobile_phone_page"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
