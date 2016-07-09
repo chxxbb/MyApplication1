@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Login">
+        <activity android:name=".Personal_settings_name_change_page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,6 +33,7 @@
         <activity android:name=".Details_disease"></activity>
         <activity android:name=".Personal_information_changes_page"></activity>
         <activity android:name=".Binding_mobile_phone_page"></activity>
+        <activity android:name=".Login"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
