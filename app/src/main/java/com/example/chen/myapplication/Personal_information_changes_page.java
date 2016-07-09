@@ -13,6 +13,7 @@ public class Personal_information_changes_page extends Activity {
 
     RelativeLayout personal_information_changes_page_phone_relativelayout = null;
     RelativeLayout personal_information_changes_page_name_relativelayout = null;
+    RelativeLayout personal_information_changes_page_sex_relativelayout = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,16 @@ public class Personal_information_changes_page extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Personal_information_changes_page.this, Personal_settings_name_change_page.class);
+                startActivity(intent);
+            }
+        });
+
+        personal_information_changes_page_sex_relativelayout = (RelativeLayout) findViewById(R.id.personal_information_changes_page_sex_relativelayout);
+
+        personal_information_changes_page_sex_relativelayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Personal_information_changes_page.this, Personal_settings_sex_change_page.class);
                 startActivity(intent);
             }
         });
