@@ -1,10 +1,8 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.page;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -12,13 +10,16 @@ import android.text.style.StyleSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.chen.myapplication.utils.ContextUtil;
+import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.view.Diagnosis_management;
+import com.example.chen.myapplication.view.Disease_library;
+import com.example.chen.myapplication.view.Doctor_warehouse;
+import com.example.chen.myapplication.view.Medical_registration;
+import com.example.chen.myapplication.view.Message_activity;
 import com.youth.banner.Banner;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.chen.myapplication.page.ListAdapter;
+import com.example.chen.myapplication.page.ListItem;
+import com.example.chen.myapplication.R;
 import com.zxl.library.DropDownMenu;
 
 import java.util.ArrayList;

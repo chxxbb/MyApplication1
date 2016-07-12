@@ -1,4 +1,4 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import com.example.chen.myapplication.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

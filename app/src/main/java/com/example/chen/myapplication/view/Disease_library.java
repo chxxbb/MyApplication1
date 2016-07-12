@@ -1,4 +1,4 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+
+import com.example.chen.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.User;
 import com.google.gson.Gson;
 import com.squareup.okhttp.Call;

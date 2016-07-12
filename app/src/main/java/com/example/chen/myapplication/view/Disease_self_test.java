@@ -1,12 +1,12 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.app.Activity;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
+
+import com.example.chen.myapplication.page.ListAdapter;
+import com.example.chen.myapplication.page.ListItem;
+import com.example.chen.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;

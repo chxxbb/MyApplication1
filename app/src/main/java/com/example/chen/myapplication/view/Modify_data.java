@@ -1,9 +1,11 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.chen.myapplication.R;
 
 /**
  * Created by Chen on 2016/6/27.

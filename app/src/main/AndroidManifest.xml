@@ -9,32 +9,33 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Login">
+        <activity android:name=".view.Personal_settings_head_portrait_change_page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".registered"></activity>
-        <activity android:name=".Medical_registration"></activity>
-        <activity android:name=".activity_fragment"></activity>
-        <activity android:name=".Doctor_warehouse"></activity>
-        <activity android:name=".Disease_self_test"></activity>
-        <activity android:name=".Doctor_details"></activity>
-        <activity android:name=".Doctor_scheduling"></activity>
-        <activity android:name=".Message_activity"></activity>
-        <activity android:name=".Health_information_page"></activity>
-        <activity android:name=".Modify_data"></activity>
-        <activity android:name=".Diagnosis_management"></activity>
-        <activity android:name=".Patient_management"></activity>
-        <activity android:name=".Information_activity"></activity>
-        <activity android:name=".Disease_library"></activity>
-        <activity android:name=".Details_disease"></activity>
-        <activity android:name=".Personal_information_changes_page"></activity>
-        <activity android:name=".Binding_mobile_phone_page"></activity>
-        <activity android:name=".Personal_settings_name_change_page"></activity>
-        <activity android:name=".Personal_settings_sex_change_page"></activity>
+        <activity android:name=".view.registered"></activity>
+        <activity android:name=".view.Medical_registration"></activity>
+        <activity android:name=".view.activity_fragment"></activity>
+        <activity android:name=".view.Doctor_warehouse"></activity>
+        <activity android:name=".view.Disease_self_test"></activity>
+        <activity android:name=".view.Doctor_details"></activity>
+        <activity android:name=".view.Doctor_scheduling"></activity>
+        <activity android:name=".view.Message_activity"></activity>
+        <activity android:name=".view.Health_information_page"></activity>
+        <activity android:name=".view.Modify_data"></activity>
+        <activity android:name=".view.Diagnosis_management"></activity>
+        <activity android:name=".view.Patient_management"></activity>
+        <activity android:name=".view.Information_activity"></activity>
+        <activity android:name=".view.Disease_library"></activity>
+        <activity android:name=".view.Details_disease"></activity>
+        <activity android:name=".view.Personal_information_changes_page"></activity>
+        <activity android:name=".view.Binding_mobile_phone_page"></activity>
+        <activity android:name=".view.Personal_settings_name_change_page"></activity>
+        <activity android:name=".view.Personal_settings_sex_change_page"></activity>
+        <activity android:name=".view.Login"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>

@@ -1,4 +1,4 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -6,6 +6,9 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import com.example.chen.myapplication.page.Information_school;
+import com.example.chen.myapplication.R;
 
 /**
  * Created by Chen on 2016/6/28.

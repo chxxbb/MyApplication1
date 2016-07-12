@@ -1,9 +1,11 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.chen.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;

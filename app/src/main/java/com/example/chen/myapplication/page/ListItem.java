@@ -1,4 +1,4 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.page;
 
 /**
  * Created by Chen on 2016/6/4.

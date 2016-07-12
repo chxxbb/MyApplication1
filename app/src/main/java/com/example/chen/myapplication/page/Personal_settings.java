@@ -1,6 +1,5 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.page;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.example.chen.myapplication.utils.ContextUtil;
+import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.view.Personal_information_changes_page;
 
 /**
  * Created by Chen on 2016/7/7.

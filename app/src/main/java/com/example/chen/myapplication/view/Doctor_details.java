@@ -1,4 +1,4 @@
-package com.example.chen.myapplication;
+package com.example.chen.myapplication.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
+import com.example.chen.myapplication.page.ListAdapter;
+import com.example.chen.myapplication.page.ListItem;
+import com.example.chen.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
