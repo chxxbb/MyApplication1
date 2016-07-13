@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".view.Personal_settings_head_portrait_change_page">
+        <activity android:name=".view.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +35,7 @@
         <activity android:name=".view.Binding_mobile_phone_page"></activity>
         <activity android:name=".view.Personal_settings_name_change_page"></activity>
         <activity android:name=".view.Personal_settings_sex_change_page"></activity>
-        <activity android:name=".view.Login"></activity>
+        <activity android:name=".view.Personal_settings_head_portrait_change_page"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
