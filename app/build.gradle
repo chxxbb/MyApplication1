@@ -28,5 +28,6 @@ dependencies {
     compile project(':banner')
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'com.squareup.okio:okio:1.8.0'
+    compile 'com.jph.takephoto:takephoto_library:1.0.1'
     compile 'com.google.code.gson:gson:2.2.4'
 }
