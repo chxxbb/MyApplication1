@@ -15,6 +15,7 @@ public class Setting extends Activity {
 
     RelativeLayout setting_update = null;
     RelativeLayout setting_password_change = null;
+    RelativeLayout setting_feedback = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +40,13 @@ public class Setting extends Activity {
             }
         });
 
+        setting_feedback = (RelativeLayout) findViewById(R.id.setting_feedback);
+        setting_feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Setting.this, Setting_feedback.class);
+                startActivity(intent);
+            }
+        });
     }
 }
