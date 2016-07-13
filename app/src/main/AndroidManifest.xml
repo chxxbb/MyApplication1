@@ -37,6 +37,7 @@
         <activity android:name=".view.Personal_settings_sex_change_page"></activity>
         <activity android:name=".view.Personal_settings_head_portrait_change_page"></activity>
         <activity android:name=".view.Setting"></activity>
+        <activity android:name=".view.Setting_update_page"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
