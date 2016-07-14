@@ -41,6 +41,7 @@
         <activity android:name=".view.Setting_password_change"></activity>
         <activity android:name=".view.Setting_feedback"></activity>
         <activity android:name=".view.My_doctor"></activity>
+        <activity android:name=".view.My_reservation"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>

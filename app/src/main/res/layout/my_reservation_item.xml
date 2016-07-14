@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/my_reservation_item_shape"
+    android:paddingBottom="@dimen/y24">
+
+    <RelativeLayout
+        android:id="@+id/my_reservation_item_top_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y68">
+
+        <TextView
+            android:id="@+id/my_reservation_item_top_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x20"
+            android:gravity="center_vertical"
+            android:text="预约挂号订单"
+            android:textColor="#323232"
+            android:textSize="@dimen/y30" />
+
+        <TextView
+            android:id="@+id/my_reservation_item_top_type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x20"
+            android:gravity="center_vertical"
+            android:textColor="#3496d3"
+            android:textSize="@dimen/y24" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/my_reservation_item_botton_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_reservation_item_top_relativelayout"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/y20"
+        android:text="订单号:"
+        android:textColor="#999999"
+        android:textSize="@dimen/y26" />
+
+    <TextView
+        android:id="@+id/my_reservation_item_botton_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_reservation_item_botton_number_text"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/y16"
+        android:text="有效期:"
+        android:textColor="#999999"
+        android:textSize="@dimen/y26" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/x20"
+        android:text="详情 > "
+        android:textColor="#999999"
+        android:textSize="@dimen/y20" />
+
+</RelativeLayout>

@@ -80,7 +80,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/personal_settings_order_relativelayout"
+        android:id="@+id/personal_settings_reservation_relativelayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y88"
         android:layout_below="@id/personal_settings_basic_information_relativelayout"
@@ -107,7 +107,7 @@
             android:layout_marginLeft="@dimen/x40"
             android:layout_toRightOf="@id/personal_settings_order_image"
             android:gravity="center"
-            android:text="我的订单"
+            android:text="我的预约"
             android:textColor="#323232"
             android:textSize="@dimen/y32" />
 
@@ -132,7 +132,7 @@
         android:id="@+id/personal_settings_report_relativelayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y88"
-        android:layout_below="@id/personal_settings_order_relativelayout"
+        android:layout_below="@id/personal_settings_reservation_relativelayout"
         android:background="@android:color/white">
 
         <ImageView
