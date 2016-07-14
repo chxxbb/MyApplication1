@@ -1,7 +1,10 @@
 package com.example.chen.myapplication.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -32,6 +35,14 @@ public class My_reservation extends Activity {
                         R.id.my_reservation_item_botton_time_text});
 
         my_reservation_listview.setAdapter(adapter);
+
+        my_reservation_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(My_reservation.this, My_reservation_page.class);
+                My_reservation.this.startActivity(intent);
+            }
+        });
 
     }
 
