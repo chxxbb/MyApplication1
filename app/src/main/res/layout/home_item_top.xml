@@ -246,7 +246,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x40"
             android:layout_marginTop="@dimen/y20"
-            android:text="病案管理"
+            android:text="健康管理"
             android:textColor="#222222"
             android:textSize="@dimen/x30" />
 
