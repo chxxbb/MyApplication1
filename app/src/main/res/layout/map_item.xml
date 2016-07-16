@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/map_hospital_name_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:paddingLeft="@dimen/x40">
+
+        <TextView
+            android:id="@+id/map_hospital_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/map_hospital_address_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/map_hospital_name_relativelayout"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/x40">
+
+        <ImageView
+            android:id="@+id/map_hospital_address_image"
+            android:layout_width="@dimen/x22"
+            android:layout_height="@dimen/y24"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x6"
+            android:src="@mipmap/map_address" />
+
+        <TextView
+            android:id="@+id/map_hospital_address_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x26"
+            android:layout_toRightOf="@id/map_hospital_address_image"
+            android:textColor="#323232"
+            android:textSize="@dimen/y28" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/map_hospital_phone_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_below="@id/map_hospital_address_relativelayout"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/x40">
+
+        <ImageView
+            android:id="@+id/map_hospital_phone_image"
+            android:layout_width="@dimen/x22"
+            android:layout_height="@dimen/y24"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x6"
+            android:src="@mipmap/map_phone" />
+
+        <TextView
+            android:id="@+id/map_hospital_phone_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x26"
+            android:layout_toRightOf="@id/map_hospital_phone_image"
+            android:textColor="#323232"
+            android:textSize="@dimen/y28" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

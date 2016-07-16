@@ -43,6 +43,7 @@
         <activity android:name=".view.My_doctor"></activity>
         <activity android:name=".view.My_reservation"></activity>
         <activity android:name=".view.My_reservation_page"></activity>
+        <activity android:name=".view.Map_page"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
