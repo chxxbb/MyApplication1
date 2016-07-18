@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4">
+
+    <RelativeLayout
+        android:id="@+id/wikipedia_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentTop="true"
+        android:background="#3496d3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="健康百科"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x36" />
+
+        <ImageView
+            android:id="@+id/wikipedia_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/registered_exit" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/wikipedia_disease_library_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y68"
+        android:layout_below="@id/wikipedia_title_relativelayout"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:gravity="center"
+            android:text="常见疾病"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/wikipedia_disease_library_label_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y186"
+        android:layout_below="@id/wikipedia_disease_library_relativelayout"
+        android:background="@android:color/white"
+        android:paddingBottom="@dimen/y30"
+        android:paddingLeft="@dimen/x48"
+        android:paddingRight="@dimen/x48"
+        android:paddingTop="@dimen/y20">
+
+        <Button
+            android:id="@+id/wikipedia_disease_library_label_1"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y58"
+            android:background="@drawable/wikipedia_label_shape"
+            android:gravity="center"
+            android:text="自闭症"
+            android:textColor="#999999"
+            android:textSize="@dimen/y26" />
+
+        <Button
+            android:id="@+id/wikipedia_disease_library_label_2"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y58"
+            android:layout_marginLeft="@dimen/x18"
+            android:layout_toRightOf="@id/wikipedia_disease_library_label_1"
+            android:background="@drawable/wikipedia_label_shape"
+            android:gravity="center"
+            android:text="小儿麻痹"
+            android:textColor="#999999"
+            android:textSize="@dimen/y26" />
+
+        <Button
+            android:id="@+id/wikipedia_disease_library_label_3"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y58"
+            android:layout_marginLeft="@dimen/x18"
+            android:layout_toRightOf="@id/wikipedia_disease_library_label_2"
+            android:background="@drawable/wikipedia_label_shape"
+            android:gravity="center"
+            android:text="过敏性鼻炎"
+            android:textColor="#999999"
+            android:textSize="@dimen/y26" />
+
+        <Button
+            android:id="@+id/wikipedia_disease_library_label_4"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y58"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/wikipedia_label_shape"
+            android:gravity="center"
+            android:text="发育迟缓"
+            android:textColor="#999999"
+            android:textSize="@dimen/y26" />
+
+        <Button
+            android:id="@+id/wikipedia_disease_library_label_5"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y58"
+            android:layout_below="@id/wikipedia_disease_library_label_1"
+            android:layout_marginTop="@dimen/y20"
+            android:background="@drawable/wikipedia_label_shape"
+            android:gravity="center"
+            android:text="儿童糖尿病"
+            android:textColor="#999999"
+            android:textSize="@dimen/y26" />
+
+        <Button
+            android:id="@+id/wikipedia_disease_library_label_6"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y58"
+            android:layout_below="@id/wikipedia_disease_library_label_2"
+            android:layout_marginLeft="@dimen/x18"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_toRightOf="@id/wikipedia_disease_library_label_5"
+            android:background="@drawable/wikipedia_label_shape"
+            android:gravity="center"
+            android:text="哮喘"
+            android:textColor="#999999"
+            android:textSize="@dimen/y26" />
+
+        <Button
+            android:id="@+id/wikipedia_disease_library_label_7"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y58"
+            android:layout_below="@id/wikipedia_disease_library_label_3"
+            android:layout_marginLeft="@dimen/x18"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_toRightOf="@id/wikipedia_disease_library_label_6"
+            android:background="@drawable/wikipedia_label_shape"
+            android:gravity="center"
+            android:text="小儿斜弱视"
+            android:textColor="#999999"
+            android:textSize="@dimen/y26" />
+
+        <Button
+            android:id="@+id/wikipedia_disease_library_label_8"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y58"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/wikipedia_disease_library_label_3"
+            android:layout_marginTop="@dimen/y20"
+            android:background="@drawable/wikipedia_label_shape"
+            android:gravity="center"
+            android:text="小儿腹泻"
+            android:textColor="#999999"
+            android:textSize="@dimen/y26" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/wikipedia_news_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y68"
+        android:layout_below="@id/wikipedia_disease_library_label_relativelayout"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:gravity="center"
+            android:text="热门资讯"
+            android:textColor="#323232"
+            android:textSize="@dimen/y32" />
+
+        <ImageView
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/wikipedia_news_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wikipedia_news_relativelayout"
+        android:divider="#e0e0e0"
+        android:dividerHeight="@dimen/y1" />
+
+
+</RelativeLayout>

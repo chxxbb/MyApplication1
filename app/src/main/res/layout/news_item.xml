@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingBottom="@dimen/y20"
+    android:paddingLeft="@dimen/x40"
+    android:paddingRight="@dimen/x40"
+    android:paddingTop="@dimen/y20">
+
+    <ImageView
+        android:id="@+id/news_item_image"
+        android:layout_width="@dimen/x160"
+        android:layout_height="@dimen/y120" />
+
+    <TextView
+        android:id="@+id/news_item_title_text"
+        style=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/x18"
+        android:layout_toRightOf="@id/news_item_image"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#323232"
+        android:textSize="@dimen/y32"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/news_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/news_item_title_text"
+        android:layout_marginLeft="@dimen/x18"
+        android:layout_marginTop="@dimen/y5"
+        android:layout_toRightOf="@id/news_item_image"
+        android:ellipsize="end"
+        android:lines="2"
+        android:textColor="#666666"
+        android:textSize="@dimen/y26" />
+
+</RelativeLayout>

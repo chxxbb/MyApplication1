@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import com.example.chen.myapplication.page.Home;
 import com.example.chen.myapplication.page.Personal_settings;
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.page.Wikipedia;
 
 /**
  * Created by Chen on 2016/6/6.
@@ -20,9 +21,11 @@ public class activity_fragment extends Activity implements View.OnClickListener 
 
     RelativeLayout activity_title_tag1, activity_title_tag2, activity_title_tag3, activity_title_tag4;
 
-    Home fg1, fg2, fg3;
+    Home fg1, fg3;
 
     Personal_settings fg4;
+
+    Wikipedia fg2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,7 +78,7 @@ public class activity_fragment extends Activity implements View.OnClickListener 
                 activity_title_tag2.setSelected(true);
 
                 if (fg2 == null) {
-                    fg2 = new Home();
+                    fg2 = new Wikipedia();
                     mFragmentTransaction.add(R.id.activity_framelayout, fg2);
                 } else {
                     mFragmentTransaction.show(fg2);
