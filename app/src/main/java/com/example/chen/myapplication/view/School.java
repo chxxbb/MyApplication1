@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.page.Classroom;
+import com.example.chen.myapplication.page.Curriculum;
 import com.example.chen.myapplication.page.Home;
 import com.example.chen.myapplication.page.Personal_settings;
 import com.example.chen.myapplication.page.Wikipedia;
@@ -22,7 +23,8 @@ public class School extends Activity implements View.OnClickListener {
     RelativeLayout activity_title_tag1, activity_title_tag2;
     View school_title_curriculum_view, school_title_classroom_view;
 
-    Classroom fg1, fg2;
+    Curriculum fg1;
+    Classroom fg2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,7 +65,7 @@ public class School extends Activity implements View.OnClickListener {
                 school_title_curriculum_view.setVisibility(View.VISIBLE);
 
                 if (fg1 == null) {
-                    fg1 = new Classroom();
+                    fg1 = new Curriculum();
                     mFragmentTransaction.add(R.id.school_framelayout, fg1);
                 } else {
                     mFragmentTransaction.show(fg1);

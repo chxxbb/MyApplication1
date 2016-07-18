@@ -85,26 +85,4 @@ public class Classroom extends Fragment {
 
     }
 
-    public List<Map<String, Object>> getData() {
-
-        //这里是要填入的图片,转成Bitmap格式
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
-
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("img1", bitmap);
-        map.put("img2", bitmap);
-        map.put("text1", "fkjgsklafjgkladjfklajdflkajdsfkljasdlkfjalkdsfjkasdf");
-        map.put("text2", "健康童年");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("img1", bitmap);
-        map.put("img2", bitmap);
-        map.put("text1", "fkjgsklafjgkladjfklajdflkajdsfkljasdlkfjalkdsfjkasdf");
-        map.put("text2", "健康童年");
-        list.add(map);
-
-        return list;
-    }
 }

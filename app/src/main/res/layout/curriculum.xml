@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/curriculum_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y68"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:gravity="center"
+            android:text="专家课程"
+            android:textColor="#494949"
+            android:textSize="@dimen/y30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/curriculum_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/curriculum_title"
+        android:background="@android:color/white"
+        android:divider="#e0e0e0"
+        android:dividerHeight="@dimen/y1"
+        android:paddingLeft="@dimen/x40"
+        android:paddingRight="@dimen/x40" />
+
+</RelativeLayout>
