@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4">
+
+    <RelativeLayout
+        android:id="@+id/health_management_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="健康管理"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/x36" />
+
+        <ImageView
+            android:id="@+id/health_management_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/health_management_exit" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/health_management_table_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:layout_below="@id/health_management_title_relativelayout"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/health_management_table_health_management"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/health_management_table_health_management_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="健康档案"
+                android:textColor="#666666"
+                android:textSize="@dimen/y30" />
+
+            <View
+                android:id="@+id/health_management_table_health_management_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:layout_alignParentBottom="true"
+                android:background="#3496d3"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/health_management_table_health_record"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/health_management_table_health_record_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="健康记录"
+                android:textColor="#666666"
+                android:textSize="@dimen/y30" />
+
+            <View
+                android:id="@+id/health_management_table_health_record_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:layout_alignParentBottom="true"
+                android:background="#3496d3"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/health_management_table_doctor_advised"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/health_management_table_doctor_advised_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="医生建议"
+                android:textColor="#666666"
+                android:textSize="@dimen/y30" />
+
+            <View
+                android:id="@+id/health_management_table_doctor_advised_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:layout_alignParentBottom="true"
+                android:background="#3496d3"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/health_management_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/health_management_table_relativelayout"
+        android:background="@null" />
+
+</RelativeLayout>

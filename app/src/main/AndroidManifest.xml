@@ -45,6 +45,7 @@
         <activity android:name=".view.My_reservation_page"></activity>
         <activity android:name=".view.Map_page"></activity>
         <activity android:name=".view.School"></activity>
+        <activity android:name=".view.Health_management"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>

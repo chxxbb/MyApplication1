@@ -21,6 +21,7 @@ import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.view.Diagnosis_management;
 import com.example.chen.myapplication.view.Disease_library;
 import com.example.chen.myapplication.view.Doctor_warehouse;
+import com.example.chen.myapplication.view.Health_management;
 import com.example.chen.myapplication.view.Map_page;
 import com.example.chen.myapplication.view.Medical_registration;
 import com.example.chen.myapplication.view.Message_activity;
@@ -161,6 +162,16 @@ public class ListAdapter extends BaseAdapter {
                         activity.startActivity(intent);
                     }
                 });
+
+                holder.home_navigation_relativelayout = (RelativeLayout) convertView.findViewById(R.id.home_navigation_relativelayout);
+                holder.home_navigation_relativelayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(activity, Health_management.class);
+                        activity.startActivity(intent);
+                    }
+                });
+
 
                 break;
             }
@@ -351,6 +362,7 @@ public class ListAdapter extends BaseAdapter {
         RelativeLayout home_angel_Disease_library_relativelayout = null;
         RelativeLayout home_angel_Map_relativelayout = null;
         RelativeLayout home_angel_school = null;
+        RelativeLayout home_navigation_relativelayout = null;
     }
 
     static class BottonViewHolder {
