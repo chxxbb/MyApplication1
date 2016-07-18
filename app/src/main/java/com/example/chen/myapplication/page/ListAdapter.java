@@ -2,6 +2,8 @@ package com.example.chen.myapplication.page;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -13,6 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.view.Diagnosis_management;
@@ -21,6 +24,7 @@ import com.example.chen.myapplication.view.Doctor_warehouse;
 import com.example.chen.myapplication.view.Map_page;
 import com.example.chen.myapplication.view.Medical_registration;
 import com.example.chen.myapplication.view.Message_activity;
+import com.example.chen.myapplication.view.School;
 import com.youth.banner.Banner;
 
 import java.util.List;
@@ -145,6 +149,15 @@ public class ListAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(activity, Map_page.class);
+                        activity.startActivity(intent);
+                    }
+                });
+
+                holder.home_angel_school = (RelativeLayout) convertView.findViewById(R.id.home_angel_school);
+                holder.home_angel_school.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(activity, School.class);
                         activity.startActivity(intent);
                     }
                 });
@@ -275,6 +288,48 @@ public class ListAdapter extends BaseAdapter {
                 break;
             }
 
+            case ListItem.TYPE_CLASSROOM: {
+                Classroom_Holder holder = null;
+                if (convertView == null) {
+                    convertView = activity.getLayoutInflater().inflate(R.layout.classroom_item, null);
+                    holder = new Classroom_Holder();
+
+                    //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行,一般用来获取控件.
+                    holder.classroom_img1 = (ImageView) convertView.findViewById(R.id.classroom_item_img_1);
+                    holder.classroom_img2 = (ImageView) convertView.findViewById(R.id.classroom_item_img_2);
+                    holder.classroom_text1 = (TextView) convertView.findViewById(R.id.classroom_item_text_1);
+                    holder.classroom_text2 = (TextView) convertView.findViewById(R.id.classroom_item_text_2);
+
+                    holder.classroom_img1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(activity, "播放视频1", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    holder.classroom_img2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(activity, "播放视频2", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                    //凭借该方法添加标志,以判断是否以前创建过布局
+                    convertView.setTag(holder);
+                } else {
+                    holder = (Classroom_Holder) convertView.getTag();
+                }
+                //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
+                holder.classroom_text1.setText("ssssssssssssssssss");
+                holder.classroom_text2.setText("sdasdasdasdasdasdasdasdasd");
+
+                Bitmap bitmap = BitmapFactory.decodeResource(activity.getResources(), R.mipmap.ic_launcher);
+
+                holder.classroom_img1.setImageBitmap(bitmap);
+                holder.classroom_img2.setImageBitmap(bitmap);
+
+                break;
+            }
+
 
             default:
                 break;
@@ -295,6 +350,7 @@ public class ListAdapter extends BaseAdapter {
         RelativeLayout home_diagnosis_management_relativelayout = null;
         RelativeLayout home_angel_Disease_library_relativelayout = null;
         RelativeLayout home_angel_Map_relativelayout = null;
+        RelativeLayout home_angel_school = null;
     }
 
     static class BottonViewHolder {
@@ -321,6 +377,12 @@ public class ListAdapter extends BaseAdapter {
     }
 
     static class Message_Holder {
+
+    }
+
+    static class Classroom_Holder {
+        ImageView classroom_img1 = null, classroom_img2 = null;
+        TextView classroom_text1 = null, classroom_text2 = null;
 
     }
 

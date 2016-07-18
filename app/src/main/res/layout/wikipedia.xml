@@ -19,15 +19,6 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/x36" />
 
-        <ImageView
-            android:id="@+id/wikipedia_exit"
-            android:layout_width="@dimen/x32"
-            android:layout_height="@dimen/x32"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/x40"
-            android:src="@mipmap/registered_exit" />
-
     </RelativeLayout>
 
 

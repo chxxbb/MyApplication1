@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4">
+
+    <RelativeLayout
+        android:id="@+id/school_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/school_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/registered_exit" />
+
+        <View
+            android:id="@+id/school_title_view"
+            android:layout_width="@dimen/x1"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@null" />
+
+        <RelativeLayout
+            android:id="@+id/school_title_curriculum_relative"
+            android:layout_width="@dimen/x190"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/school_title_view">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="课程表"
+                android:textColor="#323232"
+                android:textSize="@dimen/y36" />
+
+            <View
+                android:id="@+id/school_title_curriculum_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentBottom="true"
+                android:background="#3496d3"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/school_title_classroom_relative"
+            android:layout_width="@dimen/x190"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/school_title_view">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="知识讲堂"
+                android:textColor="#323232"
+                android:textSize="@dimen/y36" />
+
+            <View
+                android:id="@+id/school_title_classroom_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y6"
+                android:layout_alignParentBottom="true"
+                android:background="#3496d3"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/school_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/school_title_relativelayout"
+        android:layout_marginTop="@dimen/y20" />
+
+
+</RelativeLayout>
