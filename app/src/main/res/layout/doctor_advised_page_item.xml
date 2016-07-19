@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null">
+
+    <RelativeLayout
+        android:id="@+id/doctor_advised_page_item_time_relativelayout"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y40"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/doctor_advised_page_item_shape"
+        android:paddingLeft="@dimen/x16"
+        android:paddingRight="@dimen/x16">
+
+        <TextView
+            android:id="@+id/doctor_advised_page_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:lines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y22" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/doctor_advised_page_item_time_relativelayout"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/health_management_page_item_shape"
+        android:paddingBottom="@dimen/y24"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:paddingTop="@dimen/y26">
+
+        <TextView
+            android:id="@+id/doctor_advised_page_item_content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#323232"
+            android:textSize="@dimen/y28" />
+
+        <View
+            android:id="@+id/doctor_advised_page_item_content_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_below="@id/doctor_advised_page_item_content_text"
+            android:layout_marginTop="@dimen/y20"
+            android:background="#e0e0e0" />
+
+        <TextView
+            android:id="@+id/doctor_advised_page_item_botton_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/doctor_advised_page_item_content_view"
+            android:layout_marginTop="@dimen/y20"
+            android:text="健康档案"
+            android:textColor="#3496d3"
+            android:textSize="@dimen/y24" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
