@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4">
+
+    <RelativeLayout
+        android:id="@+id/medical_record_top_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_alignParentTop="true"
+        android:background="#3496d3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="诊疗管理"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x36" />
+
+        <ImageView
+            android:id="@+id/medical_record_exit"
+            android:layout_width="@dimen/x32"
+            android:layout_height="@dimen/x32"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@mipmap/registered_exit" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/medical_record_title_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y68"
+        android:layout_below="@id/medical_record_top_title_relativelayout"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="我的医生"
+            android:textColor="#323232"
+            android:textSize="@dimen/y30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/medical_record_doctor_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y174"
+        android:layout_below="@id/medical_record_title_relativelayout"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/medical_record_doctor_level_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="行为发育科一级专家"
+            android:textColor="#323232"
+            android:textSize="@dimen/y26" />
+
+        <TextView
+            android:id="@+id/medical_record_doctor_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/medical_record_doctor_level_text"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="柳下惠    主任医师"
+            android:textColor="#323232"
+            android:textSize="@dimen/y26" />
+
+        <TextView
+            android:id="@+id/medical_record_doctor_hospital_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/medical_record_doctor_level_text"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="深圳天使儿童医院"
+            android:textColor="#323232"
+            android:textSize="@dimen/y26" />
+
+        <ImageView
+            android:id="@+id/medical_record_doctor_next_image"
+            android:layout_width="@dimen/x16"
+            android:layout_height="@dimen/y26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@mipmap/diagnosis_department_item_image" />
+
+        <ImageView
+            android:id="@+id/medical_record_doctor_photo_image"
+            android:layout_width="@dimen/x130"
+            android:layout_height="@dimen/x130"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:layout_toLeftOf="@id/medical_record_doctor_next_image"
+            android:src="@mipmap/home_doctor_imageview_test" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/medical_record_diagnosis_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y68"
+        android:layout_below="@id/medical_record_doctor_relativelayout"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="诊断"
+            android:textColor="#323232"
+            android:textSize="@dimen/y30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/medical_record_diagnosis_content_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/medical_record_diagnosis_relativelayout"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/medical_record_diagnosis_content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="left|top"
+            android:paddingBottom="@dimen/y30"
+            android:paddingLeft="@dimen/x40"
+            android:paddingRight="@dimen/x40"
+            android:paddingTop="@dimen/y20"
+            android:text="大夫撒旦发射基地发威了开发力度上看妇女拉客的说法vlakfmdlk阿桑德拉克发送到离开f阿的说法
+            卡电视缴费卢卡斯的积分卡临时搭建反抗拉萨大家克拉萨大家反抗拉萨大家反抗拉萨大家反抗拉萨大家克拉萨的j阿斯蒂芬阿斯蒂芬阿萨德f爱的色放阿萨德
+            阿萨德发生的发速读法第三方阿斯蒂芬安德森发呆发大水安德森阿萨德阿萨德撒大神的爱上大是的发生的"
+            android:textColor="#666666"
+            android:textSize="@dimen/y26" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/medical_record_charged_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y68"
+        android:layout_below="@id/medical_record_diagnosis_content_relativelayout"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:text="医生嘱咐"
+            android:textColor="#323232"
+            android:textSize="@dimen/y30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="#e0e0e0" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/medical_record_charged_content_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/medical_record_charged_relativelayout"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/medical_record_charged_content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="left|top"
+            android:paddingBottom="@dimen/y30"
+            android:paddingLeft="@dimen/x40"
+            android:paddingRight="@dimen/x40"
+            android:paddingTop="@dimen/y20"
+            android:text="大夫撒旦发射基地发威了开发力度上看妇女拉客的说法vlakfmdlk阿桑德拉克发送到离开f阿的说法
+            卡电视缴费卢卡斯的积分卡临时搭建反抗拉萨大家克拉萨大家反抗拉萨大家反抗拉萨大家反抗拉萨大家克拉萨的j阿斯蒂芬阿斯蒂芬阿萨德f爱的色放阿萨德
+            阿萨德发生的发速读法第三方阿斯蒂芬安德森发呆发大水安德森阿萨德阿萨德撒大神的爱上大是的发生的"
+            android:textColor="#666666"
+            android:textSize="@dimen/y26" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y78"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentTop="true"
+            android:background="#e4e4e4" />
+
+        <Button
+            android:id="@+id/medical_record_button_reservation"
+            android:layout_width="@dimen/x200"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="#3496d3"
+            android:text="预约复诊"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y28" />
+
+        <Button
+            android:id="@+id/medical_record_button_consulting"
+            android:layout_width="@dimen/x200"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_toLeftOf="@id/medical_record_button_reservation"
+            android:background="#3496d3"
+            android:text="咨询医生"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y28" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

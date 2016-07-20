@@ -1,7 +1,10 @@
 package com.example.chen.myapplication.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -29,6 +32,14 @@ public class Diagnosis_management extends Activity {
                 R.id.diagnosis_management_item_department_text});
 
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(Diagnosis_management.this, Medical_record.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
