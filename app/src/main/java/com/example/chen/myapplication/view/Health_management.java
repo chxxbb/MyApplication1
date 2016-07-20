@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.page.Doctor_advised_page;
 import com.example.chen.myapplication.page.Health_management_page;
+import com.example.chen.myapplication.page.Health_records_page;
 
 /**
  * Created by Chen on 2016/7/18.
@@ -20,9 +21,11 @@ public class Health_management extends Activity implements View.OnClickListener 
 
     RelativeLayout activity_title_tag1, activity_title_tag2, activity_title_tag3;
 
-    Health_management_page fg1, fg2;
+    Health_management_page fg1;
 
     Doctor_advised_page fg3;
+
+    Health_records_page fg2;
 
     View health_management_table_health_management_view, health_management_table_health_record_view, health_management_table_doctor_advised_view;
 
@@ -89,7 +92,7 @@ public class Health_management extends Activity implements View.OnClickListener 
                 health_management_table_health_record_text.setTextColor(0xFF3496d3);
 
                 if (fg2 == null) {
-                    fg2 = new Health_management_page();
+                    fg2 = new Health_records_page();
                     mFragmentTransaction.add(R.id.health_management_framelayout, fg2);
                 } else {
                     mFragmentTransaction.show(fg2);

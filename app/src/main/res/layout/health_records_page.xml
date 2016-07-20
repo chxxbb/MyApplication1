@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:paddingBottom="@dimen/y20"
+    android:paddingLeft="@dimen/x40"
+    android:paddingRight="@dimen/x40"
+    android:paddingTop="@dimen/y30">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/health_management_page_item_shape">
+
+
+        <RelativeLayout
+            android:id="@+id/health_records_page_title_relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y68">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x20"
+                android:text="健康记录"
+                android:textColor="#999999"
+                android:textSize="@dimen/y24" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_alignParentBottom="true"
+                android:background="#e0e0e0" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/health_records_page_sleep_relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y88"
+            android:layout_below="@id/health_records_page_title_relativelayout"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20">
+
+            <TextView
+                android:id="@+id/health_records_page_sleep_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="睡眠 : "
+                android:textColor="#323232"
+                android:textSize="@dimen/y30" />
+
+            <EditText
+                android:id="@+id/health_records_page_sleep_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_toRightOf="@id/health_records_page_sleep_title"
+                android:background="@null"
+                android:maxLength="14"
+                android:maxLines="1"
+                android:textColor="#999999"
+                android:textSize="@dimen/y30" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_alignParentBottom="true"
+                android:background="#e0e0e0" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/health_records_page_food_relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y176"
+            android:layout_below="@id/health_records_page_sleep_relativelayout"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20">
+
+            <TextView
+                android:id="@+id/health_records_page_food_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y29"
+                android:text="食物 : "
+                android:textColor="#323232"
+                android:textSize="@dimen/y30" />
+
+
+            <EditText
+                android:id="@+id/health_records_page_food_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginTop="@dimen/y29"
+                android:layout_toRightOf="@id/health_records_page_food_title"
+                android:background="@null"
+                android:gravity="top|left"
+                android:maxLength="45"
+                android:maxLines="4"
+                android:minLines="2"
+                android:textColor="#999999"
+                android:textSize="@dimen/y30" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_alignParentBottom="true"
+                android:background="#e0e0e0" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/health_records_page_movement_relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y88"
+            android:layout_below="@id/health_records_page_food_relativelayout"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20">
+
+            <TextView
+                android:id="@+id/health_records_page_movement_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="运动 : "
+                android:textColor="#323232"
+                android:textSize="@dimen/y30" />
+
+            <EditText
+                android:id="@+id/health_records_page_movement_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_toRightOf="@id/health_records_page_movement_title"
+                android:background="@null"
+                android:maxLength="14"
+                android:maxLines="1"
+                android:textColor="#999999"
+                android:textSize="@dimen/y30" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_alignParentBottom="true"
+                android:background="#e0e0e0" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/health_records_page_psychological_relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y176"
+            android:layout_below="@id/health_records_page_movement_relativelayout"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20">
+
+            <TextView
+                android:id="@+id/health_records_page_psychological_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y29"
+                android:text="心理行为 : "
+                android:textColor="#323232"
+                android:textSize="@dimen/y30" />
+
+
+            <EditText
+                android:id="@+id/health_records_page_psychological_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginTop="@dimen/y29"
+                android:layout_toRightOf="@id/health_records_page_psychological_title"
+                android:background="@null"
+                android:gravity="top|left"
+                android:maxLength="45"
+                android:maxLines="4"
+                android:minLines="2"
+                android:textColor="#999999"
+                android:textSize="@dimen/y30" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_alignParentBottom="true"
+                android:background="#e0e0e0" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/health_records_page_note_relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y176"
+            android:layout_below="@id/health_records_page_psychological_relativelayout"
+            android:paddingLeft="@dimen/x20"
+            android:paddingRight="@dimen/x20">
+
+            <TextView
+                android:id="@+id/health_records_page_note_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y29"
+                android:text="备注 : "
+                android:textColor="#323232"
+                android:textSize="@dimen/y30" />
+
+
+            <EditText
+                android:id="@+id/health_records_page_note_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginTop="@dimen/y29"
+                android:layout_toRightOf="@id/health_records_page_note_title"
+                android:background="@null"
+                android:gravity="top|left"
+                android:hint="若有其他需特别告知的内容,请在此处填写."
+                android:maxLength="45"
+                android:maxLines="4"
+                android:minLines="2"
+                android:textColor="#999999"
+                android:textColorHint="#bbbbbc"
+                android:textSize="@dimen/y30" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_alignParentBottom="true"
+                android:background="#e0e0e0" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
