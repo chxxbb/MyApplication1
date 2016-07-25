@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.User;
+import com.example.chen.myapplication.data.User_data;
 import com.google.gson.Gson;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
@@ -25,6 +26,7 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class Login extends Activity implements View.OnClickListener {
 
@@ -45,20 +47,23 @@ public class Login extends Activity implements View.OnClickListener {
     OkHttpClient client = new OkHttpClient();
     Gson gson = new Gson();
     User user = null;
-    private static final MediaType MEDIA_TYPE_MARKDOWN
-            = MediaType.parse("text/x-markdown; charset=utf-8");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
         init();
 
     }
 
 
     private void init() {
+
+        //设置网络超时
+        client.setConnectTimeout(5, TimeUnit.SECONDS);
+        client.setWriteTimeout(5, TimeUnit.SECONDS);
+        client.setReadTimeout(10, TimeUnit.SECONDS);
+
         login_password_logo_right = (ImageView) findViewById(R.id.login_password_logo_right_imageview);
         login_password_logo_right.setOnClickListener(this);
 
@@ -120,10 +125,6 @@ public class Login extends Activity implements View.OnClickListener {
 
                     user.setPhone(userName);
                     user.setPassword(password);
-                    user.setAge(5);
-                    user.setName("sda");
-                    user.setIcon("asdfadfadfads");
-                    user.setId(1);
 
 
                     System.out.println(gson.toJson(user));
@@ -132,7 +133,7 @@ public class Login extends Activity implements View.OnClickListener {
                         @Override
                         public void run() {
                             RequestBody requestBody = RequestBody.create(JSON, gson.toJson(user));
-                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/userLogin.action").post(requestBody).build();
+                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/login").post(requestBody).build();
 
 
                             Call call = client.newCall(request);
@@ -142,25 +143,63 @@ public class Login extends Activity implements View.OnClickListener {
                                 @Override
                                 public void onFailure(Request request, IOException e) {
 
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(Login.this, "网络连接失败", Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+
                                 }
 
                                 @Override
                                 public void onResponse(Response response) throws IOException {
                                     String str = response.body().string();
                                     System.out.println(str);
+
+                                    if (str.equals("1")) {
+
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(Login.this, "用户名密码错误", Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+
+                                    } else if (str.equals("2")) {
+
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(Login.this, "没有该用户", Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+
+                                    } else {
+                                        user = null;
+                                        user = gson.fromJson(str, User.class);
+                                        User_data.user = user;
+                                        gohome();
+                                    }
+
                                 }
                             });
 
                         }
                     }).start();
 
-                    Intent intent_login = new Intent(this, activity_fragment.class);
-                    startActivity(intent_login);
-                    finish();
+
                 }
 
 
                 break;
         }
     }
+
+    private void gohome() {
+        Intent intent_login = new Intent(this, activity_fragment.class);
+        startActivity(intent_login);
+        finish();
+    }
+
 }
