@@ -18,6 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.data.Doctor;
+import com.example.chen.myapplication.data.HTTP_data;
+import com.example.chen.myapplication.data.User;
 import com.example.chen.myapplication.view.Diagnosis_management;
 import com.example.chen.myapplication.view.Disease_library;
 import com.example.chen.myapplication.view.Doctor_warehouse;
@@ -26,9 +29,21 @@ import com.example.chen.myapplication.view.Map_page;
 import com.example.chen.myapplication.view.Medical_registration;
 import com.example.chen.myapplication.view.Message_activity;
 import com.example.chen.myapplication.view.School;
+import com.google.gson.Gson;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 import com.youth.banner.Banner;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Chen on 2016/6/4.
@@ -37,6 +52,8 @@ public class ListAdapter extends BaseAdapter {
 
     private Activity activity;
     private List<ListItem> list;
+    TopViewHolder holder_top = null;
+    Timer timer;
 
     public ListAdapter(Activity activity) {
         this.activity = activity;
@@ -45,6 +62,12 @@ public class ListAdapter extends BaseAdapter {
     public void setList(List<ListItem> list) {
         this.list = list;
     }
+
+
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    OkHttpClient client = new OkHttpClient();
+    Gson gson = new Gson();
+    User user = null;
 
     @Override
     public int getCount() {
@@ -88,8 +111,10 @@ public class ListAdapter extends BaseAdapter {
             case ListItem.TYPE_TOP: {
                 TopViewHolder holder = null;    //创建该布局的持有人,通过持有人来改变布局内部
 
+
                 convertView = activity.getLayoutInflater().inflate(R.layout.home_item_top, null);   //加载相应布局
                 holder = new TopViewHolder();
+                holder_top = holder;
                 holder.mBanner = (Banner) convertView.findViewById(R.id.home_banner);
                 holder.home_doctor_warehouse_relayout = (RelativeLayout) convertView.findViewById(R.id.home_doctor_warehouse_relayout);
                 holder.home_doctor_warehouse_relayout.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +157,9 @@ public class ListAdapter extends BaseAdapter {
 
                 //处理布局,可通过持有人自由处理
                 holder.mBanner.setDelayTime(50000);
-                holder.mBanner.setImages(holder.imageViewUrl);
+                if (holder.imageViewUrl != null) {
+                    holder.mBanner.setImages(holder.imageViewUrl);
+                }
 
 
                 //点击诊疗管理按钮跳转到诊疗管理页面
@@ -186,10 +213,7 @@ public class ListAdapter extends BaseAdapter {
                     holder.home_doctor_imageView = (ImageView) convertView.findViewById(R.id.home_doctor_imageView);
 
                     holder.home_doctor_introduction = (TextView) convertView.findViewById(R.id.home_doctor_introduction);
-                    holder.spanString = new SpannableString("简介 : 的发送打飞机阿拉款到即发拉客敬佛i为此秒的vmaiomdaoi没法哦is的马佛is的没法哦的矛盾发生大幅阿斯蒂芬发给阿飞");
 
-                    holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
-                    holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 4, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
 
                     //凭借该方法添加标志,以判断是否以前创建过布局
                     convertView.setTag(holder);
@@ -198,8 +222,16 @@ public class ListAdapter extends BaseAdapter {
                 }
 
                 //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
+
+                Doctor doctor = list.get(position).getDoctor();
+
+                holder.spanString = new SpannableString(doctor.getBio());
+                holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
+                holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 2, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
+
                 holder.home_doctor_introduction.setText(holder.spanString);
                 holder.home_doctor_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
+
                 break;
             }
 
@@ -351,10 +383,8 @@ public class ListAdapter extends BaseAdapter {
 
     static class TopViewHolder {    //持有人
         Banner mBanner = null;
-        String[] imageViewUrl = new String[]{   //Banner图片源,可以文件,可以URL
-                "http://img540.ph.126.net/5PyPfeSlM3ZWt_npImBosw==/1348265138445286339.jpg", "http://cdn.duitang.com/uploads/item/201112/27/20111227143751_TtLkL.jpg",
-                "http://pic27.nipic.com/20130227/7224820_020411089000_2.jpg"
-        };
+        String[] imageViewUrl = HTTP_data.Banner_img;
+
         RelativeLayout home_doctor_warehouse_relayout = null;
         RelativeLayout home_top_register = null;
         ImageView home_message_imageview = null;
@@ -369,6 +399,7 @@ public class ListAdapter extends BaseAdapter {
         ImageView home_doctor_imageView = null;
         TextView home_doctor_introduction = null;
         SpannableString spanString = null;
+
     }
 
     static class DoctorWarehouseHolder {

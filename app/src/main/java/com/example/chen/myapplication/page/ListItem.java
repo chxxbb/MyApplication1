@@ -1,5 +1,7 @@
 package com.example.chen.myapplication.page;
 
+import com.example.chen.myapplication.data.Doctor;
+
 /**
  * Created by Chen on 2016/6/4.
  */
@@ -19,10 +21,20 @@ public class ListItem {
 
     private String name;
     private int type;
+    private Doctor doctor;
+
+    public ListItem(int type) {
+        this.type = type;
+    }
 
     public ListItem(int type, String name) {
         this.type = type;
         this.name = name;
+    }
+
+    public ListItem(int type, Doctor doctor) {
+        this.type = type;
+        this.doctor = doctor;
     }
 
     public int getType() {
@@ -31,5 +43,9 @@ public class ListItem {
 
     public String getName() {
         return name;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
     }
 }

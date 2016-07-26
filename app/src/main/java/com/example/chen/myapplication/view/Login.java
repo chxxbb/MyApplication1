@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
 import com.example.chen.myapplication.data.User_data;
 import com.google.gson.Gson;
@@ -126,14 +127,11 @@ public class Login extends Activity implements View.OnClickListener {
                     user.setPhone(userName);
                     user.setPassword(password);
 
-
-                    System.out.println(gson.toJson(user));
-
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             RequestBody requestBody = RequestBody.create(JSON, gson.toJson(user));
-                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/login").post(requestBody).build();
+                            Request request = new Request.Builder().url(HTTP_data.http_data + "/login").post(requestBody).build();
 
 
                             Call call = client.newCall(request);
@@ -155,7 +153,6 @@ public class Login extends Activity implements View.OnClickListener {
                                 @Override
                                 public void onResponse(Response response) throws IOException {
                                     String str = response.body().string();
-                                    System.out.println(str);
 
                                     if (str.equals("1")) {
 

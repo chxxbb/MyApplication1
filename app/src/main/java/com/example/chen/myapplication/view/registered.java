@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
 import com.google.gson.Gson;
 import com.squareup.okhttp.Call;
@@ -123,7 +124,7 @@ public class registered extends Activity implements View.OnClickListener {
                         @Override
                         public void run() {
                             RequestBody requestBody = RequestBody.create(JSON, gson.toJson(user));
-                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/register").post(requestBody).build();
+                            Request request = new Request.Builder().url(HTTP_data.http_data + "/register").post(requestBody).build();
 
                             Call call = client.newCall(request);
 
@@ -142,7 +143,6 @@ public class registered extends Activity implements View.OnClickListener {
                                 public void onResponse(Response response) throws IOException {
 
                                     String str = response.body().string();
-                                    System.out.println(str);
 
                                     if (str.equals("1")) {
                                         runOnUiThread(new Runnable() {
@@ -194,7 +194,7 @@ public class registered extends Activity implements View.OnClickListener {
                         @Override
                         public void run() {
                             RequestBody requestBody = RequestBody.create(MEDIA_TYPE_MARKDOWN, registered_user.getText().toString());
-                            Request request = new Request.Builder().url("http://192.168.1.35:8080/ApplicationService/send").post(requestBody).build();
+                            Request request = new Request.Builder().url(HTTP_data.http_data + "/send").post(requestBody).build();
 
                             Call call = client.newCall(request);
 
