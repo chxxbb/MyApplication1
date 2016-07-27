@@ -56,9 +56,9 @@ public class Http_Bitmap {
         InputStream in = null;
         BufferedOutputStream out = null;
         try {
-            in = new BufferedInputStream(new URL(url).openStream(), 5 * 1024);
+            in = new BufferedInputStream(new URL(url).openStream(), 2 * 1024);
             final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
-            out = new BufferedOutputStream(dataStream, 5 * 1024);
+            out = new BufferedOutputStream(dataStream, 2 * 1024);
             IOUtil.copy(in, out);
             out.flush();
             byte[] data = dataStream.toByteArray();

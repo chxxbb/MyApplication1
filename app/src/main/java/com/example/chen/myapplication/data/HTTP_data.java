@@ -12,4 +12,6 @@ public class HTTP_data {
 
     public static String[] Banner_img = null;
 
+    public static HealthPedia healthPedia = null;
+
 }

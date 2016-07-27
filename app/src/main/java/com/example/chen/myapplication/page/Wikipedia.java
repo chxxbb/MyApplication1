@@ -1,6 +1,7 @@
 package com.example.chen.myapplication.page;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -21,7 +23,10 @@ import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.HealthPedia;
 import com.example.chen.myapplication.data.User;
 import com.example.chen.myapplication.data.User_data;
+import com.example.chen.myapplication.utils.ContextUtil;
 import com.example.chen.myapplication.utils.Http_Bitmap;
+import com.example.chen.myapplication.view.Health_information_page;
+import com.example.chen.myapplication.view.activity_fragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
@@ -65,6 +70,7 @@ public class Wikipedia extends Fragment {
     ListView listview;
     SimpleAdapter adapter;
     Bitmap bitmap;
+
 
     Handler handler = new Handler() {
         @Override
@@ -133,6 +139,7 @@ public class Wikipedia extends Fragment {
                     listview.setAdapter(adapter1);
 
                     break;
+
             }
 
 
@@ -171,11 +178,48 @@ public class Wikipedia extends Fragment {
             }
         });
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                final int position_http = position;
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        RequestBody requestBody = RequestBody.create(JSON, gson.toJson(position_http));
+                        Request request = new Request.Builder().url(HTTP_data.http_data + "/findHealthPediaId").post(requestBody).build();
+
+                        Call call = client.newCall(request);
+                        call.enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Request request, IOException e) {
+
+                            }
+
+                            @Override
+                            public void onResponse(Response response) throws IOException {
+                                String str = response.body().string();
+                                System.out.println(str);
+
+                                HealthPedia wikipedia = gson.fromJson(str, HealthPedia.class);
+
+                                HTTP_data.healthPedia = wikipedia;
+
+                                Intent intent = new Intent(getActivity(), Health_information_page.class);
+                                getActivity().startActivity(intent);
+
+                            }
+                        });
+                    }
+                }).start();
+            }
+        });
+
         return view;
     }
 
     public List<Map<String, Object>> getData() {
-
 //        这里是要填入的图片,转成Bitmap格式
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
 
@@ -185,7 +229,6 @@ public class Wikipedia extends Fragment {
         map.put("title", "正在加载");
         map.put("text", "正在加载");
         list.add(map);
-
 
         return list;
     }
@@ -208,7 +251,6 @@ public class Wikipedia extends Fragment {
 
                     @Override
                     public void onResponse(Response response) throws IOException {
-
                         String str = response.body().string();
 
                         List list_http = new ArrayList<HealthPedia>();
@@ -220,8 +262,6 @@ public class Wikipedia extends Fragment {
                         message.what = 1;
                         message.obj = list_http;
                         handler.sendMessage(message);
-
-//                        Http_Bitmap_Data(list_http);
 
                         list_bitmap_message = list_http;
                         List<Bitmap> list_bitmap = new ArrayList<Bitmap>();
