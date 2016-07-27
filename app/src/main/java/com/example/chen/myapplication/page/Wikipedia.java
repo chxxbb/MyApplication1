@@ -35,10 +35,12 @@ import org.apache.commons.io.IOUtil;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.ref.SoftReference;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -267,19 +269,45 @@ public class Wikipedia extends Fragment {
         InputStream in = null;
         BufferedOutputStream out = null;
         try {
-            in = new BufferedInputStream(new URL(url).openStream(), 2 * 1024);
+            in = new BufferedInputStream(new URL(url).openStream(), 5 * 1024);
             final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
-            out = new BufferedOutputStream(dataStream, 2 * 1024);
+            out = new BufferedOutputStream(dataStream, 5 * 1024);
             IOUtil.copy(in, out);
             out.flush();
             byte[] data = dataStream.toByteArray();
-            bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            bitmap = byteToBitmap(data);
+//            bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
             data = null;
             return bitmap;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static Bitmap byteToBitmap(byte[] imgByte) {
+        InputStream input = null;
+        Bitmap bitmap = null;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 2;
+        input = new ByteArrayInputStream(imgByte);
+        SoftReference softRef = new SoftReference(BitmapFactory.decodeStream(
+                input, null, options));
+        bitmap = (Bitmap) softRef.get();
+        if (imgByte != null) {
+            imgByte = null;
+        }
+
+        try {
+            if (input != null) {
+                input.close();
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return bitmap;
     }
 
 }
