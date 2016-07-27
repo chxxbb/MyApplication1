@@ -99,12 +99,6 @@ public class Home extends Fragment {
         //初始化
         item = null;
 
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
         if (list_doctor != null) {
             for (int i = 0; i < list_doctor.size(); i++) {
                 item = new ListItem(1, list_doctor.get(i));
@@ -151,7 +145,6 @@ public class Home extends Fragment {
 
                         for (int i = 0; i < list.size(); i++) {
                             http_img[i] = (String) list.get(i);
-                            System.out.println(http_img[i]);
                         }
 
                         HTTP_data.Banner_img = http_img;
@@ -184,14 +177,11 @@ public class Home extends Fragment {
                     @Override
                     public void onResponse(Response response) throws IOException {
                         String str = response.body().string();
-                        System.out.println(str);
 
                         list_doctor = new ArrayList<Doctor>();
 
                         list_doctor = gson.fromJson(str, new TypeToken<List<Doctor>>() {
                         }.getType());
-
-                        System.out.println("--------1--------" + (list_doctor.get(0)).toString());
 
                         Message message = new Message();
                         message.what = 2;

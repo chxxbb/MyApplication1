@@ -30,4 +30,5 @@ dependencies {
     compile 'com.squareup.okio:okio:1.8.0'
     compile 'com.jph.takephoto:takephoto_library:1.0.1'
     compile 'com.google.code.gson:gson:2.2.4'
+    compile 'commons-io:commons-io:20030203.000550'
 }
