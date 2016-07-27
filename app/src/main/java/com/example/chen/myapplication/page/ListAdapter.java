@@ -225,11 +225,14 @@ public class ListAdapter extends BaseAdapter {
 
                 Doctor doctor = list.get(position).getDoctor();
 
-                holder.spanString = new SpannableString(doctor.getBio());
-                holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
-                holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 2, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
+                if (doctor.getBio() != null) {
+                    holder.spanString = new SpannableString(doctor.getBio());
+                    holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
+                    holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 2, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
 
-                holder.home_doctor_introduction.setText(holder.spanString);
+                    holder.home_doctor_introduction.setText(holder.spanString);
+
+                }
                 holder.home_doctor_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
 
                 break;

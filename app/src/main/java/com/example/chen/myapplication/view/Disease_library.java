@@ -116,6 +116,14 @@ public class Disease_library extends Activity {
                     listview1.setAdapter(adapter1);
 
                     break;
+
+                case 3:
+                    List<String> data = (List<String>) msg.obj;
+
+                    listview2.setAdapter(new ArrayAdapter<String>(Disease_library.this, R.layout.disease_library_right_item, data));
+
+                    break;
+
             }
 
         }
@@ -156,7 +164,7 @@ public class Disease_library extends Activity {
 
                     disease_library_left_item_relativelayout_xxx = disease_library_left_item_relativelayout;
                     image_item_xxx = imageview_item_1;
-                    init_tow_data();
+                    init_tow_data(position);
 
                 } else {    //如果不是第一次点击,先恢复上一次改变的item,再改变本次点击的item样式
                     image_item_xxx.setVisibility(View.INVISIBLE);
@@ -171,7 +179,7 @@ public class Disease_library extends Activity {
                     image_item_xxx = imageview_item_1;
 
                     //每一次点击item,根据点击的item的不同,加载右边的listview
-                    init_tow_data();
+                    init_tow_data(position);
                 }
 
 
@@ -179,9 +187,6 @@ public class Disease_library extends Activity {
         });
     }
 
-    private void init_tow_data() {
-        listview2.setAdapter(new ArrayAdapter<String>(Disease_library.this, R.layout.disease_library_right_item, getDatatow()));
-    }
 
     public List<Map<String, Object>> getData() {
 
@@ -212,7 +217,7 @@ public class Disease_library extends Activity {
     }
 
     private void init_http_data() {
-//网络交互开始
+        //网络交互开始
         new Thread(new Runnable() {
             @Override
             public void run() {     //准备Banner图片地址
@@ -231,9 +236,6 @@ public class Disease_library extends Activity {
                     public void onResponse(Response response) throws IOException {
 
                         String str = response.body().string();
-
-                        System.out.println(str);
-
 
                         list_left_http = new ArrayList<Map<String, String>>();
 
@@ -267,4 +269,45 @@ public class Disease_library extends Activity {
             }
         }).start();
     }
+
+    private void init_tow_data(final int position) {
+//        listview2.setAdapter(new ArrayAdapter<String>(Disease_library.this, R.layout.disease_library_right_item, getDatatow()));
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {     //准备Banner图片地址
+                RequestBody requestBody = RequestBody.create(JSON, gson.toJson(position));
+                System.out.println(gson.toJson(position));
+                Request request = new Request.Builder().url(HTTP_data.http_data + "/findDiseaseList").post(requestBody).build();
+
+                Call call = client.newCall(request);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Request request, IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Response response) throws IOException {
+                        String str = response.body().string();
+                        System.out.println(str);
+
+                        List<String> list_right = new ArrayList<String>();
+
+                        list_right = gson.fromJson(str, new TypeToken<List<String>>() {
+                        }.getType());
+
+                        Message message = new Message();
+                        message.what = 3;
+                        message.arg1 = position;
+                        message.obj = list_right;
+                        handler.sendMessage(message);
+
+                    }
+                });
+            }
+        }).start();
+
+    }
+
 }

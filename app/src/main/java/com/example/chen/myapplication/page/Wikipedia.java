@@ -211,8 +211,6 @@ public class Wikipedia extends Fragment {
 
                         String str = response.body().string();
 
-                        System.out.println(str);
-
                         List list_http = new ArrayList<HealthPedia>();
 
                         list_http = gson.fromJson(str, new TypeToken<List<HealthPedia>>() {
