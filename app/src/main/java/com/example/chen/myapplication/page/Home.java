@@ -121,7 +121,7 @@ public class Home extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {     //准备Banner图片地址
-                RequestBody requestBody = RequestBody.create(JSON, gson.toJson(User_data.user));
+                RequestBody requestBody = RequestBody.create(JSON, "请求Banner图片地址");
                 Request request = new Request.Builder().url(HTTP_data.http_data + "/slide").post(requestBody).build();
 
                 Call call = client.newCall(request);
@@ -163,7 +163,7 @@ public class Home extends Fragment {
             @Override
             public void run() {
 
-                RequestBody requestBody = RequestBody.create(JSON, gson.toJson(User_data.user));
+                RequestBody requestBody = RequestBody.create(JSON, "请求首页的医生列表");
                 Request request = new Request.Builder().url(HTTP_data.http_data + "/findDoctorList").post(requestBody).build();
 
                 Call call = client.newCall(request);

@@ -28,6 +28,7 @@ public class Health_information_page extends Activity {
         public void handleMessage(Message msg) {
             Bitmap bitmap = (Bitmap) msg.obj;
             health_information_page_image.setImageBitmap(bitmap);
+            HTTP_data.healthPedia = null;
         }
     };
 

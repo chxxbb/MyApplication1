@@ -238,7 +238,7 @@ public class Wikipedia extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {     //准备Banner图片地址
-                RequestBody requestBody = RequestBody.create(JSON, gson.toJson(User_data.user));
+                RequestBody requestBody = RequestBody.create(JSON, "请求热门资讯列表");
                 Request request = new Request.Builder().url(HTTP_data.http_data + "/findHealthPediaList").post(requestBody).build();
 
                 Call call = client.newCall(request);
@@ -263,6 +263,7 @@ public class Wikipedia extends Fragment {
                         message.obj = list_http;
                         handler.sendMessage(message);
 
+                        //从服务器返回的图片地址提取Bitmap列表
                         list_bitmap_message = list_http;
                         List<Bitmap> list_bitmap = new ArrayList<Bitmap>();
                         for (int i = 0; i < list_bitmap_message.size(); i++) {
