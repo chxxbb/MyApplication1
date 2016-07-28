@@ -59,7 +59,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/x40"
-            android:src="@mipmap/diagnosis_department_item_image" />
+            android:src="@mipmap/diagnosis_department_item_image"
+            android:visibility="invisible" />
 
         <View
             android:layout_width="match_parent"
@@ -101,7 +102,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/x40"
-            android:src="@mipmap/diagnosis_department_item_image" />
+            android:src="@mipmap/diagnosis_department_item_image"
+            android:visibility="invisible" />
 
         <View
             android:layout_width="match_parent"

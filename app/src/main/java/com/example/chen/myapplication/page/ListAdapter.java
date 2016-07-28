@@ -199,7 +199,6 @@ public class ListAdapter extends BaseAdapter {
                     }
                 });
 
-
                 break;
             }
 
@@ -213,7 +212,8 @@ public class ListAdapter extends BaseAdapter {
                     holder.home_doctor_imageView = (ImageView) convertView.findViewById(R.id.home_doctor_imageView);
 
                     holder.home_doctor_introduction = (TextView) convertView.findViewById(R.id.home_doctor_introduction);
-
+                    holder.home_doctor_name = (TextView) convertView.findViewById(R.id.home_doctor_name_textView);
+                    holder.home_doctor_department = (TextView) convertView.findViewById(R.id.home_doctor_department);
 
                     //凭借该方法添加标志,以判断是否以前创建过布局
                     convertView.setTag(holder);
@@ -225,15 +225,24 @@ public class ListAdapter extends BaseAdapter {
 
                 Doctor doctor = list.get(position).getDoctor();
 
-                if (doctor.getBio() != null) {
-                    holder.spanString = new SpannableString(doctor.getBio());
-                    holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
-                    holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 2, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
+//                if (doctor.getBio() != null) {
+                holder.spanString = new SpannableString(doctor.getBio());
+                holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
+                holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 2, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
 
-                    holder.home_doctor_introduction.setText(holder.spanString);
+                holder.home_doctor_introduction.setText(holder.spanString);
 
+//                }
+//                if (doctor.getSection() != null && doctor.getName() != null) {
+                holder.home_doctor_department.setText(doctor.getTitle() + "/" + doctor.getSection());
+                holder.home_doctor_name.setText(doctor.getName());
+//                }
+                if (doctor.getIcon_bitmap() != null) {
+                    holder.home_doctor_imageView.setImageBitmap(doctor.getIcon_bitmap());
+                } else {
+                    holder.home_doctor_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
                 }
-                holder.home_doctor_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
+
 
                 break;
             }
@@ -403,8 +412,8 @@ public class ListAdapter extends BaseAdapter {
 
     static class BottonViewHolder {
         ImageView home_doctor_imageView = null;
-        TextView home_doctor_introduction = null;
         SpannableString spanString = null;
+        TextView home_doctor_name = null, home_doctor_department = null, home_doctor_introduction = null;
 
     }
 

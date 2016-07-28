@@ -1,6 +1,7 @@
 package com.example.chen.myapplication.page;
 
 import android.app.Fragment;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,7 @@ import com.example.chen.myapplication.data.Doctor;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
 import com.example.chen.myapplication.data.User_data;
+import com.example.chen.myapplication.utils.Http_Bitmap;
 import com.example.chen.myapplication.view.activity_fragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -55,7 +57,17 @@ public class Home extends Fragment {
 
             switch (msg.what) {
                 case 1:
-
+                    list_doctor = (List<Doctor>) msg.obj;
+                    list = new ArrayList<ListItem>();
+                    item = new ListItem(0, "wori");
+                    list.add(item);
+                    if (list_doctor != null) {
+                        for (int i = 0; i < list_doctor.size(); i++) {
+                            item = new ListItem(1, list_doctor.get(i));
+                            list.add(item);
+                            item = null;
+                        }
+                    }
                     break;
                 case 2:
                     list_doctor = (List<Doctor>) msg.obj;
@@ -96,17 +108,6 @@ public class Home extends Fragment {
         //设定该窗口类型,并发送一个数据(该数据可自定义)
         item = new ListItem(0, "wori");
         list.add(item);
-        //初始化
-        item = null;
-
-        if (list_doctor != null) {
-            for (int i = 0; i < list_doctor.size(); i++) {
-                item = new ListItem(1, list_doctor.get(i));
-                list.add(item);
-                item = null;
-            }
-        }
-
 
         //将List发送给自定义适配器
         listAdapter.setList(list);
@@ -187,6 +188,16 @@ public class Home extends Fragment {
                         message.what = 2;
                         message.obj = list_doctor;
                         handler.sendMessage(message);
+
+                        Http_Bitmap http_bitmap = new Http_Bitmap();
+                        for (int i = 0; i < list_doctor.size(); i++) {
+                            list_doctor.get(i).setIcon_bitmap(http_bitmap.GetLocalOrNetBitmap(list_doctor.get(i).getIcon()));
+                        }
+
+                        Message message1 = new Message();
+                        message1.what = 1;
+                        message1.obj = list_doctor;
+                        handler.sendMessage(message1);
 
                     }
                 });
