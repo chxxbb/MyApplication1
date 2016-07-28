@@ -109,13 +109,13 @@ public class Doctor_warehouse extends AppCompatActivity {
 
         list = new ArrayList<ListItem>();
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(Doctor_warehouse.this, Doctor_details.class);
-                startActivity(intent);
-            }
-        });
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(Doctor_warehouse.this, Doctor_details.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
         mDropDownMenu.setDropDownMenu(Arrays.asList(headers), initViewData(), contentView); //给菜单装载数据和布局

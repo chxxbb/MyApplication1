@@ -49,7 +49,7 @@ public class Home extends Fragment {
     ListView listView;
     ListAdapter listAdapter;
     ListItem item;
-    List<ListItem> list;
+    List<ListItem> list = new ArrayList<ListItem>();
 
     Handler handler = new Handler() {
         @Override
@@ -69,7 +69,6 @@ public class Home extends Fragment {
                         for (int i = 0; i < list_doctor.size(); i++) {
                             item = new ListItem(1, list_doctor.get(i));
                             list.add(item);
-                            item = null;
                         }
                     }
                     break;
@@ -95,8 +94,6 @@ public class Home extends Fragment {
         listView = (ListView) view.findViewById(R.id.list_main);
         listAdapter = new ListAdapter(getActivity());
         listView.setAdapter(listAdapter);
-
-        list = new ArrayList<ListItem>();
 
         //设定该窗口类型,并发送一个数据(该数据可自定义)
         item = new ListItem(0, "wori");

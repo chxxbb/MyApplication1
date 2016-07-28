@@ -14,4 +14,8 @@ public class HTTP_data {
 
     public static HealthPedia healthPedia = null;
 
+    public static Doctor doctor = null;
+
+    public static Integer comment_size = null;
+
 }

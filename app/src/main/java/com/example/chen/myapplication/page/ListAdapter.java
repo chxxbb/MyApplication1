@@ -18,11 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.data.Comment;
 import com.example.chen.myapplication.data.Doctor;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
 import com.example.chen.myapplication.view.Diagnosis_management;
 import com.example.chen.myapplication.view.Disease_library;
+import com.example.chen.myapplication.view.Doctor_details;
 import com.example.chen.myapplication.view.Doctor_warehouse;
 import com.example.chen.myapplication.view.Health_management;
 import com.example.chen.myapplication.view.Map_page;
@@ -248,6 +250,7 @@ public class ListAdapter extends BaseAdapter {
 
             case ListItem.TYPE_DOCTOR_WAREHOUSE: {
                 DoctorWarehouseHolder holder = null;
+                final Doctor doctor = list.get(position).getDoctor();
                 if (convertView == null) {
                     convertView = activity.getLayoutInflater().inflate(R.layout.doctor_warehouse_tiem, null);
                     holder = new DoctorWarehouseHolder();
@@ -258,6 +261,16 @@ public class ListAdapter extends BaseAdapter {
                     holder.doctor_warehouse_name = (TextView) convertView.findViewById(R.id.doctor_warehouse_name_textView);
                     holder.doctor_warehouse_department = (TextView) convertView.findViewById(R.id.doctor_warehouse_department);
                     holder.doctor_warehouse_title = (TextView) convertView.findViewById(R.id.doctor_warehouse_title);
+                    holder.doctor_warehouse_relativelayout = (RelativeLayout) convertView.findViewById(R.id.doctor_warehouse_relativelayout);
+
+                    holder.doctor_warehouse_relativelayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            HTTP_data.doctor = doctor;
+                            Intent intent = new Intent(activity, Doctor_details.class);
+                            activity.startActivity(intent);
+                        }
+                    });
                     //凭借该方法添加标志,以判断是否以前创建过布局
                     convertView.setTag(holder);
                 } else {
@@ -265,7 +278,7 @@ public class ListAdapter extends BaseAdapter {
 
                 }
                 //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
-                Doctor doctor = list.get(position).getDoctor();
+
 
                 holder.doctor_warehouse_department.setText("科室:" + doctor.getSection());
                 holder.doctor_warehouse_name.setText(doctor.getName());
@@ -303,9 +316,13 @@ public class ListAdapter extends BaseAdapter {
 
             case ListItem.TYPE_DOCTOR_DETAILS_COMMENTS: {
                 Doctor_detailsHolder holder = null;
+                Comment comment = list.get(position).getComment();
                 if (convertView == null) {
                     convertView = activity.getLayoutInflater().inflate(R.layout.doctor_details_item, null);
                     holder = new Doctor_detailsHolder();
+
+                    holder.doctor_details_item_name_textview = (TextView) convertView.findViewById(R.id.doctor_details_item_name_textview);
+                    holder.doctor_details_item_comments_textview = (TextView) convertView.findViewById(R.id.doctor_details_item_comments_textview);
 
                     //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行,一般用来获取控件.
 
@@ -315,6 +332,8 @@ public class ListAdapter extends BaseAdapter {
                     holder = (Doctor_detailsHolder) convertView.getTag();
                 }
                 //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
+                holder.doctor_details_item_name_textview.setText(comment.getUserName());
+                holder.doctor_details_item_comments_textview.setText(comment.getContent());
 
                 break;
             }
@@ -431,6 +450,7 @@ public class ListAdapter extends BaseAdapter {
     static class DoctorWarehouseHolder {
         ImageView doctor_warehouse_imageView = null;
         TextView doctor_warehouse_introduction = null, doctor_warehouse_name = null, doctor_warehouse_department = null, doctor_warehouse_title = null;
+        RelativeLayout doctor_warehouse_relativelayout = null;
     }
 
     static class Disease_self_testHolder {
@@ -438,7 +458,7 @@ public class ListAdapter extends BaseAdapter {
     }
 
     static class Doctor_detailsHolder {
-
+        TextView doctor_details_item_name_textview = null, doctor_details_item_comments_textview = null;
     }
 
     static class Doctor_schedulingHolder {

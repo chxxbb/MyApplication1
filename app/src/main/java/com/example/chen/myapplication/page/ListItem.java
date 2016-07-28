@@ -1,5 +1,6 @@
 package com.example.chen.myapplication.page;
 
+import com.example.chen.myapplication.data.Comment;
 import com.example.chen.myapplication.data.Doctor;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class ListItem {
     private int type;
     private Doctor doctor;
     private Map<String, Object> map;
+    private Comment comment;
 
     public ListItem(int type) {
         this.type = type;
@@ -46,6 +48,11 @@ public class ListItem {
         this.map = map;
     }
 
+    public ListItem(int type, Comment comment) {
+        this.type = type;
+        this.comment = comment;
+    }
+
     public int getType() {
         return type;
     }
@@ -64,5 +71,13 @@ public class ListItem {
 
     public void setMap(Map<String, Object> map) {
         this.map = map;
+    }
+
+    public Comment getComment() {
+        return comment;
+    }
+
+    public void setComment(Comment comment) {
+        this.comment = comment;
     }
 }

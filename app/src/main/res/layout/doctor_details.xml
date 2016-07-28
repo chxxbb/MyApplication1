@@ -112,6 +112,7 @@
         android:background="@android:color/white">
 
         <TextView
+            android:id="@+id/doctor_details_people_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
