@@ -12,11 +12,11 @@ public class Doctor {
 
     private String password;
 
-    private Integer title;
+    private String title;
 
-    private Integer section;
+    private String section;
 
-    private Integer hospital;
+    private String hospital;
 
     private String adept;
 
@@ -58,27 +58,27 @@ public class Doctor {
         this.password = password;
     }
 
-    public Integer getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(Integer title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public Integer getSection() {
+    public String getSection() {
         return section;
     }
 
-    public void setSection(Integer section) {
+    public void setSection(String section) {
         this.section = section;
     }
 
-    public Integer getHospital() {
+    public String getHospital() {
         return hospital;
     }
 
-    public void setHospital(Integer hospital) {
+    public void setHospital(String hospital) {
         this.hospital = hospital;
     }
 

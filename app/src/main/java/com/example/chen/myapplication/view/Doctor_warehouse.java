@@ -1,6 +1,9 @@
 package com.example.chen.myapplication.view;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,11 +11,24 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.chen.myapplication.data.Doctor;
+import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.page.ListAdapter;
 import com.example.chen.myapplication.page.ListItem;
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.utils.Http_Bitmap;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 import com.zxl.library.DropDownMenu;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,6 +38,12 @@ import java.util.List;
  * Created by Chen on 2016/6/7.
  */
 public class Doctor_warehouse extends AppCompatActivity {
+
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    OkHttpClient client = new OkHttpClient();
+    Gson gson = new Gson();
+
+    List<Doctor> list_doctor = null;
 
     //菜单定义区
     DropDownMenu mDropDownMenu;     //菜单控件
@@ -35,6 +57,38 @@ public class Doctor_warehouse extends AppCompatActivity {
 
     //内容列表定义区
     ListView listView = null;
+    ListAdapter listAdapter;
+    ListItem item;
+    List<ListItem> list;
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    List<Bitmap> list_bitmap = (List<Bitmap>) msg.obj;
+                    for (int i = 0; i < list.size(); i++) {
+                        list.get(i).getDoctor().setIcon_bitmap(list_bitmap.get(i));
+                    }
+
+                    break;
+                case 2:
+                    list_doctor = (List<Doctor>) msg.obj;
+                    if (list_doctor != null) {
+                        for (int i = 0; i < list_doctor.size(); i++) {
+                            item = new ListItem(2, list_doctor.get(i));
+                            list.add(item);
+                            item = null;
+                        }
+                    }
+                    break;
+            }
+            //将List发送给自定义适配器
+            listAdapter.setList(list);
+            //在自定义适配器里面通知List改变.触发自定义适配器的getView方法
+            listAdapter.notifyDataSetChanged();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,63 +96,18 @@ public class Doctor_warehouse extends AppCompatActivity {
         setContentView(R.layout.doctor_warehouse);
         mDropDownMenu = (DropDownMenu) findViewById(R.id.dropDownMenu);
         initView();
+        init_http_data();
     }
+
 
     private void initView() {
 
-
         View contentView = getLayoutInflater().inflate(R.layout.doctor_warehouse_view, null);  //内容页面载入
         listView = (ListView) contentView.findViewById(R.id.doctor_warehouse_listview);
-        ListAdapter listAdapter = new ListAdapter(this);
+        listAdapter = new ListAdapter(this);
         listView.setAdapter(listAdapter);
-        List<ListItem> list = new ArrayList<ListItem>();
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        ListItem item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;//设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
-        //设定该窗口类型,并发送一个数据(该数据可自定义)
-        item = new ListItem(2, "wori");
-        list.add(item);
-        item = null;
 
-
-        //将List发送给自定义适配器
-        listAdapter.setList(list);
+        list = new ArrayList<ListItem>();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -107,8 +116,6 @@ public class Doctor_warehouse extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //在自定义适配器里面通知List改变.触发自定义适配器的getView方法
-        listAdapter.notifyDataSetChanged();
 
 
         mDropDownMenu.setDropDownMenu(Arrays.asList(headers), initViewData(), contentView); //给菜单装载数据和布局
@@ -120,6 +127,55 @@ public class Doctor_warehouse extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), clickstr, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void init_http_data() {
+
+        new Thread(new Runnable() {     //准备医生数据
+            @Override
+            public void run() {
+
+                RequestBody requestBody = RequestBody.create(JSON, "请求首页的医生列表");
+                Request request = new Request.Builder().url(HTTP_data.http_data + "/findDoctorList").post(requestBody).build();
+
+                Call call = client.newCall(request);
+
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Request request, IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Response response) throws IOException {
+                        String str = response.body().string();
+
+                        list_doctor = new ArrayList<Doctor>();
+
+                        list_doctor = gson.fromJson(str, new TypeToken<List<Doctor>>() {
+                        }.getType());
+
+                        Message message = new Message();
+                        message.what = 2;
+                        message.obj = list_doctor;
+                        handler.sendMessage(message);
+
+                        Http_Bitmap http_bitmap = new Http_Bitmap();
+                        List<Bitmap> list_bitmap = new ArrayList<Bitmap>();
+                        for (int i = 0; i < list_doctor.size(); i++) {
+                            list_bitmap.add(http_bitmap.GetLocalOrNetBitmap(list_doctor.get(i).getIcon()));
+                        }
+
+                        Message message1 = new Message();
+                        message1.what = 1;
+                        message1.obj = list_bitmap;
+                        handler.sendMessage(message1);
+
+                    }
+                });
+
+            }
+        }).start();
     }
 
     /**

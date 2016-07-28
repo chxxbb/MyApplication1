@@ -57,17 +57,11 @@ public class Home extends Fragment {
 
             switch (msg.what) {
                 case 1:
-                    list_doctor = (List<Doctor>) msg.obj;
-                    list = new ArrayList<ListItem>();
-                    item = new ListItem(0, "wori");
-                    list.add(item);
-                    if (list_doctor != null) {
-                        for (int i = 0; i < list_doctor.size(); i++) {
-                            item = new ListItem(1, list_doctor.get(i));
-                            list.add(item);
-                            item = null;
-                        }
+                    List<Bitmap> list_bitmap = (List<Bitmap>) msg.obj;
+                    for (int i = 1; i < list.size(); i++) {
+                        list.get(i).getDoctor().setIcon_bitmap(list_bitmap.get(i - 1));
                     }
+
                     break;
                 case 2:
                     list_doctor = (List<Doctor>) msg.obj;
@@ -80,7 +74,6 @@ public class Home extends Fragment {
                     }
                     break;
             }
-
 
             //将List发送给自定义适配器
             listAdapter.setList(list);
@@ -190,14 +183,16 @@ public class Home extends Fragment {
                         handler.sendMessage(message);
 
                         Http_Bitmap http_bitmap = new Http_Bitmap();
+                        List<Bitmap> list_bitmap = new ArrayList<Bitmap>();
                         for (int i = 0; i < list_doctor.size(); i++) {
-                            list_doctor.get(i).setIcon_bitmap(http_bitmap.GetLocalOrNetBitmap(list_doctor.get(i).getIcon()));
+                            list_bitmap.add(http_bitmap.GetLocalOrNetBitmap(list_doctor.get(i).getIcon()));
                         }
 
                         Message message1 = new Message();
                         message1.what = 1;
-                        message1.obj = list_doctor;
+                        message1.obj = list_bitmap;
                         handler.sendMessage(message1);
+
 
                     }
                 });

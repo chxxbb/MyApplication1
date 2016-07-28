@@ -111,7 +111,6 @@ public class ListAdapter extends BaseAdapter {
             case ListItem.TYPE_TOP: {
                 TopViewHolder holder = null;    //创建该布局的持有人,通过持有人来改变布局内部
 
-
                 convertView = activity.getLayoutInflater().inflate(R.layout.home_item_top, null);   //加载相应布局
                 holder = new TopViewHolder();
                 holder_top = holder;
@@ -225,18 +224,18 @@ public class ListAdapter extends BaseAdapter {
 
                 Doctor doctor = list.get(position).getDoctor();
 
-//                if (doctor.getBio() != null) {
-                holder.spanString = new SpannableString(doctor.getBio());
-                holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
-                holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 2, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
+                if (doctor.getBio() != null) {
+                    holder.spanString = new SpannableString(doctor.getBio());
+                    holder.spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
+                    holder.spanString.setSpan(new ForegroundColorSpan(0xFF666666), 2, holder.spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
 
-                holder.home_doctor_introduction.setText(holder.spanString);
+                    holder.home_doctor_introduction.setText(holder.spanString);
 
-//                }
-//                if (doctor.getSection() != null && doctor.getName() != null) {
-                holder.home_doctor_department.setText(doctor.getTitle() + "/" + doctor.getSection());
-                holder.home_doctor_name.setText(doctor.getName());
-//                }
+                }
+                if (doctor.getSection() != null && doctor.getName() != null) {
+                    holder.home_doctor_department.setText(doctor.getTitle() + "/" + doctor.getSection());
+                    holder.home_doctor_name.setText(doctor.getName());
+                }
                 if (doctor.getIcon_bitmap() != null) {
                     holder.home_doctor_imageView.setImageBitmap(doctor.getIcon_bitmap());
                 } else {
@@ -255,9 +254,10 @@ public class ListAdapter extends BaseAdapter {
 
                     //给布局初始化.因为优化,本处的初始化只有第一次启动的时候执行,一般用来获取控件.
                     holder.doctor_warehouse_imageView = (ImageView) convertView.findViewById(R.id.doctor_warehouse_imageView);
-
-                    holder.doctor_warehouse_introduction = (TextView) convertView.findViewById(R.id.doctor_warehouse_department);
-
+                    holder.doctor_warehouse_introduction = (TextView) convertView.findViewById(R.id.doctor_warehouse_introduction);
+                    holder.doctor_warehouse_name = (TextView) convertView.findViewById(R.id.doctor_warehouse_name_textView);
+                    holder.doctor_warehouse_department = (TextView) convertView.findViewById(R.id.doctor_warehouse_department);
+                    holder.doctor_warehouse_title = (TextView) convertView.findViewById(R.id.doctor_warehouse_title);
                     //凭借该方法添加标志,以判断是否以前创建过布局
                     convertView.setTag(holder);
                 } else {
@@ -265,8 +265,19 @@ public class ListAdapter extends BaseAdapter {
 
                 }
                 //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
-                holder.doctor_warehouse_introduction.setText("科室：行为发育科");
-                holder.doctor_warehouse_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
+                Doctor doctor = list.get(position).getDoctor();
+
+                holder.doctor_warehouse_department.setText("科室:" + doctor.getSection());
+                holder.doctor_warehouse_name.setText(doctor.getName());
+                holder.doctor_warehouse_title.setText(doctor.getTitle());
+                holder.doctor_warehouse_introduction.setText("擅长:" + doctor.getAdept());
+
+                if (doctor.getIcon_bitmap() != null) {
+                    holder.doctor_warehouse_imageView.setImageBitmap(doctor.getIcon_bitmap());
+                } else {
+                    holder.doctor_warehouse_imageView.setImageResource(R.mipmap.home_doctor_imageview_test);
+                }
+
                 break;
             }
 
@@ -419,7 +430,7 @@ public class ListAdapter extends BaseAdapter {
 
     static class DoctorWarehouseHolder {
         ImageView doctor_warehouse_imageView = null;
-        TextView doctor_warehouse_introduction = null;
+        TextView doctor_warehouse_introduction = null, doctor_warehouse_name = null, doctor_warehouse_department = null, doctor_warehouse_title = null;
     }
 
     static class Disease_self_testHolder {
