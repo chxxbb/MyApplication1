@@ -68,12 +68,12 @@ public class Curriculum extends Fragment {
         init_http_data();
 
 
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(), R.layout.curriculum_item,
-                new String[]{"title", "doctorName", "lectureTime"},
-                new int[]{R.id.curriculum_item_text, R.id.curriculum_item_name,
-                        R.id.curriculum_item_time});
-
-        listView.setAdapter(adapter);
+//        SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(), R.layout.curriculum_item,
+//                new String[]{"title", "doctorName", "lectureTime"},
+//                new int[]{R.id.curriculum_item_text, R.id.curriculum_item_name,
+//                        R.id.curriculum_item_time});
+//
+//        listView.setAdapter(adapter);
 
         return view;
     }
@@ -98,7 +98,7 @@ public class Curriculum extends Fragment {
             public void run() {
 
                 RequestBody requestBody = RequestBody.create(JSON, "请求课程表");
-                Request request = new Request.Builder().url(HTTP_data.http_data + "/findKnowledgeLectureList").post(requestBody).build();
+                Request request = new Request.Builder().url(HTTP_data.http_data + "/findSyllabusList").post(requestBody).build();
 
                 Call call = client.newCall(request);
 

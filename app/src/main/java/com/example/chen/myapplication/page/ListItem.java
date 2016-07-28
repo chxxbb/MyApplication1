@@ -2,6 +2,9 @@ package com.example.chen.myapplication.page;
 
 import com.example.chen.myapplication.data.Doctor;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Chen on 2016/6/4.
  */
@@ -22,6 +25,7 @@ public class ListItem {
     private String name;
     private int type;
     private Doctor doctor;
+    private Map<String, Object> map;
 
     public ListItem(int type) {
         this.type = type;
@@ -37,6 +41,11 @@ public class ListItem {
         this.doctor = doctor;
     }
 
+    public ListItem(int type, Map<String, Object> map) {
+        this.type = type;
+        this.map = map;
+    }
+
     public int getType() {
         return type;
     }
@@ -47,5 +56,13 @@ public class ListItem {
 
     public Doctor getDoctor() {
         return doctor;
+    }
+
+    public Map<String, Object> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, Object> map) {
+        this.map = map;
     }
 }

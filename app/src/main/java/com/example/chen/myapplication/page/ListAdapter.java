@@ -365,13 +365,16 @@ public class ListAdapter extends BaseAdapter {
                     holder = (Classroom_Holder) convertView.getTag();
                 }
                 //给布局初始化(接着上面)该处的初始化每次创建都会被执行,一般用来输入数据.
-                holder.classroom_text1.setText("ssssssssssssssssss");
-                holder.classroom_text2.setText("sdasdasdasdasdasdasdasdasd");
-
                 Bitmap bitmap = BitmapFactory.decodeResource(activity.getResources(), R.mipmap.ic_launcher);
 
-                holder.classroom_img1.setImageBitmap(bitmap);
-                holder.classroom_img2.setImageBitmap(bitmap);
+                holder.classroom_text1.setText((String) list.get(position).getMap().get("title"));
+                if (list.get(position).getMap().get("title2") != null) {
+                    holder.classroom_text2.setText((String) list.get(position).getMap().get("title2"));
+                    holder.classroom_img2.setImageBitmap((Bitmap) list.get(position).getMap().get("cover2"));
+                } else {
+
+                }
+                holder.classroom_img1.setImageBitmap((Bitmap) list.get(position).getMap().get("cover"));
 
                 break;
             }
