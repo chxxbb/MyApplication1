@@ -12,6 +12,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -44,7 +45,9 @@ public class Doctor_details extends Activity {
     SpannableString spanString = null;
     TextView doctor_details_introduction = null;
     TextView doctor_details_specialty = null;
-    TextView doctor_details_people_size = null;
+    TextView doctor_details_people_size = null, doctor_details_name = null, doctor_details_level = null, doctor_details_department = null;
+    TextView doctor_details_hospital = null;
+    ImageView doctor_details_portrait = null;
     ListView listView = null;
 
     Button doctor_details_bottom_menu_botton_convention = null;
@@ -59,6 +62,8 @@ public class Doctor_details extends Activity {
     Gson gson = new Gson();
 
     List<Comment> comment_list;
+
+    int xc = 0;
 
     Handler handler = new Handler() {
         @Override
@@ -76,6 +81,8 @@ public class Doctor_details extends Activity {
 
                     break;
                 case 2:
+                    doctor_details_portrait.setImageBitmap(doctor.getIcon_bitmap());
+                    xc = 1;
                     break;
             }
 
@@ -100,6 +107,13 @@ public class Doctor_details extends Activity {
 
         doctor_details_introduction = (TextView) findViewById(R.id.doctor_details_introduction);
         doctor_details_specialty = (TextView) findViewById(R.id.doctor_details_specialty);
+        doctor_details_name = (TextView) findViewById(R.id.doctor_details_name);
+        doctor_details_level = (TextView) findViewById(R.id.doctor_details_level);
+        doctor_details_department = (TextView) findViewById(R.id.doctor_details_department);
+        doctor_details_hospital = (TextView) findViewById(R.id.doctor_details_hospital);
+
+        doctor_details_portrait = (ImageView) findViewById(R.id.doctor_details_portrait);
+
 
         if (doctor != null) {
             spanString = new SpannableString(doctor.getBio());
@@ -111,12 +125,46 @@ public class Doctor_details extends Activity {
             spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加加粗效果
             spanString.setSpan(new ForegroundColorSpan(0xFF666666), 4, spanString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);  //添加颜色
             doctor_details_specialty.setText(spanString);
+
+            doctor_details_name.setText(doctor.getName());
+            doctor_details_level.setText(doctor.getTitle());
+            doctor_details_department.setText(doctor.getSection());
+            doctor_details_hospital.setText(doctor.getHospital());
+
+            if (doctor.getIcon_bitmap() != null) {
+                doctor_details_portrait.setImageBitmap(doctor.getIcon_bitmap());
+            } else {
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while (xc == 0) {
+                            try {
+                                Thread.sleep(5000);
+                                if (doctor.getIcon_bitmap() != null) {
+                                    Message msg = new Message();
+                                    msg.what = 2;
+                                    handler.sendMessage(msg);
+                                }
+                            } catch (Exception e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                                System.out.println("thread error...");
+                            }
+                        }
+                    }
+                }).start();
+
+            }
+
+
         }
 
         doctor_details_bottom_menu_botton_convention = (Button) findViewById(R.id.doctor_details_bottom_menu_botton_convention);
         doctor_details_bottom_menu_botton_convention.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                HTTP_data.doctor = doctor;
                 Intent intent = new Intent(Doctor_details.this, Doctor_scheduling.class);
                 startActivity(intent);
             }
@@ -127,16 +175,6 @@ public class Doctor_details extends Activity {
         listAdapter = new ListAdapter(this);
         listView.setAdapter(listAdapter);
         list = new ArrayList<ListItem>();
-//
-//        //设定该窗口类型,并发送一个数据(该数据可自定义)
-//        item = new ListItem(4, "wori");
-//        list.add(item);
-//
-//        //将List发送给自定义适配器
-//        listAdapter.setList(list);
-//        //在自定义适配器里面通知List改变.触发自定义适配器的getView方法
-//        listAdapter.notifyDataSetChanged();
-
 
     }
 

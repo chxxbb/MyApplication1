@@ -87,7 +87,6 @@
             android:id="@+id/doctor_details_introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本"
             android:textColor="#666666"
             android:textSize="@dimen/y26" />
 
@@ -96,7 +95,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/doctor_details_introduction"
-            android:text="1231321313测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本"
             android:textColor="#666666"
             android:textSize="@dimen/y26" />
 
