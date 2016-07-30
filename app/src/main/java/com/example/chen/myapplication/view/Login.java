@@ -18,16 +18,10 @@ import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
 import com.example.chen.myapplication.data.User_data;
 import com.google.gson.Gson;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
+import okhttp3.*;
 
 public class Login extends Activity implements View.OnClickListener {
 
@@ -42,7 +36,6 @@ public class Login extends Activity implements View.OnClickListener {
 
     EditText login_username = null;
     EditText login_password = null;
-
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     OkHttpClient client = new OkHttpClient();
@@ -59,11 +52,6 @@ public class Login extends Activity implements View.OnClickListener {
 
 
     private void init() {
-
-        //设置网络超时
-        client.setConnectTimeout(5, TimeUnit.SECONDS);
-        client.setWriteTimeout(5, TimeUnit.SECONDS);
-        client.setReadTimeout(10, TimeUnit.SECONDS);
 
         login_password_logo_right = (ImageView) findViewById(R.id.login_password_logo_right_imageview);
         login_password_logo_right.setOnClickListener(this);
@@ -139,19 +127,17 @@ public class Login extends Activity implements View.OnClickListener {
                             call.enqueue(new Callback() {
 
                                 @Override
-                                public void onFailure(Request request, IOException e) {
-
+                                public void onFailure(Call call, IOException e) {
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
                                             Toast.makeText(Login.this, "网络连接失败", Toast.LENGTH_LONG).show();
                                         }
                                     });
-
                                 }
 
                                 @Override
-                                public void onResponse(Response response) throws IOException {
+                                public void onResponse(Call call, Response response) throws IOException {
                                     String str = response.body().string();
 
                                     if (str.equals("1")) {
@@ -178,7 +164,6 @@ public class Login extends Activity implements View.OnClickListener {
                                         User_data.user = user;
                                         gohome();
                                     }
-
                                 }
                             });
 

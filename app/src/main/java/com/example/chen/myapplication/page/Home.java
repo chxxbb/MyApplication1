@@ -14,24 +14,22 @@ import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.Doctor;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
-import com.example.chen.myapplication.data.User_data;
 import com.example.chen.myapplication.utils.Http_Bitmap;
-import com.example.chen.myapplication.view.activity_fragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by Chen on 2016/6/3.
@@ -58,9 +56,14 @@ public class Home extends Fragment {
             switch (msg.what) {
                 case 1:
                     List<Bitmap> list_bitmap = (List<Bitmap>) msg.obj;
-                    for (int i = 1; i < list.size(); i++) {
-                        list.get(i).getDoctor().setIcon_bitmap(list_bitmap.get(i - 1));
+                    try {
+                        for (int i = 1; i < list.size(); i++) {
+                            list.get(i).getDoctor().setIcon_bitmap(list_bitmap.get(i - 1));
+                        }
+                    } catch (Exception e) {
+
                     }
+
 
                     break;
                 case 2:
@@ -119,13 +122,12 @@ public class Home extends Fragment {
 
                 call.enqueue(new Callback() {
                     @Override
-                    public void onFailure(Request request, IOException e) {
+                    public void onFailure(Call call, IOException e) {
 
                     }
 
                     @Override
-                    public void onResponse(Response response) throws IOException {
-
+                    public void onResponse(Call call, Response response) throws IOException {
                         String str = response.body().string();
 
                         List list = new ArrayList<>();
@@ -143,8 +145,8 @@ public class Home extends Fragment {
                         Message message = new Message();
                         message.what = 1;
                         handler.sendMessage(message);
-
                     }
+
                 });
 
             }
@@ -161,12 +163,12 @@ public class Home extends Fragment {
 
                 call.enqueue(new Callback() {
                     @Override
-                    public void onFailure(Request request, IOException e) {
+                    public void onFailure(Call call, IOException e) {
 
                     }
 
                     @Override
-                    public void onResponse(Response response) throws IOException {
+                    public void onResponse(Call call, Response response) throws IOException {
                         String str = response.body().string();
 
                         list_doctor = new ArrayList<Doctor>();
@@ -189,9 +191,8 @@ public class Home extends Fragment {
                         message1.what = 1;
                         message1.obj = list_bitmap;
                         handler.sendMessage(message1);
-
-
                     }
+
                 });
 
             }

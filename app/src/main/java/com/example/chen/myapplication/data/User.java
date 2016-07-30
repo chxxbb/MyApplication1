@@ -1,10 +1,12 @@
 package com.example.chen.myapplication.data;
 
+import android.graphics.Bitmap;
+
 public class User {
 
     private int id;
 
-    private String phone;
+    private String phone = null;
 
     private String name;
 
@@ -15,6 +17,17 @@ public class User {
     private int age;
 
     private String icon;
+
+    private Bitmap bitmap_icon = null;
+
+    public Bitmap getBitmap_icon() {
+        return bitmap_icon;
+    }
+
+    public void setBitmap_icon(Bitmap bitmap_icon) {
+        this.bitmap_icon = bitmap_icon;
+    }
+
 
     public int getId() {
         return id;

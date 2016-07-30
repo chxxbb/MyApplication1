@@ -19,19 +19,15 @@ import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.utils.Http_Bitmap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import okhttp3.*;
 
 /**
  * Created by Chen on 2016/7/18.
@@ -135,12 +131,12 @@ public class Classroom extends Fragment {
 
                 call.enqueue(new Callback() {
                     @Override
-                    public void onFailure(Request request, IOException e) {
+                    public void onFailure(Call call, IOException e) {
 
                     }
 
                     @Override
-                    public void onResponse(Response response) throws IOException {
+                    public void onResponse(Call call, Response response) throws IOException {
                         String str = response.body().string();
 
                         List<Map<String, String>> list_http = new ArrayList<Map<String, String>>();
@@ -165,9 +161,8 @@ public class Classroom extends Fragment {
                         message2.what = 2;
                         message2.obj = list_bitmap;
                         handler.sendMessage(message2);
-
-
                     }
+
                 });
 
             }

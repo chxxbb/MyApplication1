@@ -26,9 +26,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.github.fg2q1q3q:DropDownMenu:1.1.1'
     compile project(':banner')
-    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.okio:okio:1.8.0'
     compile 'com.jph.takephoto:takephoto_library:1.0.1'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'commons-io:commons-io:20030203.000550'
+    compile 'com.zhy:okhttputils:2.6.2'
 }

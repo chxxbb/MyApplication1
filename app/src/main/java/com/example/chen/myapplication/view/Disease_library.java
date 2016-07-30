@@ -16,24 +16,24 @@ import android.widget.SimpleAdapter;
 
 import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.HTTP_data;
-import com.example.chen.myapplication.data.HealthPedia;
-import com.example.chen.myapplication.data.User_data;
 import com.example.chen.myapplication.utils.Http_Bitmap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by Chen on 2016/7/5.
@@ -228,13 +228,12 @@ public class Disease_library extends Activity {
 
                 call.enqueue(new Callback() {
                     @Override
-                    public void onFailure(Request request, IOException e) {
+                    public void onFailure(Call call, IOException e) {
 
                     }
 
                     @Override
-                    public void onResponse(Response response) throws IOException {
-
+                    public void onResponse(Call call, Response response) throws IOException {
                         String str = response.body().string();
 
                         list_left_http = new ArrayList<Map<String, String>>();
@@ -262,8 +261,8 @@ public class Disease_library extends Activity {
                         message_bitmap.what = 2;
                         message_bitmap.obj = list_bitmap;
                         handler.sendMessage(message_bitmap);
-
                     }
+
                 });
 
             }
@@ -283,12 +282,12 @@ public class Disease_library extends Activity {
                 Call call = client.newCall(request);
                 call.enqueue(new Callback() {
                     @Override
-                    public void onFailure(Request request, IOException e) {
+                    public void onFailure(Call call, IOException e) {
 
                     }
 
                     @Override
-                    public void onResponse(Response response) throws IOException {
+                    public void onResponse(Call call, Response response) throws IOException {
                         String str = response.body().string();
                         System.out.println(str);
 
@@ -302,8 +301,8 @@ public class Disease_library extends Activity {
                         message.arg1 = position;
                         message.obj = list_right;
                         handler.sendMessage(message);
-
                     }
+
                 });
             }
         }).start();

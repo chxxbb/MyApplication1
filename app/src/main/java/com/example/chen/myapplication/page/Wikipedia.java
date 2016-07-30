@@ -15,43 +15,29 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.HealthPedia;
 import com.example.chen.myapplication.data.User;
-import com.example.chen.myapplication.data.User_data;
-import com.example.chen.myapplication.utils.ContextUtil;
 import com.example.chen.myapplication.utils.Http_Bitmap;
 import com.example.chen.myapplication.view.Health_information_page;
-import com.example.chen.myapplication.view.activity_fragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
 
-import org.apache.commons.io.IOUtil;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.lang.ref.SoftReference;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 
 /**
@@ -193,12 +179,12 @@ public class Wikipedia extends Fragment {
                         Call call = client.newCall(request);
                         call.enqueue(new Callback() {
                             @Override
-                            public void onFailure(Request request, IOException e) {
+                            public void onFailure(Call call, IOException e) {
 
                             }
 
                             @Override
-                            public void onResponse(Response response) throws IOException {
+                            public void onResponse(Call call, Response response) throws IOException {
                                 String str = response.body().string();
                                 System.out.println(str);
 
@@ -208,8 +194,8 @@ public class Wikipedia extends Fragment {
 
                                 Intent intent = new Intent(getActivity(), Health_information_page.class);
                                 getActivity().startActivity(intent);
-
                             }
+
                         });
                     }
                 }).start();
@@ -245,12 +231,12 @@ public class Wikipedia extends Fragment {
 
                 call.enqueue(new Callback() {
                     @Override
-                    public void onFailure(Request request, IOException e) {
+                    public void onFailure(Call call, IOException e) {
 
                     }
 
                     @Override
-                    public void onResponse(Response response) throws IOException {
+                    public void onResponse(Call call, Response response) throws IOException {
                         String str = response.body().string();
 
                         List list_http = new ArrayList<HealthPedia>();
@@ -281,8 +267,8 @@ public class Wikipedia extends Fragment {
                         message_bitmap.what = 2;
                         message_bitmap.obj = list_bitmap;
                         handler.sendMessage(message_bitmap);
-
                     }
+
                 });
 
             }

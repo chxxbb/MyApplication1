@@ -32,20 +32,14 @@ import com.example.chen.myapplication.view.Medical_registration;
 import com.example.chen.myapplication.view.Message_activity;
 import com.example.chen.myapplication.view.School;
 import com.google.gson.Gson;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+
 import com.youth.banner.Banner;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
 
 /**
  * Created by Chen on 2016/6/4.

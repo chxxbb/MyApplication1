@@ -4,32 +4,15 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.example.chen.myapplication.data.Doctor;
-import com.example.chen.myapplication.data.HTTP_data;
-import com.example.chen.myapplication.data.User;
-import com.example.chen.myapplication.data.User_data;
 import com.example.chen.myapplication.page.Home;
 import com.example.chen.myapplication.page.Personal_settings;
 import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.page.Wikipedia;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Chen on 2016/6/6.

@@ -14,18 +14,20 @@ import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
 import com.google.gson.Gson;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by Chen on 2016/5/30.
@@ -59,11 +61,6 @@ public class registered extends Activity implements View.OnClickListener {
     }
 
     private void init() {
-
-        //设置网络超时
-        client.setConnectTimeout(5, TimeUnit.SECONDS);
-        client.setWriteTimeout(5, TimeUnit.SECONDS);
-        client.setReadTimeout(10, TimeUnit.SECONDS);
 
         registered_exit = (ImageView) findViewById(R.id.registered_exit);
         registered_exit.setOnClickListener(this);
@@ -130,7 +127,7 @@ public class registered extends Activity implements View.OnClickListener {
 
                             call.enqueue(new Callback() {
                                 @Override
-                                public void onFailure(Request request, IOException e) {
+                                public void onFailure(Call call, IOException e) {
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -140,8 +137,7 @@ public class registered extends Activity implements View.OnClickListener {
                                 }
 
                                 @Override
-                                public void onResponse(Response response) throws IOException {
-
+                                public void onResponse(Call call, Response response) throws IOException {
                                     String str = response.body().string();
 
                                     if (str.equals("1")) {
@@ -165,9 +161,8 @@ public class registered extends Activity implements View.OnClickListener {
                                         startActivity(intent);
 
                                     }
-
-
                                 }
+
                             });
 
                         }
@@ -200,7 +195,7 @@ public class registered extends Activity implements View.OnClickListener {
 
                             call.enqueue(new Callback() {
                                 @Override
-                                public void onFailure(Request request, IOException e) {
+                                public void onFailure(Call call, IOException e) {
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -210,12 +205,11 @@ public class registered extends Activity implements View.OnClickListener {
                                 }
 
                                 @Override
-                                public void onResponse(Response response) throws IOException {
-
+                                public void onResponse(Call call, Response response) throws IOException {
                                     VerificationCode = response.body().string();
                                     System.out.println(VerificationCode);
-
                                 }
+
                             });
 
                         }
