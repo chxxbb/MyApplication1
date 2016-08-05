@@ -1,6 +1,7 @@
 package com.example.chen.myapplication.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,12 +14,17 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.data.Disease;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.utils.Http_Bitmap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 
 import java.io.IOException;
@@ -42,6 +48,8 @@ public class Disease_library extends Activity {
     ListView listview1, listview2;
     ImageView imageview_item_1;
     RelativeLayout disease_library_left_item_relativelayout = null;
+
+    TextView http_data = null;
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     OkHttpClient client = new OkHttpClient();
@@ -122,6 +130,48 @@ public class Disease_library extends Activity {
 
                     listview2.setAdapter(new ArrayAdapter<String>(Disease_library.this, R.layout.disease_library_right_item, data));
 
+                    listview2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            http_data = (TextView) view.findViewById(R.id.disease_library_right_item_text);
+
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    OkHttpUtils.postString()
+                                            .url(HTTP_data.http_data + "/findDiseaseName")
+                                            .content(http_data.getText().toString())
+                                            .build()
+                                            .execute(new StringCallback() {
+                                                @Override
+                                                public void onError(Call call, Exception e, int id) {
+                                                    runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            Toast.makeText(Disease_library.this, "获取病种失败,请重试.", Toast.LENGTH_LONG).show();
+                                                        }
+                                                    });
+
+                                                }
+
+                                                @Override
+                                                public void onResponse(String response, int id) {
+                                                    System.out.println("连接成功!!!!!");
+                                                    Disease disease = gson.fromJson(response, Disease.class);
+
+                                                    HTTP_data.disease = disease;
+
+                                                    Intent intent = new Intent(Disease_library.this, Details_disease.class);
+                                                    startActivity(intent);
+
+                                                }
+                                            });
+                                }
+                            }).start();
+                        }
+                    });
+
                     break;
 
             }
@@ -195,12 +245,7 @@ public class Disease_library extends Activity {
         Map<String, Object> map = new HashMap<String, Object>();
 
         map.put("image_tow", R.mipmap.ic_launcher);
-        map.put("text_one", "Fuck");
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("image_tow", R.mipmap.ic_launcher);
-        map.put("text_one", "dDD");
+        map.put("text_one", "加载中");
         list.add(map);
 
         return list;
@@ -208,10 +253,7 @@ public class Disease_library extends Activity {
 
     public List<String> getDatatow() {
         List<String> data = new ArrayList<String>();
-        data.add("测试数据1");
-        data.add("测试数据2");
-        data.add("测试数据3");
-        data.add("测试数据4");
+        data.add("加载中...");
 
         return data;
     }
@@ -220,7 +262,7 @@ public class Disease_library extends Activity {
         //网络交互开始
         new Thread(new Runnable() {
             @Override
-            public void run() {     //准备Banner图片地址
+            public void run() {
                 RequestBody requestBody = RequestBody.create(JSON, "");
                 Request request = new Request.Builder().url(HTTP_data.http_data + "/findSectionList").post(requestBody).build();
 
@@ -274,9 +316,8 @@ public class Disease_library extends Activity {
 
         new Thread(new Runnable() {
             @Override
-            public void run() {     //准备Banner图片地址
+            public void run() {
                 RequestBody requestBody = RequestBody.create(JSON, gson.toJson(position));
-                System.out.println(gson.toJson(position));
                 Request request = new Request.Builder().url(HTTP_data.http_data + "/findDiseaseList").post(requestBody).build();
 
                 Call call = client.newCall(request);
@@ -289,7 +330,6 @@ public class Disease_library extends Activity {
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         String str = response.body().string();
-                        System.out.println(str);
 
                         List<String> list_right = new ArrayList<String>();
 

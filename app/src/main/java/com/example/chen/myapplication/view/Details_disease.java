@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.data.HTTP_data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,22 +51,19 @@ public class Details_disease extends Activity {
         map = new HashMap<String, List<String>>();
 
         List<String> list1 = new ArrayList<String>();
-        list1.add("测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文" +
-                "本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测" +
-                "试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本" +
-                "测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本测试文本");
+        list1.add(HTTP_data.disease.getSymptom());
         map.put("症状", list1);
 
         List<String> list2 = new ArrayList<String>();
-        list2.add("child-1");
+        list2.add(HTTP_data.disease.getHazard());
         map.put("危害", list2);
 
         List<String> list3 = new ArrayList<String>();
-        list3.add("child-1");
+        list3.add(HTTP_data.disease.getCure());
         map.put("治疗", list3);
 
         List<String> list4 = new ArrayList<String>();
-        list4.add("child-1");
+        list4.add(HTTP_data.disease.getPrevent());
         map.put("预防", list4);
 
     }

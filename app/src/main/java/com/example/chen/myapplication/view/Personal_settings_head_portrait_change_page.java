@@ -1,10 +1,8 @@
 package com.example.chen.myapplication.view;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,25 +13,26 @@ import android.widget.Toast;
 import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
+import com.example.chen.myapplication.data.User_data;
 import com.google.gson.Gson;
 import com.jph.takephoto.app.TakePhoto;
 import com.jph.takephoto.app.TakePhotoActivity;
 
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.Callback;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.File;
 
+import okhttp3.Call;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.Response;
 
 /**
  * Created by Chen on 2016/7/9.
  */
 public class Personal_settings_head_portrait_change_page extends TakePhotoActivity {
-
-    OkHttpClient client = new OkHttpClient();
-    Gson gson = new Gson();
-    User user = null;
 
     String image_path = null;
 
@@ -61,6 +60,8 @@ public class Personal_settings_head_portrait_change_page extends TakePhotoActivi
         });
 
         personal_settings_head_portrait_change_page_image = (ImageView) findViewById(R.id.personal_settings_head_portrait_change_page_image);
+
+        personal_settings_head_portrait_change_page_image.setImageBitmap(User_data.user.getBitmap_icon());
 
     }
 
@@ -92,19 +93,42 @@ public class Personal_settings_head_portrait_change_page extends TakePhotoActivi
                     public void run() {
                         if (image_path_name != null) {
                             File file = new File(image_path);
-                            OkHttpUtils.post()
-                                    .addFile("image", image_path_name, file)
-                                    .url(HTTP_data.http_data + "/test")
+
+                            if (!file.exists()) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(Personal_settings_head_portrait_change_page.this, "文件不存在，请修改文件路径", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            } else if (file.exists()) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(Personal_settings_head_portrait_change_page.this, "文件存在", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+
+                            OkHttpUtils
+                                    .postFile()
+                                    .url(HTTP_data.http_data + "/changeIcon" + "?" + User_data.user.getId())
+                                    .file(file)
                                     .build()
-                                    .execute(new StringCallback() {
+                                    .execute(new Callback() {
                                         @Override
-                                        public void onError(okhttp3.Call call, Exception e, int id) {
-                                            System.out.println("连接失败!!!!!!!");
+                                        public Object parseNetworkResponse(Response response, int id) throws Exception {
+                                            return response.body().string();
                                         }
 
                                         @Override
-                                        public void onResponse(String response, int id) {
-                                            System.out.println("连接成功!!!!!!");
+                                        public void onError(Call call, Exception e, int id) {
+
+                                        }
+
+                                        @Override
+                                        public void onResponse(Object response, int id) {
+                                            System.out.println(response);
                                         }
                                     });
 

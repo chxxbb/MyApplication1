@@ -20,7 +20,6 @@
         <activity android:name=".view.Medical_registration"></activity>
         <activity android:name=".view.activity_fragment"></activity>
         <activity android:name=".view.Doctor_warehouse"></activity>
-        <activity android:name=".view.Disease_self_test"></activity>
         <activity android:name=".view.Doctor_details"></activity>
         <activity android:name=".view.Doctor_scheduling"></activity>
         <activity android:name=".view.Message_activity"></activity>

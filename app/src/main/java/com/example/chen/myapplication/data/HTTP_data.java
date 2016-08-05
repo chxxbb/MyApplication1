@@ -16,6 +16,8 @@ public class HTTP_data {
 
     public static Doctor doctor = null;
 
-    public static Integer comment_size = null;
+//    public static Integer comment_size = null;
+
+    public static Disease disease = null;
 
 }
