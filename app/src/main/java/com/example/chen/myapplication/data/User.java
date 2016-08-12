@@ -84,4 +84,19 @@ public class User {
     public void setIcon(String icon) {
         this.icon = icon;
     }
+
+    public User(User user) {
+        id = user.getId();
+        phone = user.getPhone();
+        name = user.getName();
+        password = user.getPassword();
+        sex = user.getSex();
+        age = user.getAge();
+        icon = user.getIcon();
+        bitmap_icon = user.getBitmap_icon();
+    }
+
+    public User() {
+
+    }
 }

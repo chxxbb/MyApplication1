@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class HTTP_data {
 
+//    public static final String http_data = "http://api.children91.com:8080/ApplicationService";
+
     public static final String http_data = "http://192.168.1.35:8080/ApplicationService";
 
     public static String[] Banner_img = null;
@@ -15,8 +17,6 @@ public class HTTP_data {
     public static HealthPedia healthPedia = null;
 
     public static Doctor doctor = null;
-
-//    public static Integer comment_size = null;
 
     public static Disease disease = null;
 

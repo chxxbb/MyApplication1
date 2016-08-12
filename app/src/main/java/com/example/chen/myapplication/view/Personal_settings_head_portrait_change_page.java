@@ -14,6 +14,7 @@ import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User;
 import com.example.chen.myapplication.data.User_data;
+import com.example.chen.myapplication.utils.Http_Bitmap;
 import com.google.gson.Gson;
 import com.jph.takephoto.app.TakePhoto;
 import com.jph.takephoto.app.TakePhotoActivity;
@@ -129,6 +130,26 @@ public class Personal_settings_head_portrait_change_page extends TakePhotoActivi
                                         @Override
                                         public void onResponse(Object response, int id) {
                                             System.out.println(response);
+                                            final String str = (String) response;
+                                            if (str.equals("1")) {
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Toast.makeText(Personal_settings_head_portrait_change_page.this, "修改失败", Toast.LENGTH_LONG).show();
+                                                    }
+                                                });
+                                            } else {
+                                                new Thread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Http_Bitmap http_bitmap = new Http_Bitmap();
+                                                        Bitmap bitmap = http_bitmap.GetLocalOrNetBitmap(str);
+                                                        User_data.user.setIcon(str);
+                                                        User_data.user.setBitmap_icon(bitmap);
+                                                    }
+                                                }).start();
+                                            }
+
                                         }
                                     });
 

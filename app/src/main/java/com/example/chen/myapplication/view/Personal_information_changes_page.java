@@ -21,7 +21,7 @@ import com.example.chen.myapplication.utils.Http_Bitmap;
  */
 public class Personal_information_changes_page extends Activity {
 
-    User user = null;
+    User usera = null;
 
     RelativeLayout personal_information_changes_page_phone_relativelayout = null;
     RelativeLayout personal_information_changes_page_name_relativelayout = null;
@@ -32,12 +32,19 @@ public class Personal_information_changes_page extends Activity {
 
     TextView personal_information_changes_page_name = null, personal_information_changes_page_sex = null, personal_information_changes_page_phone = null;
 
-    Handler handler = new Handler() {
+    public Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
 
-            Bitmap bitmap = (Bitmap) msg.obj;
-            personal_information_changes_page_Head_portrait_image.setImageBitmap(bitmap);
+            switch (msg.what) {
+                case 1:
+                    Bitmap bitmap = (Bitmap) msg.obj;
+                    personal_information_changes_page_Head_portrait_image.setImageBitmap(bitmap);
+                    break;
+                case 2:
+                    break;
+            }
+
 
         }
     };
@@ -47,12 +54,62 @@ public class Personal_information_changes_page extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.personal_information_changes_page);
 
-        user = User_data.user;
+        usera = new User(User_data.user);
 
         init_relativelayout();
 
         init_data();
 
+        init_change_UI();
+
+    }
+
+    public void init_change_UI() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (User_data.user.getName().equals(personal_information_changes_page_name.getText().toString())) {
+
+                    } else {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                personal_information_changes_page_name.setText(User_data.user.getName());
+                            }
+                        });
+                    }
+
+                    if (usera.getBitmap_icon() != null) {
+                        if (!usera.getBitmap_icon().equals(User_data.user.getBitmap_icon())) {
+                            System.out.println("fuck!?");
+                            usera.setIcon(User_data.user.getIcon());
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    usera.setBitmap_icon(User_data.user.getBitmap_icon());
+
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            personal_information_changes_page_Head_portrait_image.setImageBitmap(usera.getBitmap_icon());
+                                        }
+                                    });
+
+                                }
+                            }).start();
+                        }
+                    }
+                }
+            }
+
+        }).start();
     }
 
     private void init_data() {
@@ -61,17 +118,27 @@ public class Personal_information_changes_page extends Activity {
         personal_information_changes_page_sex = (TextView) findViewById(R.id.personal_information_changes_page_sex);
         personal_information_changes_page_phone = (TextView) findViewById(R.id.personal_information_changes_page_phone);
 
-        personal_information_changes_page_name.setText(user.getName());
-        personal_information_changes_page_sex.setText(user.getSex());
+        personal_information_changes_page_name.setText(usera.getName());
+        personal_information_changes_page_sex.setText(usera.getSex());
 
-        if (user.getPhone() != null) {
-            personal_information_changes_page_phone.setText(user.getPhone());
+        if (usera.getPhone() != null) {
+            personal_information_changes_page_phone.setText(usera.getPhone());
         } else {
             personal_information_changes_page_phone.setText("未验证");
+            //如果没验证手机,则可以进入修改绑定手机页面,如果已经绑定了手机,则不能进入
+            personal_information_changes_page_phone_relativelayout = (RelativeLayout) findViewById(R.id.personal_information_changes_page_phone_relativelayout);
+
+            personal_information_changes_page_phone_relativelayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Personal_information_changes_page.this, Binding_mobile_phone_page.class);
+                    startActivity(intent);
+                }
+            });
         }
 
-        if (user.getBitmap_icon() != null) {
-            personal_information_changes_page_Head_portrait_image.setImageBitmap(user.getBitmap_icon());
+        if (usera.getBitmap_icon() != null) {
+            personal_information_changes_page_Head_portrait_image.setImageBitmap(usera.getBitmap_icon());
         } else {
             init_http_bitmap();
         }
@@ -86,7 +153,7 @@ public class Personal_information_changes_page extends Activity {
             public void run() {
                 Http_Bitmap http_bitmap = new Http_Bitmap();
                 Bitmap bitmap;
-                bitmap = http_bitmap.GetLocalOrNetBitmap_NoCompression(user.getIcon());
+                bitmap = http_bitmap.GetLocalOrNetBitmap(usera.getIcon());
 
                 if (bitmap != null) {
                     Message message = new Message();
@@ -101,15 +168,6 @@ public class Personal_information_changes_page extends Activity {
     }
 
     private void init_relativelayout() {
-        personal_information_changes_page_phone_relativelayout = (RelativeLayout) findViewById(R.id.personal_information_changes_page_phone_relativelayout);
-
-        personal_information_changes_page_phone_relativelayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Personal_information_changes_page.this, Binding_mobile_phone_page.class);
-                startActivity(intent);
-            }
-        });
 
         personal_information_changes_page_name_relativelayout = (RelativeLayout) findViewById(R.id.personal_information_changes_page_name_relativelayout);
 

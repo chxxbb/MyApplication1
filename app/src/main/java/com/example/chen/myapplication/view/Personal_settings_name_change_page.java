@@ -3,16 +3,25 @@ package com.example.chen.myapplication.view;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.data.HTTP_data;
+import com.example.chen.myapplication.data.User_data;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import okhttp3.Call;
 
 /**
  * Created by Chen on 2016/7/9.
@@ -24,6 +33,7 @@ public class Personal_settings_name_change_page extends Activity {
     private int maxLen = 10; // the max byte
 
     EditText personal_settings_name_change_page_edittext = null;
+    TextView personal_settings_name_change_page_save_button = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +41,10 @@ public class Personal_settings_name_change_page extends Activity {
         setContentView(R.layout.personal_settings_name_change_page);
 
         personal_settings_name_change_page_edittext = (EditText) findViewById(R.id.personal_settings_name_change_page_edittext);
+        if (User_data.user.getName() != null) {
+            personal_settings_name_change_page_edittext.setText(User_data.user.getName());
+        }
+        personal_settings_name_change_page_save_button = (TextView) findViewById(R.id.personal_settings_name_change_page_save_button);
 
         //获取焦点
         personal_settings_name_change_page_edittext.setFocusable(true);
@@ -80,6 +94,34 @@ public class Personal_settings_name_change_page extends Activity {
         //打开默认输入软键盘
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+
+
+        personal_settings_name_change_page_save_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                User_data.user.setName(personal_settings_name_change_page_edittext.getText().toString());
+
+                OkHttpUtils
+                        .postString()
+                        .url(HTTP_data.http_data + "/changeName" + "?" + User_data.user.getId())
+                        .content(personal_settings_name_change_page_edittext.getText().toString())
+                        .build()
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+
+                            }
+
+                            @Override
+                            public void onResponse(String response, int id) {
+                                System.out.println(response);
+                            }
+                        });
+
+                finish();
+            }
+        });
 
 
     }

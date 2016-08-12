@@ -46,8 +46,13 @@ public class Personal_settings extends Fragment {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    User_data.user.setBitmap_icon((Bitmap) msg.obj);
+                    user.setBitmap_icon((Bitmap) msg.obj);
+                    User_data.user.setBitmap_icon(user.getBitmap_icon());
                     personal_settings_basic_information_image.setImageBitmap((Bitmap) msg.obj);
+
+                    break;
+                case 2:
+                    personal_settings_basic_information_image.setImageBitmap(user.getBitmap_icon());
                     break;
             }
         }
@@ -60,7 +65,7 @@ public class Personal_settings extends Fragment {
 
         View view = inflater.inflate(R.layout.personal_settings, container, false);
 
-        user = User_data.user;
+        user = new User(User_data.user);
 
         personal_settings_basic_information_image = (ImageView) view.findViewById(R.id.personal_settings_basic_information_image);
         personal_settings_basic_information_name_text = (TextView) view.findViewById(R.id.personal_settings_basic_information_name_text);
@@ -118,7 +123,7 @@ public class Personal_settings extends Fragment {
             public void run() {
                 Http_Bitmap http_bitmap = new Http_Bitmap();
                 Bitmap bitmap = null;
-                bitmap = http_bitmap.GetLocalOrNetBitmap_NoCompression(user.getIcon());
+                bitmap = http_bitmap.GetLocalOrNetBitmap(user.getIcon());
 
                 if (bitmap != null) {
                     Message message = new Message();
@@ -126,9 +131,41 @@ public class Personal_settings extends Fragment {
                     message.obj = bitmap;
                     handler.sendMessage(message);
                 }
+
+                init_while();
+
             }
         }).start();
 
 
     }
+
+
+    public void init_while() {
+        while (true) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            if (user.getBitmap_icon() != null) {
+                if (!user.getBitmap_icon().equals(User_data.user.getBitmap_icon())) {
+                    System.out.println("fuck!?  2 ");
+                    user.setIcon(User_data.user.getIcon());
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            user.setBitmap_icon(User_data.user.getBitmap_icon());
+                            Message message = new Message();
+                            message.what = 2;
+                            handler.sendMessage(message);
+                        }
+                    }).start();
+                }
+            }
+
+        }
+    }
+
 }
