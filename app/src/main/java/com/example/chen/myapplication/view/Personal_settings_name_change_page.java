@@ -16,12 +16,14 @@ import com.example.chen.myapplication.R;
 import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.data.User_data;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.Callback;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * Created by Chen on 2016/7/9.
@@ -107,15 +109,24 @@ public class Personal_settings_name_change_page extends Activity {
                         .url(HTTP_data.http_data + "/changeName" + "?" + User_data.user.getId())
                         .content(personal_settings_name_change_page_edittext.getText().toString())
                         .build()
-                        .execute(new StringCallback() {
+                        .execute(new Callback() {
+                            @Override
+                            public Object parseNetworkResponse(Response response, int id) throws Exception {
+                                return response.body().string();
+                            }
+
                             @Override
                             public void onError(Call call, Exception e, int id) {
 
                             }
 
                             @Override
-                            public void onResponse(String response, int id) {
-                                System.out.println(response);
+                            public void onResponse(Object response, int id) {
+                                if (response.equals("1")) {
+                                    System.out.println("Fuck!居然成功了?");
+                                } else if (response.equals("0")) {
+                                    System.out.println("Good!意料之中的失败.");
+                                }
                             }
                         });
 

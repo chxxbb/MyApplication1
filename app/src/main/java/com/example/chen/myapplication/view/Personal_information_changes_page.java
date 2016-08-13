@@ -106,6 +106,17 @@ public class Personal_information_changes_page extends Activity {
                             }).start();
                         }
                     }
+
+                    if (!User_data.user.getSex().equals(usera.getSex())) {
+                        usera.setSex(User_data.user.getSex());
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                personal_information_changes_page_sex.setText(usera.getSex());
+                            }
+                        });
+                    }
+
                 }
             }
 
