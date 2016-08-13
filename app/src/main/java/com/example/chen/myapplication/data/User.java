@@ -99,4 +99,15 @@ public class User {
     public User() {
 
     }
+
+    public void setUser(User user) {
+        id = user.getId();
+        phone = user.getPhone();
+        name = user.getName();
+        password = user.getPassword();
+        sex = user.getSex();
+        age = user.getAge();
+        icon = user.getIcon();
+        bitmap_icon = user.getBitmap_icon();
+    }
 }

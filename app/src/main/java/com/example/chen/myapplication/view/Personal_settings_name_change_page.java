@@ -102,8 +102,6 @@ public class Personal_settings_name_change_page extends Activity {
             @Override
             public void onClick(View v) {
 
-                User_data.user.setName(personal_settings_name_change_page_edittext.getText().toString());
-
                 OkHttpUtils
                         .postString()
                         .url(HTTP_data.http_data + "/changeName" + "?" + User_data.user.getId())
@@ -124,6 +122,7 @@ public class Personal_settings_name_change_page extends Activity {
                             public void onResponse(Object response, int id) {
                                 if (response.equals("1")) {
                                     System.out.println("Fuck!居然成功了?");
+                                    User_data.user.setName(personal_settings_name_change_page_edittext.getText().toString());
                                 } else if (response.equals("0")) {
                                     System.out.println("Good!意料之中的失败.");
                                 }

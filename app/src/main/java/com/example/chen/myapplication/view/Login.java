@@ -162,7 +162,8 @@ public class Login extends Activity implements View.OnClickListener {
                                         user = null;
                                         System.out.println(str);
                                         user = gson.fromJson(str, User.class);
-                                        User_data.user = user;
+//                                        User_data.user = user;
+                                        User_data.user.setUser(user);
                                         gohome();
                                     }
                                 }
