@@ -5,6 +5,6 @@ package com.example.chen.myapplication.data;
  */
 public class User_data {
 
-    public static User user;
+    public static User user = new User();
 
 }
