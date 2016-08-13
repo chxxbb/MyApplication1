@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.example.chen.myapplication.data.HTTP_data;
 import com.example.chen.myapplication.page.Home;
 import com.example.chen.myapplication.page.Personal_settings;
 import com.example.chen.myapplication.R;
@@ -35,7 +36,7 @@ public class activity_fragment extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
 
-//        init_http_data();
+        HTTP_data.activity_fragment = this;
 
         mFragmentManager = getFragmentManager();
 

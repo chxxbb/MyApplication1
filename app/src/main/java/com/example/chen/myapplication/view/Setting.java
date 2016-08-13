@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.chen.myapplication.R;
+import com.example.chen.myapplication.data.HTTP_data;
 
 /**
  * Created by Chen on 2016/7/13.
@@ -16,6 +17,7 @@ public class Setting extends Activity {
     RelativeLayout setting_update = null;
     RelativeLayout setting_password_change = null;
     RelativeLayout setting_feedback = null;
+    RelativeLayout setting_login_exit = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +50,18 @@ public class Setting extends Activity {
                 startActivity(intent);
             }
         });
+
+        setting_login_exit = (RelativeLayout) findViewById(R.id.setting_login_exit);
+        setting_login_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Setting.this, Login.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                HTTP_data.activity_fragment.finish();
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 }

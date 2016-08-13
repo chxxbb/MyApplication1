@@ -1,5 +1,7 @@
 package com.example.chen.myapplication.data;
 
+import com.example.chen.myapplication.view.activity_fragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,5 +21,7 @@ public class HTTP_data {
     public static Doctor doctor = null;
 
     public static Disease disease = null;
+
+    public static activity_fragment activity_fragment = null;
 
 }
